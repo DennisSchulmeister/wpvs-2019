@@ -1,0 +1,37 @@
+/*
+ * Copyright © 2019 Dennis Schulmeister-Zimolong
+ *
+ * E-Mail: dhbw@windows3.de
+ * Webseite: https://www.wpvs.de/
+ *
+ * Dieser Quellcode ist lizenziert unter einer
+ * Creative Commons Namensnennung 4.0 International Lizenz.
+ */
+
+@font-face {
+    font-family: '2dumbregular';
+    src: url('2Dumb-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '3dumbregular';
+    src: url('3Dumb-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'abelregular';
+    src: url('abel-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alpha_echoregular';
+    src: url('alpha_echo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

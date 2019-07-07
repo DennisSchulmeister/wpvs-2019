@@ -1,55 +1,51 @@
 {
-  "name": "wpvs-2019",
-  "version": "1.0.0",
-  "description": "Webseite von Dennis Schulmeister-Zimolong",
-  "author": "Dennis Schulmeister-Zimolong",
-  "license": "CC-BY-4.0",
-  "homepage": "https://www.wpvs.de",
-
-  "repository": {
-      "type": "git",
-      "url": "git@github.com:DennisSchulmeister/wpvs-2019.git",
-  },
-
-  "scripts": {
-      "clean": "node scripts/clean.js",
-      "build:static": "npm run clean; node scripts/build-static.js",
-      "build:webpack": "webpack --mode production",
-      "build": "npm run build:static; npm run build:webpack",
-      "watch": "npm run build:static; watch-run -p 'static/**' npm run build:static",
-      "devserver": "npm run watch & webpack-dev-server --content-base build/ --mode development",
-      "staticserver": "npm run build; http-server ./build"
-  },
-
-  "config": {
-      "src_dir": "src",
-      "static_dir": "static",
-      "build_dir": "build",
-      "public_url": "",
-      "replace_variables_extensions": ".htm; .html"
-  },
-
-  "main": "index.js",
-
-  "devDependencies": {
-      "css-loader": "^2.1.0",
-      "email-link.js": "^1.0.1",
-      "extract-text-webpack-plugin": "^4.0.0-beta.0",
-      "file-loader": "^3.0.1",
-      "html-loader": "^0.5.1",
-      "http-server": "^0.11.1",
-      "less": "^3.9.0",
-      "less-loader": "^4.0.5",
-      "shelljs": "^0.8.3",
-      "style-loader": "^0.23.1",
-      "terser": "^3.14.1",
-      "terser-webpack-plugin": "^1.2.1",
-      "uglify-es": "git://github.com/mishoo/UglifyJS2.git#harmony",
-      "uglifyjs-webpack-plugin": "^2.1.1",
-      "url-loader": "^1.1.2",
-      "watch-run": "^1.2.5",
-      "webpack": "^4.29.0",
-      "webpack-cli": "^3.2.1",
-      "webpack-dev-server": "^3.1.14"
-  }
+    "name": "wpvs-2019",
+    "version": "1.0.0",
+    "description": "Webseite von Dennis Schulmeister-Zimolong",
+    "author": "Dennis Schulmeister-Zimolong",
+    "license": "CC-BY-4.0",
+    "homepage": "https://www.wpvs.de",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:DennisSchulmeister/wpvs-2019.git"
+    },
+    "scripts": {
+        "clean": "node scripts/clean.js",
+        "build:static": "npm run clean; node scripts/build-static.js",
+        "build:webpack": "webpack --mode production",
+        "build": "npm run build:static; npm run build:webpack",
+        "watch": "npm run build:static; watch-run -p 'static/**' npm run build:static",
+        "devserver": "npm run watch & webpack-dev-server --content-base build/ --mode development",
+        "staticserver": "npm run build; http-server ./build"
+    },
+    "config": {
+        "src_dir": "src",
+        "static_dir": "static",
+        "build_dir": "build",
+        "public_url": "",
+        "replace_variables_extensions": ".htm; .html"
+    },
+    "main": "index.js",
+    "devDependencies": {
+        "@webcomponents/custom-elements": "^1.2.4",
+        "css-loader": "^2.1.0",
+        "email-link.js": "^1.0.1",
+        "extract-text-webpack-plugin": "^4.0.0-beta.0",
+        "file-loader": "^3.0.1",
+        "html-loader": "^0.5.1",
+        "http-server": "^0.11.1",
+        "less": "^3.9.0",
+        "less-loader": "^4.0.5",
+        "shelljs": "^0.8.3",
+        "style-loader": "^0.23.1",
+        "terser": "^3.14.1",
+        "terser-webpack-plugin": "^1.2.1",
+        "uglify-es": "git://github.com/mishoo/UglifyJS2.git#harmony",
+        "uglifyjs-webpack-plugin": "^2.1.1",
+        "url-loader": "^1.1.2",
+        "watch-run": "^1.2.5",
+        "webpack": "^4.29.0",
+        "webpack-cli": "^3.2.1",
+        "webpack-dev-server": "^3.1.14"
+    }
 }

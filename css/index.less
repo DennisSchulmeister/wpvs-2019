@@ -1,0 +1,125 @@
+/*
+ * Copyright © 2019 Dennis Schulmeister-Zimolong
+ *
+ * E-Mail: dhbw@windows3.de
+ * Webseite: https://www.wpvs.de/
+ *
+ * Dieser Quellcode ist lizenziert unter einer
+ * Creative Commons Namensnennung 4.0 International Lizenz.
+ */
+
+@phone_max: 700px;
+@screen_min: 701px;
+
+@logo_color: rgb(8, 117, 196);
+
+@primary_bg: rgb(167, 27, 27);
+@primary_fg: rgb(247, 247, 247);
+@secondary_bg: rgb(240, 240, 240);
+@secondary_fg: rgb(84, 84, 84);
+@normal_fg: rgb(50, 50, 50);
+
+html {
+    /* https://pixabay.com/de/photos/literatur-buch-seite-sauber-3033196/ */
+    background-image: url(bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+    font-family: "abelregular", sans-serif;
+    font-size: 16pt;
+    color: @normal_fg;
+
+    --phone-max: @phone_max;
+    --screen-min: @screen_min;
+
+    --logo-color: @logo_color;
+
+    --primary-bg: @primary_bg;
+    --primary-fg: @primary_fg;
+    --secondary-bg: @secondary_bg;
+    --secondary-fg: @secondary_fg;
+    --normal-fg: @normal_fg;
+}
+
+/*
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+*/
+html {
+    padding: 1em;
+}
+
+/*
+// box-shadow:        hori   vert       blur      spread     color
+@slide_shadow_top:    0      -0.15vmin  0.3vmin   -0.15vmin   rgba(0,0,0, 0.3);
+@slide_shadow_bottom: 0      0.3vmin    0.3vmin   -0.15vmin   rgba(0,0,0, 0.3);
+@slide_border: thin solid lightgrey;
+@slide_border_black: thin solid #1A1A1A;
+
+body {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 50;
+
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1vmin;
+        box-sizing: border-box;
+
+        font-size: 25pt;
+        font-weight: bold;
+
+        color: @blackish;
+        background-color: @whiteish;
+        border-bottom: @slide_border;
+        box-shadow: @slide_shadow_bottom;
+
+        @media (max-width: @phone_max) {
+            padding: 0.5rem;
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+        }
+
+        .name {
+            font-family: "3dumbregular", fantasy;
+            color: @blueish;
+        }
+
+        .spacer {
+            flex-grow: 1;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            @media (min-width: @screen_min) {
+                display: inline;
+            }
+            margin: 0 2em 0 0;
+        }
+
+        li:last-child {
+            margin-right: 0;
+        }
+
+        a, a:visited {
+            color: @blackish;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: @blueish;
+        }
+    }
+}
+*/
