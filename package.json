@@ -10,13 +10,20 @@
         "url": "git@github.com:DennisSchulmeister/wpvs-2019.git"
     },
     "scripts": {
-        "clean": "node scripts/clean.js",
-        "build:static": "npm run clean; node scripts/build-static.js",
-        "build:webpack": "webpack --mode production",
-        "build": "npm run build:static; npm run build:webpack",
-        "watch": "npm run build:static; watch-run -p 'static/**' npm run build:static",
-        "devserver": "npm run watch & webpack-dev-server --content-base build/ --mode development",
-        "staticserver": "npm run build; http-server ./build"
+        "_clean":         "node scripts/clean.js",
+        "_build-static":  "node scripts/build-static.js",
+        "_watch-static":  "watch-run -p 'static/**' npm run build:static",
+        "_webpack-prod":  "webpack --mode production",
+        "_webpack-serve": "webpack-dev-server --content-base build/ --mode development",
+        "_http-server":   "http-server ./build",
+
+        "clean":         "run-s _clean",
+        "build:static":  "run-s _clean _build-static",
+        "build:webpack": "run-s _webpack-prod",
+        "build":         "run-s _clean _build-static _webpack-prod",
+        "watch":         "run-s _clean _build-static _watch-static",
+        "devserver":     "run-p watch _webpack-serve",
+        "staticserver":  "run-s _clean _build-static _webpack-prod _http-server"
     },
     "config": {
         "src_dir": "src",
@@ -36,6 +43,7 @@
         "http-server": "^0.11.1",
         "less": "^3.9.0",
         "less-loader": "^4.0.5",
+        "npm-run-all": "^4.1.5",
         "shelljs": "^0.8.3",
         "style-loader": "^0.23.1",
         "terser": "^3.14.1",
