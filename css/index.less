@@ -8,8 +8,15 @@
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
 
-@phone_max: 700px;
-@screen_min: 701px;
+//
+// Global variables
+//
+@phone_max: 768px;
+@tablet_min: 767px;
+@tablet_max: 1199px;
+@screen_min: 1200px;
+@screen_max: 1599px;
+@hires_min: 1600px;
 
 @logo_color: rgb(8, 117, 196);
 
@@ -20,18 +27,12 @@
 @normal_fg: rgb(50, 50, 50);
 
 html {
-    /* https://pixabay.com/de/photos/literatur-buch-seite-sauber-3033196/ */
-    background-image: url(bg.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-
-    font-family: "abelregular", sans-serif;
-    font-size: 16pt;
-    color: @normal_fg;
-
     --phone-max: @phone_max;
+    --tablet-min: @tablet_min;
+    --tablet-max: @tablet_max;
     --screen-min: @screen_min;
+    --screen-max: @screen_max;
+    --hires-min: @hires_min;
 
     --logo-color: @logo_color;
 
@@ -41,6 +42,40 @@ html {
     --secondary-fg: @secondary_fg;
     --normal-fg: @normal_fg;
 }
+
+//
+// Responsive font-size
+//
+html {
+    font-family: "abelregular", sans-serif;
+    color: @normal_fg;
+    font-size: 11pt;
+
+    @media all and (min-width: @tablet_min) {
+        font-size: 12pt;
+    }
+
+    @media all and (min-width: @screen_min) {
+        font-size: 13pt;
+    }
+
+    @media all and (min-width: @hires_min) {
+        font-size: 16pt;
+    }
+}
+
+//
+// General layout
+//
+
+html {
+    // https://pixabay.com/de/photos/literatur-buch-seite-sauber-3033196/
+    background-image: url(bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 
 /*
 html, body {
