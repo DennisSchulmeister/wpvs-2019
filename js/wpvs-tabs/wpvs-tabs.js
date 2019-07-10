@@ -10,7 +10,7 @@
 "use strict"
 
 import CustomElement from "../custom_element.js";
-import Templates from "./wpvs-tabs.html";
+import templates from "./wpvs-tabs.html";
 
 /**
  * Custom element wpvs-tabs to render tab pages, which switch the visible
@@ -43,8 +43,7 @@ export class WpvsTabsElement extends CustomElement {
         this.sRoot = this.attachShadow({mode: "open"});
 
         this.templates = document.createElement("div");
-        this.templates.innerHTML = Templates;
-
+        this.templates.innerHTML = templates;
     }
 
     /**
@@ -60,7 +59,7 @@ export class WpvsTabsElement extends CustomElement {
 
         // Render <ul class="wpvs-button-bar"> for the button bar
         let ulElement = document.createElement("ul");
-        ulElement.classList.add("wpvs-tab-button-bar");
+        ulElement.classList.add("button-bar");
         this.sRoot.appendChild(ulElement);
 
         // Render page buttons and content
@@ -70,7 +69,7 @@ export class WpvsTabsElement extends CustomElement {
             let active = null;
             index++;
 
-            // Render <li class="wpvs-tab-button" data-index="0" active> for each button
+            // Render <li class="button" data-index="0" active> for each button
             let pageButtonElement = pageElement.querySelector("page-button");
 
             if (pageButtonElement) {
@@ -78,7 +77,7 @@ export class WpvsTabsElement extends CustomElement {
                 ulElement.appendChild(liElement);
 
                 this.copyAttributes(pageButtonElement, liElement);
-                liElement.classList.add("wpvs-tab-button");
+                liElement.classList.add("button");
                 liElement.innerHTML = pageButtonElement.innerHTML;
                 liElement.dataset.index = index;
 
@@ -98,7 +97,7 @@ export class WpvsTabsElement extends CustomElement {
                 this.sRoot.appendChild(divElement);
 
                 this.copyAttributes(pageContentElement, divElement);
-                divElement.classList.add("wpvs-tab-page");
+                divElement.classList.add("page");
                 divElement.innerHTML = pageContentElement.innerHTML;
                 divElement.dataset.index = index;
 
@@ -112,12 +111,12 @@ export class WpvsTabsElement extends CustomElement {
 
     switchToPage(index) {
         // Switch active button
-        this.sRoot.querySelectorAll(".wpvs-tab-button").forEach(e => e.removeAttribute("active"));
-        this.sRoot.querySelectorAll(`.wpvs-tab-button[data-index="${index}"]`).forEach(e => e.setAttribute("active", ""));
+        this.sRoot.querySelectorAll(".button").forEach(e => e.removeAttribute("active"));
+        this.sRoot.querySelectorAll(`.button[data-index="${index}"]`).forEach(e => e.setAttribute("active", ""));
 
         // Switch active page
-        this.sRoot.querySelectorAll(".wpvs-tab-page").forEach(e => e.removeAttribute("active"));
-        this.sRoot.querySelectorAll(`.wpvs-tab-page[data-index="${index}"]`).forEach(e => e.setAttribute("active", ""));
+        this.sRoot.querySelectorAll(".page").forEach(e => e.removeAttribute("active"));
+        this.sRoot.querySelectorAll(`.page[data-index="${index}"]`).forEach(e => e.setAttribute("active", ""));
     }
 
 }

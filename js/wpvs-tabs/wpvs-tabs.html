@@ -1,17 +1,15 @@
 <style>
-.wpvs-tab-button-bar {
-    --tab-button-bar-radius: 0.1em;
+.button-bar {
+    border: 1px solid var(--primary-bg);
+    border-radius: 0.1em;
 
     list-style: none;
     margin: 0 0 1em 0;
     padding: 0;
 }
 
-.wpvs-tab-button {
-    display: inline;
+.button {
     padding: 0.5em;
-    border: 1px solid var(--primary-bg);
-    border-right-width: 0;
 
     background: var(--secondary-bg);
     color: var(--secondary-fg);
@@ -19,24 +17,13 @@
     cursor: pointer;
 }
 
-.wpvs-tab-button:first-child {
-    border-top-left-radius: var(--tab-button-bar-radius);
-    border-bottom-left-radius: var(--tab-button-bar-radius);
-}
-
-.wpvs-tab-button:last-child {
-    border-right-width: 1px;
-    border-top-right-radius: var(--tab-button-bar-radius);
-    border-bottom-right-radius: var(--tab-button-bar-radius);
-}
-
-.wpvs-tab-button[active],
-.wpvs-tab-button:hover {
+.button[active],
+.button:hover {
     background-color: var(--primary-bg);
     color: var(--primary-fg);
 }
 
-.wpvs-tab-page:not([active]) {
+.page:not([active]) {
     display: none;
 }
 </style>
