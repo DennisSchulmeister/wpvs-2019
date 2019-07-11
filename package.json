@@ -10,20 +10,19 @@
         "url": "git@github.com:DennisSchulmeister/wpvs-2019.git"
     },
     "scripts": {
-        "_clean":         "node scripts/clean.js",
-        "_build-static":  "node scripts/build-static.js",
-        "_watch-static":  "watch-run -p 'static/**' npm run build:static",
-        "_webpack-prod":  "webpack --mode production",
+        "_clean": "node scripts/clean.js",
+        "_build-static": "node scripts/build-static.js",
+        "_watch-static": "watch-run -p 'static/**' npm run build:static",
+        "_webpack-prod": "webpack --mode production",
         "_webpack-serve": "webpack-dev-server --content-base build/ --mode development",
-        "_http-server":   "http-server ./build",
-
-        "clean":         "run-s _clean",
-        "build:static":  "run-s _clean _build-static",
+        "_http-server": "http-server ./build",
+        "clean": "run-s _clean",
+        "build:static": "run-s _clean _build-static",
         "build:webpack": "run-s _webpack-prod",
-        "build":         "run-s _clean _build-static _webpack-prod",
-        "watch":         "run-s _clean _build-static _watch-static",
-        "devserver":     "run-p watch _webpack-serve",
-        "staticserver":  "run-s _clean _build-static _webpack-prod _http-server"
+        "build": "run-s _clean _build-static _webpack-prod",
+        "watch": "run-s _clean _build-static _watch-static",
+        "devserver": "run-p watch _webpack-serve",
+        "staticserver": "run-s _clean _build-static _webpack-prod _http-server"
     },
     "config": {
         "src_dir": "src",
@@ -52,7 +51,7 @@
         "uglifyjs-webpack-plugin": "^2.1.1",
         "url-loader": "^1.1.2",
         "watch-run": "^1.2.5",
-        "webpack": "^4.29.0",
+        "webpack": "^4.35.3",
         "webpack-cli": "^3.2.1",
         "webpack-dev-server": "^3.1.14"
     }
