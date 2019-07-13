@@ -102,6 +102,8 @@ export class WpvsDetectScreenSizeElement extends CustomElement {
                 screenSize: this.screenSize,
             }
         });
+
+        this.dispatchEvent(event);
     }
 
 }
