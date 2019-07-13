@@ -1,4 +1,5 @@
 <style>
+/* Mobile version: vertical */
 .button-bar {
     border: 1px solid var(--primary-bg);
     border-radius: 0.1em;
@@ -6,13 +7,18 @@
     list-style: none;
     margin: 0 0 1em 0;
     padding: 0;
+
+    background: var(--secondary-bg);
+    color: var(--secondary-fg);
 }
 
 .button {
     padding: 0.5em;
 
+    /*
     background: var(--secondary-bg);
     color: var(--secondary-fg);
+    */
 
     cursor: pointer;
 }
@@ -25,5 +31,15 @@
 
 .page:not([active]) {
     display: none;
+}
+
+/* Screen version: horizontal */
+.container.horizontal {
+    display: inline-block;
+}
+
+.container.horizontal .button-bar {
+    display: flex;
+    flex-wrap: wrap;
 }
 </style>

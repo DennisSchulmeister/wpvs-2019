@@ -41,7 +41,7 @@ export class WpvsDetectScreenSizeElement extends CustomElement {
     /**
      * Render shadow DOM to display the element.
      */
-    render() {
+    _render() {
         // Cannot use the shadowRoot here, as global CSS classes have no effect there!
         this.innerHTML = "";
 
@@ -88,6 +88,28 @@ export class WpvsDetectScreenSizeElement extends CustomElement {
             return "hires";
         } else {
             return "unknown";
+        }
+    }
+
+    /**
+     * Compares the given screen size name to the current screen size.
+     *
+     * @param  {String} screenSize Screen size to compare (`phone`, `tablet`, …)
+     * @return {Integer} -1 if current screen size is smaller,
+     *   1 if the current screen size is larger,
+     *   0 otherwise (both are equal or an unknown string as given)
+     */
+    compareScreenSize(screenSize) {
+        let ordering = ["phone", "tablet", "screen", "hires"]
+        let currentIndex = ordering.indexOf(this.screenSize);
+        let givenIndex = ordering.indexOf(screenSize);
+
+        if (currentIndex < 0 || givenIndex < 0 || currentIndex == givenIndex) {
+            return 0;
+        } else if (currentIndex < givenIndex) {
+            return -1;
+        } else {
+            return 1;
         }
     }
 
