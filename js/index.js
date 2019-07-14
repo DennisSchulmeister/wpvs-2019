@@ -9,10 +9,20 @@
  */
 "use strict"
 
+import emailLinkJs from "email-link.js";
+
 import "../fonts/fonts.css";
 import "../css/index.less";
 
 import "@webcomponents/custom-elements";
 import "./wpvs-detect-screen-size/wpvs-detect-screen-size.js";
 import "./wpvs-header/wpvs-header.js";
+import "./wpvs-nav-bar/wpvs-nav-bar.js";
 import "./wpvs-tabs/wpvs-tabs.js";
+
+if (document.readyState === "complete") {
+    emailLinkJs.enableEmailLinks()
+} else {
+    window.addEventListener("load", () => emailLinkJs.enableEmailLinks());
+
+}

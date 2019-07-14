@@ -12,7 +12,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require("webpack");
 
 // Webpack base configuration
-const extractCSS = new ExtractTextPlugin("style.css");
+const extractCSS = new ExtractTextPlugin("style.bundle.css");
 
 let webpackConfig = {
     entry: {

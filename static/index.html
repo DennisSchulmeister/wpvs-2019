@@ -6,26 +6,43 @@
         <title>Dennis Schulmeister-Zimolong</title>
 
         <link rel="shortcut icon" href="favicon.png" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="fontello/css/fontello.css" />
+        <link rel="stylesheet" href="global.css" />
+        <link rel="stylesheet" href="style.bundle.css" />
         <script src="index.bundle.js"></script>
     </head>
     <body tabindex="0">
         <wpvs-detect-screen-size></wpvs-detect-screen-size>
 
-        <!-- ============================= -->
-        <!-- Beispiele für Custom Elements -->
-        <!-- TODO: Später wieder entfernen -->
-        <!-- ============================= -->
-
-        <!-- TODO: Tiles, Content cards, Nav Line -->
-        <!-- TODO: Navigo integrieren, jede Seite als Custom Element -->
-        <!-- Hauptnavigation: Startseite, Impressum, E-Mail, GitHub, Java-Buch -->
-
         <wpvs-header data-site-title="Dennis Schulmeister-Zimolong" data-page-title="Startseite">
-            Startseite / Impressum / E-Mail / GitHub / Java-Buch
+            <wpvs-nav-bar>
+                <a href="#/">
+                    Startseite
+                </a>
+                <a href="#/impressum">
+                    Impressum
+                </a>
+                <a data-email-address="dhbw windows3.de">
+                    <i class="icon-mail-alt"></i>
+                </a>
+                <a href="https://github.com/DennisSchulmeister/" target="_blank">
+                    <i class="icon-github-circled"></i>
+                </a>
+                <a href="https://www.grundkurs-java.de/" target="_blank">
+                    <i class="icon-book"></i>
+                </a>
+            </wpvs-nav-bar>
         </wpvs-header>
 
         <main>
+
+            <!-- ============================= -->
+            <!-- Beispiele für Custom Elements -->
+            <!-- TODO: Später wieder entfernen -->
+            <!-- ============================= -->
+
+            <!-- TODO: Tiles, Content cards -->
+            <!-- TODO: Navigo integrieren, jede Seite als Custom Element -->
 
             <wpvs-tabs data-active-tab="intro">
                 <!-- Einführung in die Vorlesung -->
@@ -35,6 +52,13 @@
                     </page-button>
                     <page-content>
                         Inhalt zu "Einführung in die Vorlesung"
+
+                        <p>
+                            <a href="www.google.de">
+                                <i class="icon-book"></i>
+                                Link zu Google
+                            </a>
+                        </p>
                     </page-content>
                 </tab-page>
 

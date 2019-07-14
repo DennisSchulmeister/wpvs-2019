@@ -10,19 +10,17 @@
 "use strict"
 
 import CustomElement from "../custom_element.js";
-import templates from "./wpvs-header.html";
+import templates from "./wpvs-nav-bar.html";
 
 /**
- * Custom element <wpvs-header> to render the main page header. Use it like this:
+ * Custom element <wpvs-nav-bar> to render a simple navigation bar for the
+ * site header.
  *
- *     <wpvs-header
- *         data-site-title = "Name of the website"
- *         data-page-title = "Name of the current page"
- *         data-mode       = "responsive"
- *         data-breakpoint = "tablet"
- *     >
- *         Header content, e.g. navigation bar
- *     </wpvs-header>
+ *     <wpvs-nav-bar data-mode="responsive" data-breakpoint="tablet">
+ *         <a href="…">…</a>
+ *         <a href="…">…</a>
+ *         <a href="…">…</a>
+ *     </wpvs-nav-bar>
  *
  * The `data-mode` attribute is optional. It can have the following values:
  *
@@ -40,7 +38,7 @@ import templates from "./wpvs-header.html";
  *
  * @extends CustomElement
  */
-export class WpvsHeaderElement extends CustomElement {
+export class WpvsNavBarElement extends CustomElement {
 
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -70,37 +68,23 @@ export class WpvsHeaderElement extends CustomElement {
         this.sRoot.innerHTML = "";
 
         // Apply template and styles
-        let headerTemplate = this.templates.querySelector("#header-template").cloneNode(true)
+        let headerTemplate = this.templates.querySelector("template").cloneNode(true)
         this.sRoot.innerHTML = headerTemplate.innerHTML;
 
         let styleElement = this.templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
-        this._renderSiteTitle();
-        this._renderPageTitle();
+        // Render navigation list items
+        let ulElement = this.sRoot.querySelector("ul");
 
-        this.sRoot.querySelector(".content").innerHTML = this.innerHTML;
+        for (let i = 0; i < this.children.length; i++) {
+            let liElement = document.createElement("li");
+            liElement.appendChild(this.children[i].cloneNode(true));
+            ulElement.appendChild(liElement);
+        }
 
         // Adapt to current viewport size
         this._updateDisplayMode();
-    }
-
-    /**
-     * Update the visible site title based on the `data-site-title` attribute.
-     */
-    _renderSiteTitle() {
-        let element = this.sRoot.querySelector(".site-title");
-        if (!element) return;
-        element.textContent = this.dataset.siteTitle;
-    }
-
-    /**
-     * Update the visible site title based on the `data-page-title` attribute.
-     */
-    _renderPageTitle() {
-        let element = this.sRoot.querySelector(".page-title");
-        if (!element) return;
-        element.textContent = this.dataset.pageTitle;
     }
 
     /**
@@ -110,12 +94,6 @@ export class WpvsHeaderElement extends CustomElement {
     _onAttributeChanged(mutations) {
         mutations.forEach(mutation => {
             switch (mutation.attributeName) {
-                case "data-site-title":
-                    this._renderSiteTitle();
-                    break;
-                case "data-page-title":
-                    this._renderPageTitle();
-                    break;
                 case "data-mode":
                 case "data-breakpoint":
                     this._updateDisplayMode();
@@ -138,4 +116,4 @@ export class WpvsHeaderElement extends CustomElement {
 
 }
 
-window.customElements.define("wpvs-header", WpvsHeaderElement);
+window.customElements.define("wpvs-nav-bar", WpvsNavBarElement);

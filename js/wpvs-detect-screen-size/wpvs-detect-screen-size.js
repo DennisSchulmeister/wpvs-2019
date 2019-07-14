@@ -37,7 +37,9 @@ export class WpvsDetectScreenSizeElement extends CustomElement {
      */
     constructor() {
         super();
-        this.sRoot = this.attachShadow({mode: "open"});
+        // this.sRoot = this.attachShadow({mode: "open"});
+
+        this.postConstruct();
     }
 
     /**

@@ -60,7 +60,7 @@ export class WpvsTabsElement extends CustomElement {
      */
     constructor() {
         super();
-        this.sRoot = this.attachShadow({mode: "open"});
+        // this.sRoot = this.attachShadow({mode: "open"});
 
         this.templates = document.createElement("div");
         this.templates.innerHTML = templates;
@@ -70,6 +70,8 @@ export class WpvsTabsElement extends CustomElement {
         if (this._detectScreenSizeElement) {
             this._detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
         }
+
+        this.postConstruct();
     }
 
     /**

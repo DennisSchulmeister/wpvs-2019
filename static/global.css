@@ -1,0 +1,25 @@
+/*
+ * Copyright © 2019 Dennis Schulmeister-Zimolong
+ *
+ * E-Mail: dhbw@windows3.de
+ * Webseite: https://www.wpvs.de/
+ *
+ * Dieser Quellcode ist lizenziert unter einer
+ * Creative Commons Namensnennung 4.0 International Lizenz.
+ */
+
+/**
+ * This stylesheet contains global rules that apply to the overall page as well
+ * as any custom web component. It is served as a static file, as this is the
+ * only way, how web components can access CSS rules, that otherwise would not
+ * overcome the barrier of the shadow DOM.
+ */
+
+a, a:visited {
+    color: var(--link-normal-fg);
+    text-decoration: none;
+}
+
+a:hover {
+     color: var(--link-hover-fg);
+}

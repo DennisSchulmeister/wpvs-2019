@@ -31,6 +31,14 @@ class CustomElement extends HTMLElement {
         this._childMutationObserver = null;
         this._attributeMutationObserver = null;
 
+        this.sRoot = this.attachShadow({mode: "open"});
+    }
+
+    /**
+     * To be called by all sub-classes at the very end of the constructor to
+     * start rendering the element.
+     */
+    postConstruct() {
         if (document.readyState === "complete") {
             this.render();
         } else {
@@ -49,6 +57,17 @@ class CustomElement extends HTMLElement {
     render() {
         this._disableObservers();
         this._render();
+
+        let globalLinkElement = document.createElement("link");
+        globalLinkElement.rel = "stylesheet";
+        globalLinkElement.href = "global.css";
+        this.sRoot.appendChild(globalLinkElement);
+
+        let fontelloLinkElement = document.createElement("link");
+        fontelloLinkElement.rel = "stylesheet";
+        fontelloLinkElement.href = "fontello/css/fontello.css";
+        this.sRoot.appendChild(fontelloLinkElement);
+
         this._enableObservers();
     }
 

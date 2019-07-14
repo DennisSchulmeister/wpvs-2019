@@ -1,0 +1,50 @@
+<style>
+/* Display as block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+a, a:visited {
+    color: var(--normal-fg) !important;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-fg) !important;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    margin-right: 0.5em;
+}
+
+li::after {
+    content: "/";
+    color: var(--separator-fg);
+    margin-left: 0.5em;
+}
+
+li:last-child::after {
+    content: "";
+    margin-left: 0;
+}
+</style>
+
+<template>
+    <nav class="container">
+        <ul>
+        </ul>
+    </nav>
+</template>
