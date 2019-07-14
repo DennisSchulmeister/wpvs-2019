@@ -88,12 +88,33 @@ export class WpvsTabsElement extends CustomElement {
         containerElement.classList.add("container");
         this.sRoot.appendChild(containerElement);
 
-        this._updateDisplayMode();
+        // Render <div class="dropdown"> to open the menu in vertical mode
+        let dropdownParentElement = document.createElement("div");
+        dropdownParentElement.classList.add("dropdown");
+        containerElement.appendChild(dropdownParentElement);
 
-        // Render <ul class="wpvs-button-bar"> for the button bar
+        let dropdownTitleElement = document.createElement("div");
+        dropdownTitleElement.classList.add("active-tab-title");
+        dropdownParentElement.appendChild(dropdownTitleElement);
+
+        let dropdownArrowElement = document.createElement("div");
+        dropdownArrowElement.classList.add("arrow");
+        dropdownArrowElement.textContent = "⯆";
+        dropdownParentElement.appendChild(dropdownArrowElement);
+
+        // Render <ul class="button-bar"> for the button bar (horizontal mode)
+        // or menu list (vertical mode)
         let ulElement = document.createElement("ul");
         ulElement.classList.add("button-bar");
         containerElement.appendChild(ulElement);
+
+        dropdownParentElement.addEventListener("click", () => {
+            if (ulElement.classList.contains("closed")) {
+                ulElement.classList.remove("closed");
+            } else {
+                ulElement.classList.add("closed");
+            }
+        });
 
         // Render page buttons and content
         let index = -1;
@@ -105,7 +126,7 @@ export class WpvsTabsElement extends CustomElement {
             let tabId = "";
             if (pageElement.dataset.tabId) tabId = pageElement.dataset.tabId;
 
-            // Render <li class="button" data-index="0" data-tab-id="xxx" active> for each button
+            // Render <li class="button" data-index="0" data-tab-id="xxx"> for each button
             let pageButtonElement = pageElement.querySelector("page-button");
 
             if (pageButtonElement) {
@@ -143,6 +164,9 @@ export class WpvsTabsElement extends CustomElement {
                     divElement.setAttribute("active", active);
                 }
             }
+
+            // Adapt to initial viewport size
+            this._updateDisplayMode();
         });
 
         // Switch to the first visible page
@@ -186,6 +210,16 @@ export class WpvsTabsElement extends CustomElement {
         let pageDiv = this.sRoot.querySelector(`.page[data-index="${index}"]`);
         if (pageDiv && pageDiv.dataset.tabId) tabId = pageDiv.dataset.tabId;
         this.dataset.activeTab = tabId;
+
+        // Update dropdown label for vertical mode and close the menu
+        let buttonElement = this.sRoot.querySelector(`.button[data-index="${index}"]`);
+
+        if (buttonElement) {
+            this.sRoot.querySelectorAll(".active-tab-title").forEach(e => e.innerHTML = buttonElement.innerHTML);
+        }
+
+        let buttonBarElement = this.sRoot.querySelector(".button-bar");
+        if (buttonBarElement) buttonBarElement.classList.add("closed");
 
         // Raise tab-changed event
         let event = new CustomEvent("tab-changed", {
@@ -254,6 +288,17 @@ export class WpvsTabsElement extends CustomElement {
         containerElement.classList.remove("horizontal");
         containerElement.classList.remove("vertical");
         containerElement.classList.add(mode);
+
+        // Hidden button menu by default in vertical mode
+        let buttonBarElement = this.sRoot.querySelector(".button-bar");
+
+        if (buttonBarElement) {
+            if (mode == "horizontal") {
+                buttonBarElement.classList.remove("closed");
+            } else {
+                buttonBarElement.classList.add("closed");
+            }
+        }
     }
 
 }

@@ -10,16 +10,13 @@
 
     background: var(--secondary-bg);
     color: var(--secondary-fg);
+
+    overflow: hidden;
 }
 
-.button {
+.button,
+.dropdown {
     padding: 0.5em;
-
-    /*
-    background: var(--secondary-bg);
-    color: var(--secondary-fg);
-    */
-
     cursor: pointer;
 }
 
@@ -41,5 +38,29 @@
 .container.horizontal .button-bar {
     display: flex;
     flex-wrap: wrap;
+}
+
+/* Dropdown menu for vertical mode */
+.container.horizontal .dropdown {
+    display: none;
+}
+
+.dropdown {
+    display: flex;
+
+    border: 1px solid var(--primary-bg);
+    border-radius: 0.1em;
+
+    background: var(--primary-bg);
+    color: var(--primary-fg);
+}
+
+.dropdown .active-tab-title {
+    flex: 1;
+}
+
+.container.vertical .closed {
+    height: 0;
+    border-width: 0px;
 }
 </style>
