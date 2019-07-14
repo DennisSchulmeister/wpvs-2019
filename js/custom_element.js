@@ -60,10 +60,13 @@ class CustomElement extends HTMLElement {
     }
 
     /**
-    * Internal method to call the subclasses `_onAttributeChanged()` method.
-    * It makes sure to disable all MutationObservers before calling
-    * `_onAttributeChanged()` and enabling them again afterwards, because
-    * otherwise we could produce an infinite loop.
+     * Internal method to call the subclasses `_onAttributeChanged()` method.
+     * It makes sure to disable all MutationObservers before calling
+     * `_onAttributeChanged()` and enabling them again afterwards, because
+     * otherwise we could produce an infinite loop.
+     *
+     * @param {MutationRecord[]} mutations Array of all detected changes,
+     *   see: https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord
      */
     onAttributeChanged(mutations) {
         this._disableObservers();
@@ -111,7 +114,7 @@ class CustomElement extends HTMLElement {
     }
 
     /**
-     * Utility function to copy all HTML attributes of the src element over
+     * Utility method to copy all HTML attributes of the src element over
      * to the dst element. To be called by the sub-classes, when needed.
      *
      * @param {HTMLElement} src Source element
@@ -122,6 +125,109 @@ class CustomElement extends HTMLElement {
             let item = src.attributes[i];
             dst.setAttribute(item.name, item.value);
         }
+    }
+
+    /**
+     * Utility method to be called by sub-classes to adapt to the current
+     * screen size. The way this works is to use a <wpvs-detect-screen-size>
+     * element, that must already be present on the page, to query the current
+     * screen type and to switch between two display modes base on whether the
+     * size is lower or greater-than-equal a given break point size. The chosen
+     * display mode is then set as a CSS class to the given container element.
+     *
+     * The config object takes the following properties, which are all optional:
+     *
+     * +-------------------+--------------+------------------------------------+
+     * | PROPERTY          | DEFAULT      | DESCRIPTION                        |
+     * +-------------------+--------------+------------------------------------+
+     * | defaultBreakpoint | "tablet"     | The minimum screen size needed to  |
+     * |                   |              | to apply the `aboveMode` CSS class |
+     * +-------------------+--------------+------------------------------------+
+     * | defaultMode       | "responsive" | The default mode to assume, when   |
+     * |                   |              | the element's `data-mode`          |
+     * |                   |              | attribute is not set.              |
+     * +-------------------+--------------+------------------------------------+
+     * | responsiveMode    | "responsive" | The `data-mode` attribute value    |
+     * |                   |              | which allows the element to choose |
+     * |                   |              | it's display mode itself based on  |
+     * |                   |              | current viewport size.             |
+     * +-------------------+--------------+------------------------------------+
+     * | belowMode         | "vertical"   | The CSS class to apply, when the   |
+     * |                   |              | viewport size is below the break   |
+     * |                   |              | point.                             |
+     * +-------------------+--------------+------------------------------------+
+     * | aboveMode         | "horizontal" | The CSS class to apply, when the   |
+     * |                   |              | viewport size is equal to or       |
+     * |                   |              | greater than the break point.      |
+     * +-------------------+--------------+------------------------------------+
+     *
+     * The default is to allow for `data-mode` the following values
+     *
+     *  * "responsive" (default)
+     *  * "vertical" (small screens)
+     *  * "horizontal" (large screens)
+     *
+     * and to switch to large display for screen class "tablet" and above.
+     *
+     * @param {HTMLElement} containerElement
+     * HTML element to apply the detected CSS classes to.
+     *
+     * @param {HTMLElement} detectScreenSizeElement
+     * Already existing element <wpvs-detect-screen-size> to be queried for the
+     * viewport size.
+     *
+     * @param {Object} config
+     * Configuration object, see above
+     *
+     * @return {String}
+     * The chosen display mode
+     */
+     adaptToScreenSize(containerElement, detectScreenSizeElement, config) {
+        // Read configuration
+        if (!containerElement) return;
+        if (!config) config = {};
+
+        let defaultBreakpoint = config.defaultBreakpoint ? config.defaultBreakpoint : "tablet";
+        let defaultMode = config.defaultMode ? config.defaultMode : "responsive";
+        let responsiveMode = config.responsiveMode ? config.responsiveMode : "responsive";
+        let belowMode = config.belowMode ? config.belowMode : "vertical";
+        let aboveMode = config.aboveMode ? config.aboveMode : "horizontal";
+
+        // Apply defaults
+        if (!this.dataset.mode) this.dataset.mode = defaultMode;
+        this.dataset.mode = this.dataset.mode.toLowerCase();
+
+        if (this.dataset.mode == responsiveMode && !detectScreenSizeElement) {
+            this.dataset.mode = aboveMode;
+        }
+
+        if (!this.dataset.breakpoint) this.dataset.breakpoint = defaultBreakpoint;
+        this.dataset.breakpoint = this.dataset.breakpoint.toLowerCase();
+
+        // Determine display mode to be used
+        let displayMode = "";
+
+        switch (this.dataset.mode) {
+            case responsiveMode:
+                if (detectScreenSizeElement.compareScreenSize(this.dataset.breakpoint) < 0) {
+                    displayMode = belowMode;
+                } else {
+                    displayMode = aboveMode;
+                }
+                break;
+            case aboveMode:
+            case belowMode:
+                displayMode = this.dataset.mode;
+                break;
+            default:
+                displayMode = aboveMode;
+        }
+
+        containerElement.classList.remove(aboveMode);
+        containerElement.classList.remove(belowMode);
+        containerElement.classList.add(displayMode);
+
+        return displayMode
     }
 
 }

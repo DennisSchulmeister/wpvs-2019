@@ -14,4 +14,5 @@ import "../css/index.less";
 
 import "@webcomponents/custom-elements";
 import "./wpvs-detect-screen-size/wpvs-detect-screen-size.js";
+import "./wpvs-header/wpvs-header.js";
 import "./wpvs-tabs/wpvs-tabs.js";

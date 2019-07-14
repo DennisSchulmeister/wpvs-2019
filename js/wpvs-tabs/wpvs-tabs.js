@@ -13,7 +13,7 @@ import CustomElement from "../custom_element.js";
 import templates from "./wpvs-tabs.html";
 
 /**
- * Custom element wpvs-tabs to render tab pages, which switch the visible
+ * Custom element <wpvs-tabs> to render tab pages, which switch the visible
  * content based upon the active button pressed. Use the element like this:
  *
  *     <wpvs-tabs data-active-tab="page1" data-mode="responsive" data-breakpoint="tablet">
@@ -50,7 +50,7 @@ import templates from "./wpvs-tabs.html";
  * then sets at which screen size the page buttons will be aligned horizontally.
  * It's default value is `tablet`.
  *
- * @extends HTMLElement
+ * @extends CustomElement
  */
 export class WpvsTabsElement extends CustomElement {
 
@@ -175,6 +175,10 @@ export class WpvsTabsElement extends CustomElement {
         }
     }
 
+    /**
+     * Update element content when attribute values change.
+     * @param {MutationRecord[]} mutations Array of all detected changes
+     */
     _onAttributeChanged(mutations) {
         mutations.forEach(mutation => {
             switch (mutation.attributeName) {
@@ -252,44 +256,13 @@ export class WpvsTabsElement extends CustomElement {
      * attributes as described in the class documentation above.
      */
     _updateDisplayMode() {
-        // Set default values for all attributes
+        // Choose display mode depending on viewport size
         let containerElement = this.sRoot.querySelector(".container");
         if (!containerElement) return;
 
-        if (!this.dataset.mode) this.dataset.mode = "responsive";
-        this.dataset.mode = this.dataset.mode.toLowerCase();
+        let mode = this.adaptToScreenSize(containerElement, this._detectScreenSizeElement);
 
-        if (this.dataset.mode == "responsive" && !this._detectScreenSizeElement) {
-            this.dataset.mode = "horizontal";
-        }
-
-        if (!this.dataset.breakpoint) this.dataset.breakpoint = "tablet";
-        this.dataset.breakpoint = this.dataset.breakpoint.toLowerCase();
-
-        // Determine display mode to be really used (horizontal or vertical)
-        let mode = "";
-
-        switch (this.dataset.mode) {
-            case "responsive":
-                if (this._detectScreenSizeElement.compareScreenSize(this.dataset.breakpoint) < 0) {
-                    mode = "vertical";
-                } else {
-                    mode = "horizontal";
-                }
-                break;
-            case "horizontal":
-            case "vertical":
-                mode = this.dataset.mode;
-                break;
-            default:
-                mode = "horizontal";
-        }
-
-        containerElement.classList.remove("horizontal");
-        containerElement.classList.remove("vertical");
-        containerElement.classList.add(mode);
-
-        // Hidden button menu by default in vertical mode
+        // Hide page menu by default in vertical mode
         let buttonBarElement = this.sRoot.querySelector(".button-bar");
 
         if (buttonBarElement) {

@@ -13,7 +13,7 @@ import CustomElement from "../custom_element.js";
 import style from "./wpvs-detect-screen-size.less";
 
 /**
- * Custom element wpvs-detect-screen-size to use the browser's media query
+ * Custom element <wpvs-detect-screen-size> to use the browser's media query
  * features to detect which screen size the page is currently viewed on.
  * The following screen sizes are detected:
  *
@@ -26,6 +26,8 @@ import style from "./wpvs-detect-screen-size.less";
  * index.html:
  *
  *   <wpvs-detect-screen-size></wpvs-detect-screen-size>
+ *
+ * @extends CustomElement
  */
 export class WpvsDetectScreenSizeElement extends CustomElement {
 

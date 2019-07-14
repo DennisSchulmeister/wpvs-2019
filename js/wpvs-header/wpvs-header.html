@@ -1,0 +1,57 @@
+<style>
+/* Display as block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+.container {
+    padding: 1rem;
+
+    color: var(--header-fg);
+    background: var(--header-bg);
+    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.1);
+}
+
+.line1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.25em;
+}
+
+.site-title {
+    flex-grow: 1;
+
+    font-family: "3dumbregular", fantasy;
+    font-size: 120%;
+    font-weight: bold;
+    color: var(--logo-color);
+}
+
+.page-title {
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.content {
+}
+
+/* Horizontal mode (large screen) */
+.container.horizontal {
+    box-shadow: 0 2px 2px 1px rgba(0,0,0, 0.1);
+    font-size: 150%;
+}
+</style>
+
+<template id="header-template">
+    <header class="container">
+        <div class="line1">
+            <div class="site-title"></div>
+            <div class="page-title"></div>
+        </div>
+        <div class="content"></div>
+    </header>
+</template>
