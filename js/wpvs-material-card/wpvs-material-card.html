@@ -1,0 +1,76 @@
+<style>
+/* Display as inline-block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+.container {
+    margin: 1rem 0 1rem 0;
+
+    color: var(--card-fg);
+    background: var(--card-bg);
+    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);
+    border: 1px solid var(--separator-fg);
+    border-radius: 0.1em;
+}
+
+.type,
+.name,
+.meta {
+    padding: 0.5rem;
+}
+
+.type {
+    color: var(--card-light-fg);
+    font-size: 90%;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.name {
+    font-weight: bold;
+    padding-bottom: 0 !important;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 90%;
+    padding-bottom: 0 !important;
+}
+
+.meta > * {
+    margin-right: 1em;
+}
+
+.value {
+    color: var(--card-light-fg);
+}
+</style>
+
+<template id="card-template">
+    <div class="container">
+        <div class="name"></div>
+        <div class="type"></div>
+        <div class="meta"></div>
+        <div class="links"></div>
+    </div>
+</template>
+
+<template id="meta-template">
+    <div>
+        <span class="label"></span>
+        <span class="value"></span>
+    </div>
+</template>
+
+<template id="link-template">
+    <a class="button" href="" target="_blank">
+        <i></i>
+        <span class="label"></span>
+    </a>
+</template>

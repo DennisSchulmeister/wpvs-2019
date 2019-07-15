@@ -10,17 +10,15 @@
 "use strict"
 
 import CustomElement from "../custom_element.js";
-import templates from "./wpvs-nav-bar.html";
+import templates from "./wpvs-container.html";
 
 /**
- * Custom element <wpvs-nav-bar> to render a simple navigation bar for the
- * site header.
+ * Custom element <wpvs-container> which positions with flexbox on large screens
+ * and block-display on small screens.
  *
- *     <wpvs-nav-bar data-mode="responsive" data-breakpoint="tablet">
- *         <a href="…">…</a>
- *         <a href="…">…</a>
- *         <a href="…">…</a>
- *     </wpvs-nav-bar>
+ *     <wpvs-container data-mode="responsive" data-breakpoint="tablet">
+ *         …
+ *     </wpvs-container>
  *
  * The `data-mode` attribute is optional. It can have the following values:
  *
@@ -38,7 +36,7 @@ import templates from "./wpvs-nav-bar.html";
  *
  * @extends CustomElement
  */
-export class WpvsNavBarElement extends CustomElement {
+export class WpvsContainerElement extends CustomElement {
 
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -67,21 +65,16 @@ export class WpvsNavBarElement extends CustomElement {
         // Remove old content
         this.sRoot.innerHTML = "";
 
-        // Apply template and styles
-        let headerTemplate = this.templates.querySelector("template").cloneNode(true);
-        this.sRoot.innerHTML = headerTemplate.innerHTML;
-
+        // Apply style
         let styleElement = this.templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
-        // Render navigation list items
-        let ulElement = this.sRoot.querySelector("ul");
+        // Render container
+        let containerElement = document.createElement("container");
+        containerElement.classList.add("container");
+        this.sRoot.appendChild(containerElement);
 
-        for (let i = 0; i < this.children.length; i++) {
-            let liElement = document.createElement("li");
-            liElement.appendChild(this.children[i].cloneNode(true));
-            ulElement.appendChild(liElement);
-        }
+        containerElement.innerHTML = this.innerHTML;
 
         // Adapt to current viewport size
         this._updateDisplayMode();
@@ -116,4 +109,4 @@ export class WpvsNavBarElement extends CustomElement {
 
 }
 
-window.customElements.define("wpvs-nav-bar", WpvsNavBarElement);
+window.customElements.define("wpvs-container", WpvsContainerElement);

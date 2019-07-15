@@ -15,8 +15,10 @@ import "../fonts/fonts.css";
 import "../css/index.less";
 
 import "@webcomponents/custom-elements";
+import "./wpvs-container/wpvs-container.js";
 import "./wpvs-detect-screen-size/wpvs-detect-screen-size.js";
 import "./wpvs-header/wpvs-header.js";
+import "./wpvs-material-card/wpvs-material-card.js";
 import "./wpvs-nav-bar/wpvs-nav-bar.js";
 import "./wpvs-tabs/wpvs-tabs.js";
 

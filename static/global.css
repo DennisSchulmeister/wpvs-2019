@@ -15,6 +15,7 @@
  * overcome the barrier of the shadow DOM.
  */
 
+/* Link colors */
 a, a:visited {
     color: var(--link-normal-fg);
     text-decoration: none;
@@ -22,4 +23,29 @@ a, a:visited {
 
 a:hover {
      color: var(--link-hover-fg);
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 0.5em;
+    margin: 0.5em;
+
+    background: var(--button-normal-bg);
+    color: var(--button-normal-fg) !important;
+    border-radius: 0.1em;
+}
+
+.button a,
+.button a:visited {
+    color: var(--button-normal-fg) !important;
+}
+
+.button:hover {
+    background: var(--button-hover-bg);
+    color: var(--button-hover-fg) !important;
+}
+
+.button:hover a {
+    color: var(--button-hover-fg) !important;
 }

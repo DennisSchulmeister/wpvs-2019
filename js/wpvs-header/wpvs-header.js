@@ -70,7 +70,7 @@ export class WpvsHeaderElement extends CustomElement {
         this.sRoot.innerHTML = "";
 
         // Apply template and styles
-        let headerTemplate = this.templates.querySelector("#header-template").cloneNode(true)
+        let headerTemplate = this.templates.querySelector("#header-template").cloneNode(true);
         this.sRoot.innerHTML = headerTemplate.innerHTML;
 
         let styleElement = this.templates.querySelector("style").cloneNode(true);

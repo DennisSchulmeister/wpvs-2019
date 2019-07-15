@@ -1,0 +1,23 @@
+<style>
+/* Display as block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+.container.horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: -0.5rem;
+    margin-top: -1.5em;
+    margin-bottom: -1em;
+}
+
+.container.horizontal > * {
+    margin: 0.5rem;
+}
+</style>

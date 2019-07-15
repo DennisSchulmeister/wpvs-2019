@@ -106,9 +106,13 @@ export class WpvsTabsElement extends CustomElement {
 
         // Render <ul class="button-bar"> for the button bar (horizontal mode)
         // or menu list (vertical mode)
+        let divElement = document.createElement("div");
+        divElement.classList.add("button-bar-outer");
+        containerElement.appendChild(divElement);
+
         let ulElement = document.createElement("ul");
         ulElement.classList.add("button-bar");
-        containerElement.appendChild(ulElement);
+        divElement.appendChild(ulElement);
 
         dropdownParentElement.addEventListener("click", () => {
             if (ulElement.classList.contains("closed")) {
@@ -128,7 +132,7 @@ export class WpvsTabsElement extends CustomElement {
             let tabId = "";
             if (pageElement.dataset.tabId) tabId = pageElement.dataset.tabId;
 
-            // Render <li class="button" data-index="0" data-tab-id="xxx"> for each button
+            // Render <li class="tab-button" data-index="0" data-tab-id="xxx"> for each button
             let pageButtonElement = pageElement.querySelector("page-button");
 
             if (pageButtonElement) {
@@ -136,7 +140,7 @@ export class WpvsTabsElement extends CustomElement {
                 ulElement.appendChild(liElement);
 
                 this.copyAttributes(pageButtonElement, liElement);
-                liElement.classList.add("button");
+                liElement.classList.add("tab-button");
                 liElement.innerHTML = pageButtonElement.innerHTML;
                 liElement.dataset.index = index;
                 liElement.dataset.tabId = tabId;
@@ -204,8 +208,8 @@ export class WpvsTabsElement extends CustomElement {
      */
     _switchToPage(index) {
         // Switch active button
-        this.sRoot.querySelectorAll(".button").forEach(e => e.removeAttribute("active"));
-        this.sRoot.querySelectorAll(`.button[data-index="${index}"]`).forEach(e => e.setAttribute("active", ""));
+        this.sRoot.querySelectorAll(".tab-button").forEach(e => e.removeAttribute("active"));
+        this.sRoot.querySelectorAll(`.tab-button[data-index="${index}"]`).forEach(e => e.setAttribute("active", ""));
 
         // Switch active page
         this.sRoot.querySelectorAll(".page").forEach(e => e.removeAttribute("active"));
@@ -218,7 +222,7 @@ export class WpvsTabsElement extends CustomElement {
         this.dataset.activeTab = tabId;
 
         // Update dropdown label for vertical mode and close the menu
-        let buttonElement = this.sRoot.querySelector(`.button[data-index="${index}"]`);
+        let buttonElement = this.sRoot.querySelector(`.tab-button[data-index="${index}"]`);
 
         if (buttonElement) {
             this.sRoot.querySelectorAll(".active-tab-title").forEach(e => e.innerHTML = buttonElement.innerHTML);
