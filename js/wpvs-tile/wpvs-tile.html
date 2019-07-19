@@ -1,0 +1,48 @@
+<style>
+/* Display as block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+.container {
+    margin: 1rem 0 1rem 0;
+
+    color: var(--card-fg);
+    background: var(--card-bg);
+    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);
+    border: 1px solid var(--separator-fg);
+    border-radius: 0.1em;
+
+    background-size: cover;
+    background-position: center;
+    font-size: 130%;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    min-width: 15em;
+    height: 10em;
+}
+
+.content {
+    color: var(--tile-title-normal-fg);
+    background: var(--tile-title-normal-bg);
+    padding: 0.5rem;
+    transition: var(--transition-background), var(--transition-color);
+}
+
+.container:hover .content {
+    color: var(--tile-title-hover-fg);
+    background: var(--tile-title-hover-bg);
+}
+</style>
+
+<template id="tile-template">
+    <div class="container">
+        <div class="content"></div>
+    </div>
+</template>

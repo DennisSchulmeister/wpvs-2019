@@ -16,11 +16,13 @@ import templates from "./wpvs-material-card.html";
  * Custom element <wpvs-material-card> to render a card with all information on
  * a downloadable material.
  *
- *     <wpvs-nav-bar data-mode="responsive" data-breakpoint="tablet">
- *         <a href="…">…</a>
- *         <a href="…">…</a>
- *         <a href="…">…</a>
- *     </wpvs-nav-bar>
+ *     <wpvs-material-card data-type="Folien und Skript" data-name="Einführung in die Vorlesung">
+ *         <material-meta data-label="Format" data-value="HTML"></material-meta>
+ *         <material-meta data-label="Language" data-value="English"></material-meta>
+ *         <material-meta data-label="Lizense" data-value="CC-BY 4.0"></material-meta>
+ *         <material-link data-icon="icon-globe" data-label="Online Version" data-href="https://www.wpvs.de/webprog/0-intro/einleitung/"></material-link>
+ *         <material-link data-icon="icon-git" data-label="Source Code" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/0-intro/einleitung"></material-link>
+ *     </wpvs-material-card>
  *
  * @extends CustomElement
  */
@@ -81,9 +83,6 @@ export class WpvsMaterialCardElement extends CustomElement {
             aElement.querySelector("i").classList.add(linkElement.dataset.icon);
             aElement.querySelector(".label").textContent = linkElement.dataset.label;
         });
-
-        // Adapt to current viewport size
-        this._updateDisplayMode();
     }
 
     /**
@@ -117,24 +116,8 @@ export class WpvsMaterialCardElement extends CustomElement {
                 case "data-name":
                     this._renderCardName();
                     break;
-                case "data-mode":
-                case "data-breakpoint":
-                    this._updateDisplayMode();
-                    break;
             }
         });
-    }
-
-    /**
-     * Decide whether to display the two titles horizontally or vertically.
-     * This depends on the current value of the `data-mode` and `data-breakpoint`
-     * attributes as described in the class documentation above.
-     */
-    _updateDisplayMode() {
-        let containerElement = this.sRoot.querySelector(".container");
-        if (!containerElement) return;
-
-        let mode = this.adaptToScreenSize(containerElement, this._detectScreenSizeElement);
     }
 
 }

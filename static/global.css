@@ -19,6 +19,7 @@
 a, a:visited {
     color: var(--link-normal-fg);
     text-decoration: none;
+    transition: var(--transition-background), var(--transition-color);
 }
 
 a:hover {
@@ -34,6 +35,8 @@ a:hover {
     background: var(--button-normal-bg);
     color: var(--button-normal-fg) !important;
     border-radius: 0.1em;
+
+    transition: var(--transition-background), var(--transition-color);
 }
 
 .button a,
@@ -48,4 +51,29 @@ a:hover {
 
 .button:hover a {
     color: var(--button-hover-fg) !important;
+}
+
+/* Headings */
+h1 {
+    font-size: 1.7em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.8em;
+}
+
+h6 {
+    font-size: 0.7em;
 }

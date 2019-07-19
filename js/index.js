@@ -21,6 +21,7 @@ import "./wpvs-header/wpvs-header.js";
 import "./wpvs-material-card/wpvs-material-card.js";
 import "./wpvs-nav-bar/wpvs-nav-bar.js";
 import "./wpvs-tabs/wpvs-tabs.js";
+import "./wpvs-tile/wpvs-tile.js";
 
 if (document.readyState === "complete") {
     emailLinkJs.enableEmailLinks()
