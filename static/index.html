@@ -41,8 +41,20 @@
             <!-- TODO: Später wieder entfernen -->
             <!-- ============================= -->
 
-            <!-- TODO: Navigo integrieren, jede Seite als Custom Element -->
+            <!-- HTML-Code einer einzelnen Seite einbinden -->
+            <!--
             <wpvs-page data-src="webprog.html" data-title="Webprogrammierung"></wpvs-page>
+            -->
+
+            <!-- SPA Router in Kombination mit <wpvs-page> -->
+            <wpvs-router>
+                <script type="text/html" data-route="/webprog">
+                    <wpvs-page data-src="webprog.html" data-title="Webprogrammierung"></wpvs-page>
+                </script>
+                <script type="text/html" data-route="/vertsys">
+                    <wpvs-page data-src="vertsys.html" data-title="Verteilte Systeme"></wpvs-page>
+                </script>
+            </wpvs-router>
 
             <!-- Kacheln für die Startseite -->
             <h1>Vorlesungen</h1>

@@ -21,6 +21,7 @@ import "./wpvs-header/wpvs-header.js";
 import "./wpvs-material-card/wpvs-material-card.js";
 import "./wpvs-nav-bar/wpvs-nav-bar.js";
 import "./wpvs-page/wpvs-page.js";
+import "./wpvs-router/wpvs-router.js";
 import "./wpvs-tabs/wpvs-tabs.js";
 import "./wpvs-tile/wpvs-tile.js";
 
