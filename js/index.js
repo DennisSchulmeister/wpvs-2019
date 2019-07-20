@@ -25,9 +25,28 @@ import "./wpvs-router/wpvs-router.js";
 import "./wpvs-tabs/wpvs-tabs.js";
 import "./wpvs-tile/wpvs-tile.js";
 
-if (document.readyState === "complete") {
-    emailLinkJs.enableEmailLinks()
-} else {
-    window.addEventListener("load", () => emailLinkJs.enableEmailLinks());
+let init = () => {
+    // Make email links work
+    emailLinkJs.enableEmailLinks();
 
-}
+    // Update page title, when the router loads a new page
+    let routerElement = document.querySelector("wpvs-router");
+
+    routerElement.addEventListener("route-changed", event => {
+        let siteTitle = "";
+        let headerElement = document.querySelector("wpvs-header");
+        if (headerElement && headerElement.dataset.siteTitle) siteTitle = headerElement.dataset.siteTitle;
+
+        let pageTitle = "";
+        let pageElement = event.detail.sRoot.querySelector("wpvs-page");
+        if (pageElement && pageElement.dataset.title) pageTitle = pageElement.dataset.title;
+
+        if (siteTitle && pageTitle) document.title = `${pageTitle} | ${siteTitle}`;
+        else document.title = `${pageTitle}${siteTitle}`;
+
+        if (headerElement) headerElement.dataset.pageTitle = pageTitle;
+    });
+};
+
+if (document.readyState === "complete") init();
+else window.addEventListener("load", init);

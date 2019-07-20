@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="style.bundle.css" />
         <script src="index.bundle.js"></script>
     </head>
-    <body tabindex="0" data-title="Dennis Schulmeister-Zimolong">
+    <body tabindex="0">
         <wpvs-detect-screen-size></wpvs-detect-screen-size>
 
         <wpvs-header data-site-title="Dennis Schulmeister-Zimolong" data-page-title="Startseite">
@@ -28,16 +28,21 @@
                 <a href="https://github.com/DennisSchulmeister/" target="_blank">
                     <i class="icon-github-circled"></i>
                 </a>
+                <a href="#/404">
+                    <!-- 🐶 -->
+                    <i class="icon-guidedog"></i>
+                </a>
                 <a href="https://www.grundkurs-java.de/" target="_blank">
                     <i class="icon-book"></i>
                 </a>
             </wpvs-nav-bar>
         </wpvs-header>
 
-        <!-- TODO: Startseite wird beim Start nicht automatisch geladen (Fallback-Route ohne Pattern setzen?) -->
-        <!-- TODO: Seitentitel oben rechts ändern. Hierzu in <wpvs-page> ein Event auslösen, das abgefangen werden kann -->
         <main>
             <wpvs-router>
+                <script type="text/html">
+                    <wpvs-page data-src="404.html" data-title="Seite nicht gefunden"></wpvs-page>
+                </script>
                 <script type="text/html" data-route="/">
                     <wpvs-page data-src="start.html" data-title="Startseite"></wpvs-page>
                 </script>

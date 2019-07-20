@@ -161,6 +161,12 @@
       "css": "wikipedia-w",
       "code": 62054,
       "src": "fontawesome"
+    },
+    {
+      "uid": "88ae7d00391a440ac7ccd009bcb34e4e",
+      "css": "guidedog",
+      "code": 59395,
+      "src": "elusive"
     }
   ]
 }

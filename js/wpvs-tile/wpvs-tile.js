@@ -56,22 +56,27 @@ export class WpvsTileElement extends CustomElement {
         let containerElement = this.sRoot.querySelector(".container");
 
         if (this.dataset.background) {
-            containerElement.style.background = this.dataset.background;
+            containerElement.style.backgroundImage = this.dataset.background;
         }
 
         let contentElement = this.sRoot.querySelector(".content");
-        contentElement.innerHTML = this.innerHTML;
+        if (this.innerHTML) contentElement.innerHTML = this.innerHTML;
+        else contentElement.parentElement.removeChild(contentElement);
 
-        containerElement.addEventListener("click", () => {
-            if (!this.dataset.href) return;
+        if (this.dataset.href) {
+            containerElement.addEventListener("click", () => {
+                if (!this.dataset.href) return;
 
-            let aElement = document.createElement("a");
-            aElement.href = this.dataset.href;
+                let aElement = document.createElement("a");
+                aElement.href = this.dataset.href;
 
-            let clickEvent = document.createEvent("MouseEvents");
-            clickEvent.initEvent("click", true, true);
-            aElement.dispatchEvent(clickEvent);
-        });
+                let clickEvent = document.createEvent("MouseEvents");
+                clickEvent.initEvent("click", true, true);
+                aElement.dispatchEvent(clickEvent);
+            });
+        } else {
+            containerElement.classList.add("inactive");
+        }
     }
 
     /**

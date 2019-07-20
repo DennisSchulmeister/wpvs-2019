@@ -54,17 +54,6 @@ export class WpvsPageElement extends CustomElement {
             let pageContent = await fetch(this.dataset.src);
             this.sRoot.innerHTML = await pageContent.text();
         }
-
-        let title = "";
-        let bodyElement = document.querySelector("body");
-        if (bodyElement.dataset.title) title = bodyElement.dataset.title;
-
-        if (this.dataset.title) {
-            if (title) title = `${this.dataset.title} | ${title}`
-            else title = this.dataset.title;
-        }
-
-        document.title = title;
     }
 
     /**

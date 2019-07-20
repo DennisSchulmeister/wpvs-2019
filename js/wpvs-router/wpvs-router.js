@@ -56,15 +56,41 @@ export class WpvsRouterElement extends CustomElement {
 
         // Initialize single page router
         if (this._router) this._router.pause(true);
-        this._router = new Navigo();
+        this._router = new Navigo(null, true, "#");
 
+        // Add routes
         this.querySelectorAll("script").forEach(scriptElement => {
-            if (!scriptElement.dataset.route) return;
-
-            this._router.on(scriptElement.dataset.route, () => {
-                this.sRoot.innerHTML = scriptElement.innerHTML;
-            })
+            if (scriptElement.dataset.route) {
+                this._router.on(scriptElement.dataset.route, () => {
+                    this.sRoot.innerHTML = scriptElement.innerHTML;
+                });
+            } else {
+                this._router.notFound(() => {
+                    this.sRoot.innerHTML = scriptElement.innerHTML;
+                });
+            }
         });
+
+        this._router.hooks({
+            // before, after, leave, already
+            after: () => {
+                // Activate <a data-navigo> links on the newly loaded page
+                this._router.updatePageLinks();
+
+                // Raise event to inform the outside world of the new page
+                let event = new CustomEvent("route-changed", {
+                    detail: {
+                        route: this._router.lastRouteResolved(),
+                        sRoot: this.sRoot,
+                    }
+                });
+
+                this.dispatchEvent(event);
+            },
+        });
+
+        // Resolve first route
+        this._router.resolve();
     }
 
 }
