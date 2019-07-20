@@ -34,141 +34,23 @@
             </wpvs-nav-bar>
         </wpvs-header>
 
+        <!-- TODO: Startseite wird beim Start nicht automatisch geladen (Fallback-Route ohne Pattern setzen?) -->
+        <!-- TODO: Seitentitel oben rechts ändern. Hierzu in <wpvs-page> ein Event auslösen, das abgefangen werden kann -->
         <main>
-
-            <!-- ============================= -->
-            <!-- Beispiele für Custom Elements -->
-            <!-- TODO: Später wieder entfernen -->
-            <!-- ============================= -->
-
-            <!-- HTML-Code einer einzelnen Seite einbinden -->
-            <!--
-            <wpvs-page data-src="webprog.html" data-title="Webprogrammierung"></wpvs-page>
-            -->
-
-            <!-- SPA Router in Kombination mit <wpvs-page> -->
             <wpvs-router>
+                <script type="text/html" data-route="/">
+                    <wpvs-page data-src="start.html" data-title="Startseite"></wpvs-page>
+                </script>
                 <script type="text/html" data-route="/webprog">
                     <wpvs-page data-src="webprog.html" data-title="Webprogrammierung"></wpvs-page>
                 </script>
                 <script type="text/html" data-route="/vertsys">
                     <wpvs-page data-src="vertsys.html" data-title="Verteilte Systeme"></wpvs-page>
                 </script>
+                <script type="text/html" data-route="/iotws">
+                    <wpvs-page data-src="iotws.html" data-title="IoT-Workshop"></wpvs-page>
+                </script>
             </wpvs-router>
-
-            <!-- Kacheln für die Startseite -->
-            <h1>Vorlesungen</h1>
-
-            <wpvs-container>
-                <!-- Bild: https://pixabay.com/illustrations/web-web-developer-1935737/ -->
-                <wpvs-tile data-background="url(img/webprog.jpg)" data-href="#/webprog">
-                    Webprogrammierung
-                </wpvs-tile>
-
-                <!-- Bild: https://pixabay.com/illustrations/blockchain-block-chain-technology-3019120/ -->
-                <wpvs-tile data-background="url(img/vertsys.png)" data-href="#/vertsys">
-                    Verteilte Systeme
-                </wpvs-tile>
-
-                <!-- Bild: https://pixabay.com/photos/raspberry-pi-computer-electronics-572481/ -->
-                <wpvs-tile data-background="url(img/iotws.jpg)" data-href="#/iotws">
-                    IoT-Workshop
-                </wpvs-tile>
-            </wpvs-container>
-
-            <h1>Nützliche Anwendungen</h1>
-
-            <!-- Tabs für die Kapitel einer Vorlesunge -->
-            <wpvs-tabs data-active-tab="intro">
-                <!-- Einführung in die Vorlesung -->
-                <tab-page data-tab-id="intro">
-                    <page-button>
-                        Einführung in die Vorlesung
-                    </page-button>
-                    <page-content>
-                        <wpvs-container>
-                            <wpvs-material-card data-type="Folien und Skript" data-name="Einführung in die Vorlesung">
-                                <material-meta data-label="Format" data-value="HTML"></material-meta>
-                                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/webprog/0-intro/einleitung/"></material-link>
-                                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/0-intro/einleitung"></material-link>
-                            </wpvs-material-card>
-
-                            <wpvs-material-card data-type="Folien und Skript" data-name="Grundlagen des Web">
-                                <material-meta data-label="Format" data-value="HTML"></material-meta>
-                                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/webprog/1-grundlagen/geschichte/"></material-link>
-                                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/1-grundlagen/geschichte"></material-link>
-                            </wpvs-material-card>
-                        </wpvs-container>
-
-                        Test, one, two, three, …
-                    </page-content>
-                </tab-page>
-
-                <!-- HTML und CSS -->
-                <tab-page data-tab-id="html-css">
-                    <page-button>
-                        HTML und CSS
-                    </page-button>
-                    <page-content>
-                        Inhalt zu "HTML und CSS"
-                    </page-content>
-                </tab-page>
-
-                <!-- Responsive Webdesign -->
-                <tab-page data-tab-id="responsive-webdesign">
-                    <page-button>
-                        Responsive Webdesign
-                    </page-button>
-                    <page-content>
-                        Inhalt zu "Responsive Webdesign"
-                    </page-content>
-                </tab-page>
-
-                <!-- JavaScript -->
-                <tab-page data-tab-id="javascript">
-                    <page-button>
-                        JavaScript
-                    </page-button>
-                    <page-content>
-                        Inhalt zu "JavaScript"
-                    </page-content>
-                </tab-page>
-
-                <!-- Serverseitige Webentwicklung -->
-                <tab-page data-tab-id="server">
-                    <page-button>
-                        Serverseitige Webentwicklung
-                    </page-button>
-                    <page-content>
-                        Inhalt zu "Serverseitige Webentwicklung"
-                    </page-content>
-                </tab-page>
-
-                <!-- Projekt -->
-                <tab-page data-tab-id="projekt">
-                    <page-button>
-                        Projekt
-                    </page-button>
-                    <page-content>
-                        Inhalt zu "Projekt"
-                    </page-content>
-                </tab-page>
-
-                <!-- Nützliche Links -->
-                <tab-page data-tab-id="links">
-                    <page-button>
-                        Nützliche Links
-                    </page-button>
-                    <page-content>
-                        Inhalt zu "Nützliche Links"
-                    </page-content>
-                </tab-page>
-            </wpvs-tabs>
-
         </main>
     </body>
 </html>
