@@ -87,7 +87,7 @@ class CustomElement extends HTMLElement {
      * @param {MutationRecord[]} mutations Array of all detected changes,
      *   see: https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord
      */
-    onAttributeChanged(mutations) {
+    async onAttributeChanged(mutations) {
         this._disableObservers();
         this._onAttributeChanged(mutations);
         this._enableObservers();
@@ -96,12 +96,15 @@ class CustomElement extends HTMLElement {
     /**
      * Internal callback to be overwritten by subclasses. This allows a custom
      * element to detect, when one of its HTML attributes has changed. The
-     * element might update its DOM or call the render() method if needed.
+     * default behavior, if the method is not overridden, is to simply rerender
+     * the element. Elements may however override this method to implement a
+     * smarter logic to save rendering time.
      *
      * @param {MutationRecord[]} mutations Array of all detected changes,
      *   see: https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord
      */
-    _onAttributeChanged(mutations) {
+    async _onAttributeChanged(mutations) {
+        await this.render();
     }
 
     /**

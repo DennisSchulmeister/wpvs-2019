@@ -1,0 +1,23 @@
+<style>
+/* Display as block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+.container {
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+
+    color: var(--info-fg);
+    background: var(--info-bg);
+    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);
+    border: 1px solid var(--separator-fg);
+    border-radius: 0.1em;
+
+    max-width: 60em;
+}
+</style>

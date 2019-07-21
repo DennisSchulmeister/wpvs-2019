@@ -83,14 +83,6 @@ export class WpvsTileElement extends CustomElement {
         }
     }
 
-    /**
-     * Update element content when attribute values change.
-     * @param {MutationRecord[]} mutations Array of all detected changes
-     */
-    _onAttributeChanged(mutations) {
-        this.render();
-    }
-
 }
 
 window.customElements.define("wpvs-tile", WpvsTileElement);
