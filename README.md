@@ -10,6 +10,8 @@ interessante Unterlagen zur Verfügung. Es handelt sich um keine offizielle
 Webseite der DHBW Karlsruhe. Lediglich um meine privaten Vorlesungsunterlagen,
 die ich in meinen Vorlesungen an der DHBW einsetze.
 
+![Screenshot](screenshot.png)
+
 Copyright
 ---------
 
