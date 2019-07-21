@@ -46,7 +46,6 @@ export class WpvsNavBarElement extends CustomElement {
      */
     constructor() {
         super();
-        // this.sRoot = this.attachShadow({mode: "open"});
 
         this.templates = document.createElement("div");
         this.templates.innerHTML = templates;

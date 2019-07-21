@@ -54,9 +54,9 @@ class CustomElement extends HTMLElement {
      * If a custom element wants to rerender its content it also must call this
      * method instead of render() to prevent an infinite loop.
      */
-    render() {
+    async render() {
         this._disableObservers();
-        this._render();
+        await this._render();
 
         let globalLinkElement = document.createElement("link");
         globalLinkElement.rel = "stylesheet";
@@ -75,7 +75,7 @@ class CustomElement extends HTMLElement {
      * Internal callback to completely render the custom element. Needs to be
      * overwritten by the sub-classes. Never call it manually!
      */
-    _render() {
+    async _render() {
     }
 
     /**
