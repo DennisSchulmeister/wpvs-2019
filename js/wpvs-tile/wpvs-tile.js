@@ -70,6 +70,10 @@ export class WpvsTileElement extends CustomElement {
                 let aElement = document.createElement("a");
                 aElement.href = this.dataset.href;
 
+                if (this.dataset.target) {
+                    aElement.target = this.dataset.target;
+                }
+
                 let clickEvent = document.createEvent("MouseEvents");
                 clickEvent.initEvent("click", true, true);
                 aElement.dispatchEvent(clickEvent);
