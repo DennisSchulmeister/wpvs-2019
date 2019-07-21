@@ -82,3 +82,11 @@ h6 {
 tt, pre {
     font-size: 90%;
 }
+
+/* Screenshots */
+.screenshot {
+    width: 30em;
+    max-width: 100%;
+
+    border: 1px solid lightgrey;
+}
