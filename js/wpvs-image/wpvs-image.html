@@ -1,0 +1,28 @@
+<style>
+/* Display as block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+img {
+    display: inline-block;
+
+    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);
+    border: 1px solid var(--separator-fg);
+    border-radius: 0.1em;
+}
+
+img.horizontal {
+    height: 15em;
+    width: auto;
+}
+
+img.vertical {
+    width: 100% !important;
+    height: auto !important;
+}
+</style>
