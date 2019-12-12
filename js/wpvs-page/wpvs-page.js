@@ -50,8 +50,9 @@ export class WpvsPageElement extends CustomElement {
         this.sRoot.innerHTML = "";
 
         // Fetch page and render its content
+        // See: https://developer.mozilla.org/en-US/docs/Web/API/Request/cache
         if (this.dataset.src) {
-            let pageContent = await fetch(this.dataset.src);
+            let pageContent = await fetch(this.dataset.src, {cache: "no-cache"});
             this.sRoot.innerHTML = await pageContent.text();
         }
     }
