@@ -1,9 +1,3 @@
-<wpvs-info>
-    Die Vorlesung „Verteilte Systeme” startet ab dem Studienjahr 2020 mit
-    neuem Konzept. Die hier angebotenen Unterlagen werden daher nicht mehr
-    aktiv weiterentwickelt.
-</wpvs-info>
-
 <wpvs-tabs data-active-tab="intro">
     <!-- Einführung -->
     <tab-page data-tab-id="intro">
@@ -82,7 +76,7 @@
                     <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/vertsys-2018/vorlesungen/05%20%c3%9cbungsstunde%20zu%20EJB%20und%20JPA.odt"></material-link>
                 </wpvs-material-card>
 
-                <wpvs-material-card data-type="Ausdruck" data-name="06 MQTT.pdf">
+                <wpvs-material-card data-type="Ausdruck" data-name="06 MQTT">
                     <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
                     <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
                     <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/vertsys-2018/vorlesungen/06%20MQTT.pdf"></material-link>
@@ -100,17 +94,88 @@
         <page-content>
             <h5>Selbststudium</h5>
             <wpvs-container>
+                <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/grundlagen-vorwissensabfrage.mbz"></material-link>
+                </wpvs-material-card>
+
                 <wpvs-material-card data-type="Folien und Skript" data-name="Grundlagen verteilter Systeme">
                     <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
                     <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
                     <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/folien/1-grundlagen/begriffe/"></material-link>
                     <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-folien/tree/master/static/1-grundlagen/begriffe"></material-link>
                 </wpvs-material-card>
+
+                <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/grundlagen-lernkontrolle.mbz"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/feedback-nach-selbststudium.mbz"></material-link>
+                </wpvs-material-card>
             </wpvs-container>
 
             <h5>Beispiele</h5>
             <wpvs-container>
-                <wpvs-material-card data-type="Vorhandenen Inhalt hochladen" data-name="TODO"></wpvs-material-card>
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Media Player (Server)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/1-grundlagen/Media%20Player%20(Server)"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Media Player (Client)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/1-grundlagen/Media%20Player%20(Client)"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Media Player (Miniclient)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/1-grundlagen/Media%20Player%20(Miniclient)"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Eingebetteter Webserver">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/1-grundlagen/Eingebetteter%20Webserver"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Eingebetteter Webcontainer">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/1-grundlagen/Eingebetteter_Webcontainer"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Webanwendung im Applikationsserver">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/1-grundlagen/Webanwendung_im_Applikationsserver"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Schöner Programmieren mit Git</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Schöner Programmieren mit Git">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/%c3%9cbungsbl%c3%a4tter/Git%20und%20Maven/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/%C3%9Cbungsbl%C3%A4tter/Git%20und%20Maven"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel zur Nutzung von Maven und Git">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwwi-vertsys-git-maven-beispiel"></material-link>
+                </wpvs-material-card>
             </wpvs-container>
         </page-content>
     </tab-page>
@@ -123,17 +188,106 @@
         <page-content>
             <h5>Selbststudium</h5>
             <wpvs-container>
+                <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/ejb-vorwissensabfrage.mbz"></material-link>
+                </wpvs-material-card>
+
                 <wpvs-material-card data-type="Folien und Skript" data-name="Enterprise Java Beans">
                     <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
                     <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
                     <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/folien/2-javaee/ejb/"></material-link>
                     <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-folien/tree/master/static/2-javaee/ejb"></material-link>
                 </wpvs-material-card>
+
+                <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/ejb-lernkontrolle.mbz"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/feedback-nach-selbststudium.mbz"></material-link>
+                </wpvs-material-card>
             </wpvs-container>
 
             <h5>Beispiele</h5>
             <wpvs-container>
-                <wpvs-material-card data-type="Vorhandenen Inhalt hochladen" data-name="TODO"></wpvs-material-card>
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Gästebuch MVC">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Gaestebuch_MVC_Beispiel"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Gästebuch SpringMVC">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Gaestebuch_SpringMVC_Beispiel"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: SessionScoped EJB Falsch">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/SessionScoped_EJB_Falsch"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: SessionScoped EJB Richtig">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/SessionScoped_EJB_Richtig"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Business Interface">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/BusinessInterface_Beispiel"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Ticket2Rock Interfaces">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Ticket2Rock_Interfaces"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Ticket2Rock Server">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Ticket2Rock_Server"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Ticket2Rock Client">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Ticket2Rock_Client"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Wastebin</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Wastebin">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/%c3%9cbungsbl%c3%a4tter/Wastebin/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/%C3%9Cbungsbl%C3%A4tter/Wastebin"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Wastebin">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Wastebin_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: Wastebin">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Wastebin_Loesung"></material-link>
+                </wpvs-material-card>
             </wpvs-container>
         </page-content>
     </tab-page>
@@ -146,17 +300,99 @@
         <page-content>
             <h5>Selbststudium</h5>
             <wpvs-container>
+                <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/jpa-vorwissensabfrage.mbz"></material-link>
+                </wpvs-material-card>
+
                 <wpvs-material-card data-type="Folien und Skript" data-name="Java Persistence API">
                     <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
                     <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
                     <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/folien/2-javaee/jpa/"></material-link>
                     <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-folien/tree/master/static/2-javaee/jpa"></material-link>
                 </wpvs-material-card>
+
+                <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/jpa-lernkontrolle.mbz"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/feedback-nach-selbststudium.mbz"></material-link>
+                </wpvs-material-card>
             </wpvs-container>
 
             <h5>Beispiele</h5>
             <wpvs-container>
-                <wpvs-material-card data-type="Vorhandenen Inhalt hochladen" data-name="TODO"></wpvs-material-card>
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Generische Entity-EJB">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Generische_Entity_EJB"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Dateiupload mit Java">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/DateiUpload_Beispiel"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Enterprise Java Beans mit JUnit testen">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/JUnit_Beispiel"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Fragen zu jTodo</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Fragen zu jTodo">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/%c3%9cbungsbl%c3%a4tter/Fragen%20zu%20jTodo/Aufgabe/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/%C3%9Cbungsbl%C3%A4tter/Fragen%20zu%20jTodo/Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblätt" data-name="Lösung: Fragen zu jTodo">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/%c3%9cbungsbl%c3%a4tter/Fragen%20zu%20jTodo/L%c3%b6sung/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/%C3%9Cbungsbl%C3%A4tter/Fragen%20zu%20jTodo/L%C3%B6sung"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Webanwendung jTodo">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-jtodo"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Golfcard</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Golfcard">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/%c3%9cbungsbl%c3%a4tter/Golfcard/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/%C3%9Cbungsbl%C3%A4tter/Golfcard"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Golfcard">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Golfcard_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: Golfcard">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/Golfcard_Loesung"></material-link>
+                </wpvs-material-card>
             </wpvs-container>
         </page-content>
     </tab-page>
@@ -169,17 +405,118 @@
         <page-content>
             <h5>Selbststudium</h5>
             <wpvs-container>
+                <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/soap-vorwissensabfrage.mbz"></material-link>
+                </wpvs-material-card>
+
                 <wpvs-material-card data-type="Folien und Skript" data-name="SOAP-Webservices">
                     <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
                     <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
                     <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/folien/3-webservices/soap/"></material-link>
                     <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-folien/tree/master/static/3-webservices/soap"></material-link>
                 </wpvs-material-card>
+
+                <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/soap-lernkontrolle.mbz"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/feedback-nach-selbststudium.mbz"></material-link>
+                </wpvs-material-card>
             </wpvs-container>
 
             <h5>Beispiele</h5>
             <wpvs-container>
-                <wpvs-material-card data-type="Vorhandenen Inhalt hochladen" data-name="TODO"></wpvs-material-card>
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: SOAP-Webservice mit Authentifizierung">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/SOAP_Auth_Beispiel"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Beispiel: JoeCool Carsharing (Server)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/JoeCool_Carsharing_Server"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Beispiel: JoeCool Carsharing (Client)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/JoeCool_Carsharing_Client"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Seifenoper</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Seifenoper">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/Seifenoper_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: Seifenoper">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/Seifenoper_Loesung"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: TV Global</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: TV Global">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/%c3%9cbungsbl%c3%a4tter/TV%20Global/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/%C3%9Cbungsbl%C3%A4tter/TV%20Global"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: TV Global (Server)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/TVGlobal_Server_Loesung"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: TV Global (Client)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/TVGlobal_Client_Loesung"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: SOAP-Server und SOAP-Client</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: SOAP-Server">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/SOAP_Server_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: SOAP-Client">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/SOAP_Client_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: SOAP-Server">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/SOAP_Server_Loesung"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: SOAP-Client">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/SOAP_Client_Loesung"></material-link>
+                </wpvs-material-card>
             </wpvs-container>
         </page-content>
     </tab-page>
@@ -192,40 +529,432 @@
         <page-content>
             <h5>Selbststudium</h5>
             <wpvs-container>
+                <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/rest-vorwissensabfrage.mbz"></material-link>
+                </wpvs-material-card>
+
                 <wpvs-material-card data-type="Folien und Skript" data-name="REST-Webservices">
                     <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
                     <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
                     <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/folien/3-webservices/rest/"></material-link>
                     <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-folien/tree/master/static/3-webservices/rest"></material-link>
                 </wpvs-material-card>
-            </wpvs-container>
 
-            <h5>Beispiele</h5>
-            <wpvs-container>
-                <wpvs-material-card data-type="Vorhandenen Inhalt hochladen" data-name="TODO"></wpvs-material-card>
-            </wpvs-container>
-        </page-content>
-    </tab-page>
-
-    <!-- Publish/Subscribe -->
-    <tab-page data-tab-id="pubsub">
-        <page-button>
-            Publish/Subscribe
-        </page-button>
-        <page-content>
-            <h5>Selbststudium</h5>
-            <wpvs-container>
-                <wpvs-material-card data-type="Folien und Skript" data-name="XXX">
+                <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
                     <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
                     <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/folien/0-intro/einleitung/"></material-link>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-folien/tree/master/static/0-intro/einleitung"></material-link>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/rest-lernkontrolle.mbz"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/feedback-nach-selbststudium.mbz"></material-link>
                 </wpvs-material-card>
             </wpvs-container>
 
             <h5>Beispiele</h5>
             <wpvs-container>
-                <wpvs-material-card data-type="Vorhandenen Inhalt hochladen" data-name="TODO"></wpvs-material-card>
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: REST-Webservice „Songs” (Server)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/REST_Songs_Server"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: REST-Webservice „Songs” (Client)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/REST_Songs_Client"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: REST-Webservice „Songs” (AJAX)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/REST_Songs_AJAX"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Alle meine Stromkreise</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Alle meine Stromkreise">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/%c3%9cbungsbl%c3%a4tter/Alle%20meine%20Stromkreise/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/%C3%9Cbungsbl%C3%A4tter/Alle%20meine%20Stromkreise"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: REST-Webservice „Serien” (Server)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/REST_Serien_Server_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: REST-Webservice „Serien” (Client)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/REST_Serien_Client_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: REST-Webservice „Serien” (AJAX)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/REST_Serien_AJAX_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: REST-Webservice „Serien” (Server)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/REST_Serien_Server_Loesung"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: REST-Webservice „Serien” (Client)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/REST_Serien_Client_Loesung"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: REST-Webservice „Serien” (AJAX)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/REST_Serien_AJAX_Loesung"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Ticketserver</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Ticketserver">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/%c3%9cbungsbl%c3%a4tter/Ticketserver/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/%C3%9Cbungsbl%C3%A4tter/Ticketserver"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Ticketserver">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/Ticketserver_Webservices_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: Ticketserver">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/Ticketserver_Webservices_Loesung"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Youtube API</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Youtube API">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/Youtube_API_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: Youtube API">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/Youtube_API_Loesung"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+        </page-content>
+    </tab-page>
+
+    <!-- Publish/Subscribe mit MQTT -->
+    <tab-page data-tab-id="pubsub">
+        <page-button>
+            Publish/Subscribe mit MQTT
+        </page-button>
+        <page-content>
+            <h5>Selbststudium</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/mqtt-vorwissensabfrage.mbz"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Folien" data-name="Einstiegsfolien zu MQTT">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/vertsys-2018/mqtt/Einstiegsfolien%20zu%20MQTT.pdf"></material-link>
+                    <material-link data-icon="icon-file-powerpoint" data-label="ODP" data-href="https://www.wpvs.de/repo/vertsys-2018/mqtt/Einstiegsfolien%20zu%20MQTT.odp"></material-link>
+                    <material-link data-icon="icon-file-powerpoint" data-label="PPT" data-href="https://www.wpvs.de/repo/vertsys-2018/mqtt/Einstiegsfolien%20zu%20MQTT.ppt"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/mqtt-lernkontrolle.mbz"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/moodle/feedback-nach-selbststudium.mbz"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Beispiele</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Smart Home (Devices)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/SmartHome_Devices"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Smart Home (Dashboard)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/SmartHome_Dashboard"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Knight Rider">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/KnightRider"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Fallbeispiel zu Publish/Subscribe mit MQTT</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Fallbeispiel zu Publish/Subscribe mit MQTT">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/%c3%9cbungsbl%c3%a4tter/MQTT%20Fallbeispiel/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/%C3%9Cbungsbl%C3%A4tter/MQTT%20Fallbeispiel"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Fahrzeug-Tracking</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Fahrzeug-Tracking">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/Portfolioaufgaben%202018/06%20Programmieraufgabe%20zu%20MQTT/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/Portfolioaufgaben%202018/06%20Programmieraufgabe%20zu%20MQTT"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Fahrzeug-Tracking (Device)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/Fahrzeug_Tracking_Device_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Fahrzeug-Tracking (Dashboard)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/Fahrzeug_Tracking_Dashboard_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: Fahrzeug-Tracking (Device)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/Fahrzeug_Tracking_Device_Loesung"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: Fahrzeug-Tracking (Dashboard)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/Fahrzeug_Tracking_Dashboard_Loesung"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabe: Mini Chat</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Mini Chat">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/MiniChat_Aufgabe"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung: Mini Chat">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/MiniChat_Loesung"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+        </page-content>
+    </tab-page>
+
+    <!-- Prüfungsaufgaben -->
+    <tab-page data-tab-id="pruefung">
+        <page-button>
+            Prüfungsaufgaben
+        </page-button>
+        <page-content>
+            <h5>Aufgabenstellung 2019</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Webseite" data-name="Aufgabenstellung">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/dist/"></material-link>
+                    <material-link data-icon="icon-file-archive" data-label="Quellcode" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/VertSys%20Pr%c3%bcfung%202019.zip"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Feedbackformular" data-name="Benoteter Onlinetest">
+                    <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/vertsys-2019-onlinetest.mbz"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für die Testdokumentation">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Vorlage%20f%c3%bcr%20die%20Testdokumentation.pdf"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Vorlage%20f%c3%bcr%20die%20Testdokumentation.odt"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Vorlage%20f%c3%bcr%20die%20Testdokumentation.doc"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für den Leistungsnachweis">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Vorlage%20f%c3%bcr%20den%20Leistungsnachweis.pdf"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Vorlage%20f%c3%bcr%20den%20Leistungsnachweis.odt"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Vorlage%20f%c3%bcr%20den%20Leistungsnachweis.doc"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Ausdruck" data-name="Leitfragen für Einleitung und Reflexion">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Leitfragen%20f%c3%bcr%20Einleitung%20und%20Reflexion.pdf"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Leitfragen%20f%c3%bcr%20Einleitung%20und%20Reflexion.odt"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Leitfragen%20f%c3%bcr%20Einleitung%20und%20Reflexion.doc"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für Einleitung und Reflexion">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Vorlage%20f%c3%bcr%20Einleitung%20und%20Reflexion.pdf"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Vorlage%20f%c3%bcr%20Einleitung%20und%20Reflexion.odt"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Vorlage%20f%c3%bcr%20Einleitung%20und%20Reflexion.doc"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Ausdruck" data-name="Bewertungsformular">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                    <material-link data-icon="icon-file-excel" data-label="ODS" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%c3%bcfung/2019/Bewertungsformular.ods"></material-link>
+                </wpvs-material-card>
+            </wpvs-container>
+
+            <h5>Aufgabenstellung 2018</h5>
+            <wpvs-container>
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe 1: Fragen zu JavaEE">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/Portfolioaufgaben%202018/01%20Fragen%20zu%20JavaEE%20(Aufgabe)/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/Portfolioaufgaben%202018/01%20Fragen%20zu%20JavaEE%20(Aufgabe)"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe 2: Programmieraufgabe zu JavaEE">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/Portfolioaufgaben%202018/02%20Programmieraufgabe%20zu%20JavaEE/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/Portfolioaufgaben%202018/02%20Programmieraufgabe%20zu%20JavaEE"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe 3: Fragen zu SOAP-Webservices">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/Portfolioaufgaben%202018/03%20Fragen%20zu%20SOAP-Webservices%20(Aufgabe)/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/Portfolioaufgaben%202018/03%20Fragen%20zu%20SOAP-Webservices%20(Aufgabe)"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe 4: Programmieraufgabe zu SOAP-Webservices">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/Portfolioaufgaben%202018/04%20Programmieraufgabe%20zu%20SOAP-Webservices/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/Portfolioaufgaben%202018/04%20Programmieraufgabe%20zu%20SOAP-Webservices"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe 5: Fragen zu MQTT">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/Portfolioaufgaben%202018/05%20Fragen%20zu%20MQTT/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/Portfolioaufgaben%202018/05%20Fragen%20zu%20MQTT"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe 6: Programmieraufgabe zu MQTT">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/Portfolioaufgaben%202018/06%20Programmieraufgabe%20zu%20MQTT/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/Portfolioaufgaben%202018/06%20Programmieraufgabe%20zu%20MQTT"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Lösung 1: Fragen zu JavaEE">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/Portfolioaufgaben%202018/01%20Fragen%20zu%20JavaEE%20(L%c3%b6sung)/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/Portfolioaufgaben%202018/01%20Fragen%20zu%20JavaEE%20(L%C3%B6sung)"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung 2: Programmieraufgabe zu JavaEE">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/2-javaee/PF_Loesung_Minimarkt"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Lösung 3: Fragen zu SOAP-Webservices">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.wpvs.de/repo/vertsys-2018/aufgaben/Portfolioaufgaben%202018/03%20Fragen%20zu%20SOAP-Webservices%20(L%c3%b6sung)/"></material-link>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-aufgaben/tree/master/Portfolioaufgaben%202018/03%20Fragen%20zu%20SOAP-Webservices%20(L%C3%B6sung)"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Lösung 4: Programmieraufgabe zu SOAP-Webservices (Server)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/JoeCool_Carsharing_Server"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Aufgabenblatt" data-name="Lösung 4: Programmieraufgabe zu SOAP-Webservices (Client)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/3-webservices/JoeCool_Carsharing_Client"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung 6: Programmieraufgabe zu MQTT (Device)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/Fahrzeug_Tracking_Device_Loesung"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Quellcode" data-name="Lösung 6: Programmieraufgabe zu MQTT (Dashboard)">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
+                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2018-quellcodes/tree/master/4-pubsub/Fahrzeug_Tracking_Dashboard_Loesung"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Ausdruck" data-name="Leitfragen für Einleitung und Reflexion">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%C3%BCfung/2018/Leitfragen%20f%C3%BCr%20Einleitung%20und%20Reflexion.pdf"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%C3%BCfung/2018/Leitfragen%20f%C3%BCr%20Einleitung%20und%20Reflexion.odt"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%C3%BCfung/2018/Leitfragen%20f%C3%BCr%20Einleitung%20und%20Reflexion.doc"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für Einleitung und Reflexion">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%C3%BCfung/2018/Vorlage%20f%C3%BCr%20Einleitung%20und%20Reflexion.pdf"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%C3%BCfung/2018/Vorlage%20f%C3%BCr%20Einleitung%20und%20Reflexion.odt"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%C3%BCfung/2018/Vorlage%20f%C3%BCr%20Einleitung%20und%20Reflexion.doc"></material-link>
+                </wpvs-material-card>
+
+                <wpvs-material-card data-type="Ausdruck" data-name="Bewertungsformular">
+                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%C3%BCfung/2018/Bewertungsformular%20f%C3%BCr%20die%20Portfoliopr%C3%BCfung.pdf"></material-link>
+                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/vertsys-2018/pr%C3%BCfung/2018/Bewertungsformular%20f%C3%BCr%20die%20Portfoliopr%C3%BCfung.odt"></material-link>
+                </wpvs-material-card>
             </wpvs-container>
         </page-content>
     </tab-page>
