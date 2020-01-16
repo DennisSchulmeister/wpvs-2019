@@ -95,9 +95,11 @@ html, body {
     min-height: 100%;
 }
 
-wpvs-header {
-    position: sticky;
-    top: 0;
+@media all and (min-width: @screen_min) {
+    wpvs-header {
+        position: sticky;
+        top: 0;
+    }
 }
 
 main {
