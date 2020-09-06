@@ -4,6 +4,10 @@
 .icon-globe:before { content: '\e802'; } /* '' */
 .icon-guidedog:before { content: '\e803'; } /* '' */
 .icon-cog:before { content: '\e804'; } /* '' */
+.icon-down-open:before { content: '\e805'; } /* '' */
+.icon-left-open:before { content: '\e806'; } /* '' */
+.icon-right-open:before { content: '\e807'; } /* '' */
+.icon-up-open:before { content: '\e808'; } /* '' */
 .icon-github-circled:before { content: '\f09b'; } /* '' */
 .icon-rss:before { content: '\f09e'; } /* '' */
 .icon-beaker:before { content: '\f0c3'; } /* '' */

@@ -100,7 +100,8 @@ export class WpvsTabsElement extends CustomElement {
 
         let dropdownArrowElement = document.createElement("div");
         dropdownArrowElement.classList.add("arrow");
-        dropdownArrowElement.textContent = "⯆";
+        dropdownArrowElement.classList.add("icon-down-open");
+        //dropdownArrowElement.textContent = "⯆";
         dropdownParentElement.appendChild(dropdownArrowElement);
 
         // Render <ul class="button-bar"> for the button bar (horizontal mode)
@@ -114,10 +115,15 @@ export class WpvsTabsElement extends CustomElement {
         divElement.appendChild(ulElement);
 
         dropdownParentElement.addEventListener("click", () => {
+            dropdownArrowElement.classList.remove("icon-down-open");
+            dropdownArrowElement.classList.remove("icon-up-open");
+
             if (ulElement.classList.contains("closed")) {
                 ulElement.classList.remove("closed");
+                dropdownArrowElement.classList.add("icon-up-open");
             } else {
                 ulElement.classList.add("closed");
+                dropdownArrowElement.classList.add("icon-down-open");
             }
         });
 
