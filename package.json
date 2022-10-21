@@ -55,6 +55,6 @@
         "watch-run": "^1.2.5",
         "webpack": "^4.35.3",
         "webpack-cli": "^3.2.1",
-        "webpack-dev-server": "^3.1.14"
+        "webpack-dev-server": "^3.11.3"
     }
 }
