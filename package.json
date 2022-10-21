@@ -22,7 +22,8 @@
         "build": "run-s _clean _build-static _webpack-prod",
         "watch": "run-s _clean _build-static _watch-static",
         "devserver": "run-p watch _webpack-serve",
-        "staticserver": "run-s _clean _build-static _webpack-prod _http-server"
+        "staticserver": "run-s _clean _build-static _webpack-prod _http-server",
+        "publish": "scripts/publish.sh"
     },
     "config": {
         "src_dir": "src",
