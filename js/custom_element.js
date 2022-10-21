@@ -25,13 +25,13 @@ class CustomElement extends HTMLElement {
      * registers a MutationObserver to rerender the element if its content
      * has changed.
      */
-    constructor() {
+    constructor(withoutShadowRoot) {
         super();
 
         this._childMutationObserver = null;
         this._attributeMutationObserver = null;
 
-        this.sRoot = this.attachShadow({mode: "open"});
+        this.sRoot = !withoutShadowRoot ? this.attachShadow({mode: "open"}) : null;
     }
 
     /**
@@ -58,15 +58,17 @@ class CustomElement extends HTMLElement {
         this._disableObservers();
         await this._render();
 
-        let globalLinkElement = document.createElement("link");
-        globalLinkElement.rel = "stylesheet";
-        globalLinkElement.href = "global.css";
-        this.sRoot.appendChild(globalLinkElement);
-
-        let fontelloLinkElement = document.createElement("link");
-        fontelloLinkElement.rel = "stylesheet";
-        fontelloLinkElement.href = "fontello/css/fontello.css";
-        this.sRoot.appendChild(fontelloLinkElement);
+        if (this.sRoot) {
+            let globalLinkElement = document.createElement("link");
+            globalLinkElement.rel = "stylesheet";
+            globalLinkElement.href = "global.css";
+            this.sRoot.appendChild(globalLinkElement);
+    
+            let fontelloLinkElement = document.createElement("link");
+            fontelloLinkElement.rel = "stylesheet";
+            fontelloLinkElement.href = "fontello/css/fontello.css";
+            this.sRoot.appendChild(fontelloLinkElement);
+        }
 
         this._enableObservers();
     }

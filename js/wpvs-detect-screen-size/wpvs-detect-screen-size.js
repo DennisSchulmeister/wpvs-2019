@@ -36,7 +36,7 @@ export class WpvsDetectScreenSizeElement extends CustomElement {
      * HTML.
      */
     constructor() {
-        super();
+        super(true);
         this.postConstruct();
     }
 
