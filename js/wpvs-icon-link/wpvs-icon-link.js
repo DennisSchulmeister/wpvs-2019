@@ -51,12 +51,22 @@ export class WpvsIconLinkElement extends CustomElement {
         aElement.target = this.getAttribute("target") || "";
         this.sRoot.appendChild(aElement);
 
+        aElement.style.display = "flex";
+        aElement.style.flexDirection = "row";
+        aElement.style.justifyContent = "flex-start";
+        aElement.style.alignItems = "top";
+
         if (this.getAttribute("icon")) {
             let iElement = document.createElement("i");
             iElement.classList.add(this.getAttribute("icon"));
-            aElement.innerHTML = iElement.outerHTML + this.getAttribute("label") || "";
-        } else {
-            aElement.innerHTML = this.getAttribute("label") || "";
+            aElement.appendChild(iElement);
+        }
+
+        if (this.getAttribute("label")) {
+            let spanElement = document.createElement("span");
+            spanElement.style.flex = "1";
+            spanElement.textContent = this.getAttribute("label");
+            aElement.appendChild(spanElement);
         }
     }
 
