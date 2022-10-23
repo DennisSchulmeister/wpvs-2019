@@ -95,3 +95,10 @@ tt, pre {
 
     border: 1px solid lightgrey;
 }
+
+/* Paragraphs */
+p {
+    text-align: justify;
+    word-wrap: break-word;
+    hyphens: auto;
+}
