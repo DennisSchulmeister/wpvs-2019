@@ -10,6 +10,7 @@
 
 //
 // Global variables
+// NOTE: Must be exported as CSS variables in index.less, too!
 //
 @phone_max: 768px;
 @tablet_min: 767px;
@@ -29,12 +30,14 @@
 @header_bg: white;
 @header_fg: @normal_fg;
 
-@link_normal_fg: @primary_bg;
-@link_hover_fg: lighten(@primary_bg, 10%);
+@link_normal_fg: rgb(60, 98, 134);
+@link_hover_fg: darken(@link_normal_fg, 20%);
 
-@card_bg: white;
+@card_bg: rgb(251, 251, 251);
 @card_fg: @normal_fg;
 @card_light_fg: rgb(130, 130, 130);
+@card_circle_bg: @link_normal_fg;
+@card_circle_fg: white;
 
 @info_bg: rgba(255, 248, 158, 0.5);
 @info_fg: @normal_fg;

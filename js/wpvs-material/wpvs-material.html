@@ -1,0 +1,64 @@
+<style>
+/* Display as block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+/* Container border */
+.container {
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.container.expanded {
+    background: var(--card-bg);
+    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);
+    border: 1px solid var(--separator-fg);
+    padding: 1em;
+}
+
+/* Icon and label */
+.header i {
+    display: inline-block;
+    background: var(--card_circle_bg);
+    color: var(--card_circle_fg);
+    border-radius: 100%;
+    padding: 0.1em;
+}
+
+.container:hover > .header > .name {
+    text-decoration: underline;
+}
+
+.container.expanded > .header > .name {
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+/* Card content */
+.body {
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
+
+.container.expanded .body {
+    width: auto;
+    height: auto;
+}
+</style>
+
+<template id="container-template">
+    <div class="container">
+        <div class="header">
+            <i></i>
+            <span class="name"></span>
+        </div>
+
+        <div class="body"></div>
+    </div>
+</template>

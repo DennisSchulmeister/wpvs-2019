@@ -1,0 +1,39 @@
+<style>
+/* Display as block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+/* Arrange with flexbox */
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+
+    font-size: 90%;
+    color: var(--card-fg);
+}
+
+.value {
+    color: var(--card-light-fg);
+}
+</style>
+
+<template id="container-template">
+    <div class="container"></div>
+</template>
+
+<template id="value-template">
+    <div>
+        <span class="label"></span>
+        <span class="value"></span>
+    </div>
+</template>

@@ -1,1235 +1,945 @@
+<!-- Makros -->
+<wpvs-macro-define data-name="webprog-planung">
+    <wpvs-material icon="icon-book" name="$title$">
+        <wpvs-metadata>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC0 1.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-file-pdf"
+                label  = "PDF-Version herunterladen"
+                href   = "repo/webprog/vorlesungen/$url-file$.pdf"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-file-word"
+                label  = "LibreOffice-Dokument herunterladen"
+                href   = "repo/webprog/vorlesungen/$url-file$.odtf"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+</wpvs-macro-define>
+
+<wpvs-macro-define data-name="webprog-lehrbuch">
+    <wpvs-material icon="icon-book" name="$title$">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="HTML"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht"
+                href   = "repo/webprog/folien/$url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/$url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+</wpvs-macro-define>
+
+<wpvs-macro-define data-name="webprog-aufgabe">
+    <wpvs-material icon="icon-file-code" name="$title$">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <h5>Aufgabenstellung</h5>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht des Aufgabenblatts"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Aufgaben/$url-slug$/Beschreibung/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht der Musterlösung"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Aufgaben/$url-slug$/Loesung/"
+                target = "_blank">
+            </wpvs-icon-link>
+
+            <h5>Quellcode</h5>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+</wpvs-macro-define>
+
+<wpvs-macro-define data-name="webprog-aufgabe-blatt">
+    <wpvs-material icon="icon-file-code" name="$title$">
+        <wpvs-metadata>
+            <metadata-value label="Format" value="HTML"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz" value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link icon="icon-globe" label="Onlineansicht des Aufgabenblatts"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Aufgaben/$url-slug$/Beschreibung/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug$/Beschreibung"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+</wpvs-macro-define>
+
+<wpvs-macro-define data-name="webprog-aufgabe-java">
+    <wpvs-material icon="icon-file-code" name="$title$">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <h5>Aufgabe</h5>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug1$"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug1$"
+                target = "_blank">
+            </wpvs-icon-link>
+
+            <h5>Lösung</h5>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug2$"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug2$"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+</wpvs-macro-define>
+
+<wpvs-macro-define data-name="webprog-beispiel">
+    <wpvs-material icon="icon-file-code" name="$title$">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Beispiele/$url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Beispiele/$url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+</wpvs-macro-define>
+
+<wpvs-macro-define data-name="webprog-code">
+    <wpvs-material icon="icon-file-code" name="$title$">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/$url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+</wpvs-macro-define>
+
+<!-- Seiteninhalt -->
 <wpvs-tabs data-active-tab="intro">
-    <tab-page data-tab-id="intro" data-title="Einführung in die Vorlesung">
-        <h5>Allgemeine Informationen</h5>
+    <tab-page data-tab-id="intro" data-title="Beschreibung">
         <wpvs-container>
-            <wpvs-material-card data-type="Folien" data-name="Vorstellung des Dozenten">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/folien/0-vorstellung-dennis/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/0-vorstellung-dennis"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h2>Inhalt der Vorlesung</h2>
+                <p>
+                    Die Vorlesung „Webprogrammierung“ des dritten Semesters
+                    Wirtschaftsinformatik bildet zusammen mit „Verteilte Systeme“ im
+                    vierten Semester das Modul „Entwicklung verteilter Systeme“, durch
+                    welches die Programmierschiene des Studiums fortgeführt wird.
+                    Aufbauend auf den in „Programmierung I“ und „Programmierung II“
+                    gelehrten Grundlagen verlagert sich der Schwerpunkt auf die
+                    Entwicklung cloudbasierter Webanwendungen, die als „Cloud Native App /
+                    12-Faktor-App“ in einer Cloudumgebung betrieben und über einen
+                    Webbrowser als Frontend zugänglich gemacht werden. Das Modul teilt
+                    sich inhaltlich daher in die Frontendentwicklung im dritten und die
+                    Backendentwicklung im vierten Semester auf, wobei die Kommunikation
+                    zwischen Frontend und Backend hauptsächlich über REST-Webservices
+                    abgewickelt wird. Da mobile Applikationen und IoT-Anwendungen häufig
+                    vergleichbare Backendstrukturen besitzen, dient dies gleichzeitig auch
+                    als Grundlage für die Wahlmodule „Entwicklung mobiler Applikationen“
+                    und „Hardwarenahe Programmierung für das Internet of Things“. Konkret
+                    werden im dritten Semester folgende Inhalte behandelt:
+                </p>
+                <ul>
+                    <li>Die geschichtliche Entwicklung des Internets und des World Wide Web</li>
+                    <li>Das Zusammenspiel der Web-Technologien HTTP, HTML, CSS und JavaScript</li>
+                    <li>Die inhaltliche Strukturierung von Webseiten und webbasierter UIs mit HTML</li>
+                    <li>Die optische Aufbereitung und Gestaltung von Webinhalten mit CSS</li>
+                    <li>Responsive Webdesign nach dem Mobile-First-Ansatz</li>
+                    <li>Die Entwicklung clientseitiger Anwendungslogik mit JavaScript</li>
+                    <li>Das Document Object Model als Schnittstelle zwischen HTML, CSS und JavaScript</li>
+                    <li>Die Strukturierung und Entwicklung skalierbarer Single Page Apps mit JavaScript</li>
+                </ul>
+            </section>
 
-            <wpvs-material-card data-type="Folien und Skript" data-name="Einführung in die Vorlesung">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/folien/0-intro/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/0-intro"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Folien" data-name="Überblick zum Selbststudium">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/überblick/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-uebersicht"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h2>Didaktisches Modell</h2>
+                <p>
+                    Das didaktische Modell der Vorlesung entspricht weitgehend dem
+                    Inverted Classroom Model, wandelt dieses jedoch zu Gunsten einer
+                    besseren Inhaltsvermittlung und Vertiefung an einigen Punkten ab. So
+                    werden die Inhalte nicht durch aufgezeichnete Videos oder Web Based
+                    Trainings, bei denen mehr oder weniger die selben Folien wie in der
+                    klassischen Präsenzlehre verwertet werden, sondern durch ein speziell
+                    aufbereitetes Onlinelehrbuch vermittelt. Das Onlinelehrbuch besteht hierzu
+                    aus schriftlich ausformulierten Inhalten, Visualisierungen,
+                    interaktiven Elementen, Screencasts, Quizes und Übungsaufgaben, um die
+                    Inhalte bestmöglich zu präsentieren. Auf diese Weise soll die aktive
+                    Auseinandersetzung mit den Lerninhalten gefördert werden, anstatt
+                    diese zum passiven Konsum anzubieten. Die Kapitel sind daher wie
+                    folgt gegliedert:
+                </p>
+                <ol>
+                    <li>Selbststudium des Onlinelehrbuchs</li>
+                    <li>Eine oder mehrere Theorievorlesungen</li>
+                    <li>Prüfungsrelevante Lernkontrolle</li>
+                    <li>Eine oder mehrere Übungsstunden</li>
+                </ol>
+                <p>
+                    Im Anschluss an das Selbststudium können die Studierenden die Lerninhalte
+                    anhand eines einfachen Feedbackformulars reflektieren sowie Fragen für
+                    die nächste Präsenzvorlesung stellen. Dies findet zusammen mit dem benoteten
+                    Online-Assessment als Lernkontrolle derzeit noch in Moodle statt, wird in
+                    künftig aber ebenfalls innerhalb des Onlinelehrbuchs angeboten, um die
+                    Teilnahmequote zu erhöhen.
+                </p>
+            </section>
         </wpvs-container>
 
-        <h5>Anleitungen und Tutorials</h5>
+        <h2>Vorlesungsplanung</h2>
         <wpvs-container>
-            <wpvs-material-card data-type="Skript" data-name="Installation der benötigten Software">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/software/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-wpvs-software"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h4>Semesterstart</h4>
 
-            <wpvs-material-card data-type="Skript" data-name="Anleitung für die Coderverwaltung mit git, GitHub und Atom">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/git/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-atom-GitHub-beispiel"></material-link>
-            </wpvs-material-card>
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "Planungsübersicht 2022"
+                        url-file  = "00 Planungsübersicht 2022">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "Semesterstart und Grundlagen des Web"
+                        url-file  = "01 Semesterstart und Grundlagen des Web">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
 
-            <wpvs-material-card data-type="Folien" data-name="Kurzanleitung zur Nutzung von Git in NetBeans">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/vertsys/git-netbeans/Kurzanleitung%20zur%20Nutzung%20von%20Git%20in%20NetBeans.pdf"></material-link>
-                <material-link data-icon="icon-file-powerpoint" data-label="ODP" data-href="repo/vertsys/git-netbeans/Kurzanleitung%20zur%20Nutzung%20von%20Git%20in%20NetBeans.odp"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h4>HTML und CSS</h4>
 
-            <wpvs-material-card data-type="Skript" data-name="Anleitung zur Entwicklung einer Browser App">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/browser-app/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-browser-app"></material-link>
-            </wpvs-material-card>
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "Aufgabe Dashboard-Kacheln"
+                        url-file  = "02 Aufgabe Dashboard-Kacheln">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "Übungsstunde zu HTML und CSS"
+                        url-file  = "03 Übungsstunde zu HTML und CSS">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
 
-            <wpvs-material-card data-type="Quellcode" data-name="Beispielanwendung: My Songbook">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/my-songbook/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-my-songbook"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
+            <section style="flex: 1;">
+                <h4>Responsive Webdesign</h4>
 
-        <h5>Vorlesungsplanung</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Ausdruck" data-name="Vorlesungsübersicht">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/vorlesungen/Vorlesungs%C3%BCbersicht.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/vorlesungen/Vorlesungs%C3%BCbersicht.odt"></material-link>
-            </wpvs-material-card>
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "Resonsive Webdesign mit Media Queries"
+                        url-file  = "04 Resonsive Webdesign mit Media Queries">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "UI-Entwicklung mit Bootstrap"
+                        url-file  = "05 UI-Entwicklung mit Bootstrap">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "Übungsstunde zu Responsive Webdesign"
+                        url-file  = "06 Übungsstunde zu Responsive Webdesign">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
 
-            <wpvs-material-card data-type="Ausdruck" data-name="01 Einführung und Grundlagen">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/vorlesungen/01%20Einf%C3%BChrung%20und%20Grundlagen.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/vorlesungen/01%20Einf%C3%BChrung%20und%20Grundlagen.odt"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h4>JavaScript</h4>
 
-            <wpvs-material-card data-type="Ausdruck" data-name="02 HTML und CSS">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/vorlesungen/02%20HTML%20und%20CSS.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/vorlesungen/02%20HTML%20und%20CSS.odt"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="03 Responsive Webdesign">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/vorlesungen/03%20Responsive%20Webdesign.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/vorlesungen/03%20Responsive%20Webdesign.odt"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="04 JavaScript">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/vorlesungen/04%20JavaScript.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/vorlesungen/04%20JavaScript.odt"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="05 Servseitige Webentwicklung">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/vorlesungen/05%20Servseitige%20Webentwicklung.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/vorlesungen/05%20Servseitige%20Webentwicklung.odt"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="06 - 07 Einführung in die App-Entwicklung">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/vorlesungen/06%20-%2007%20Einf%C3%BChrung%20in%20die%20App-Entwicklung.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/vorlesungen/06%20-%2007%20Einf%C3%BChrung%20in%20die%20App-Entwicklung.odt"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="08 - 11 Programmierprojekt">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/vorlesungen/08%20-%2011%20Programmierprojekt.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/vorlesungen/08%20-%2011%20Programmierprojekt.odt"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-    </tab-page>
-
-    <tab-page data-tab-id="grundlagen" data-title="Grundlagen des Web">
-        <h5>Selbststudium</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/geschichte-vorwissensabfrage.mbz"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Folien und Skript" data-name="Grundlagen des Web">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/folien/1-grundlagen/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/1-grundlagen"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/geschichte-lernkontrolle.mbz"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/feedback-nach-selbststudium.mbz"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <wpvs-container>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qnPutbEmkWA?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="HTTP-Anfragen ohne Browser testen">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=qnPutbEmkWA"></material-link> -->
-                </wpvs-material-card>
-            </div>
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "Einführung in JavaScript"
+                        url-file  = "07 Einführung in JavaScript">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = " Übungsstunde zur DOM-Manipulation mit JavaScript"
+                        url-file  = "08 Übungsstunde zur DOM-Manipulation mit JavaScript">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "Modernes JavaScript"
+                        url-file  = "09 Modernes JavaScript">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "webprog-planung"
+                        title     = "App-Entwicklung mit JavaScript"
+                        url-file  = "10 App-Entwicklung mit JavaScript">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
         </wpvs-container>
     </tab-page>
 
-    <tab-page data-tab-id="html-css" data-title="HTML und CSS">
-        <h5>Selbststudium</h5>
+    <tab-page data-tab-id="current" data-title="Vorlesungsmaterialien">
+        <h2>Grundlagen des Web</h2>
         <wpvs-container>
-            <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/html_css-vorwissensabfrage.mbz"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h4>Selbststudium</h4>
+                
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-lehrbuch"
+                        title     = "Gesamtes Lehrbuch"
+                        url-slug  = "">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "webprog-lehrbuch"
+                        title     = "Kapitel im Onlinelehrbuch"
+                        url-slug  = "1-grundlagen/">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
 
-            <wpvs-material-card data-type="Folien und Skript" data-name="Einstieg in HTML und CSS">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/folien/2-html_css/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/2-html_css"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h4>Vorlesung</h4>
+                
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-lehrbuch"
+                        title     = "Vorstellung des Dozenten"
+                        url-slug  = "0-vorstellung-dennis/">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "webprog-lehrbuch"
+                        title     = "Einführung in die Vorlesung"
+                        url-slug  = "0-intro/">
+                </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
 
-            <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/html_css-lernkontrolle.mbz"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1"></section>
+            
+            <section style="flex: 1;">
+                <h4>Videos</h4>
 
-            <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/feedback-nach-selbststudium.mbz"></material-link>
-            </wpvs-material-card>
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "HTTP-Anfragen ohne Browser testen"
+                        language  = "Deutsch"
+                        videoid   = "qnPutbEmkWA">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
         </wpvs-container>
 
+        <h2 style="margin-top: 1.5em;">HTML und CSS</h2>
         <wpvs-container>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Kkimbj_cvo4?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="Grundlegender Aufbau einer Webseite">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=Kkimbj_cvo4"></material-link> -->
-                </wpvs-material-card>
-            </div>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FijXwFMqrVc?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="Nutzung eines lokalen Webservers">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=FijXwFMqrVc"></material-link> -->
-                </wpvs-material-card>
-            </div>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OE6yR7qzsYc?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="Strukturgebende HTML-Elemente">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=OE6yR7qzsYc"></material-link> -->
-                </wpvs-material-card>
-            </div>
+            <section style="flex: 1;">
+                <h4>Selbststudium</h4>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-lehrbuch"
+                        title     = "Kapitel im Onlinelehrbuch"
+                        url-slug  = "2-html_css/">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+
+            <section style="flex: 1;">
+                <h4>Beispiele</h4>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "HTML-Syntax"
+                        url-chapter = "1 HTML und CSS"
+                        url-slug    = "HTML-Syntax">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Strukturgebende Elemente"
+                        url-chapter = "1 HTML und CSS"
+                        url-slug    = "Strukturgebende Elemente">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Parallax-Effekt"
+                        url-chapter = "1 HTML und CSS"
+                        url-slug    = "Parallax-Effekt">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-code"
+                        title       = "Static Website Generator"
+                        url-chapter = "1 HTML und CSS"
+                        url-slug    = "Beiepiele/Static Website Generator">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+
+            <section style="flex: 1;">
+                <h4>Aufgaben</h4>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Neue HTML-Datei"
+                        url-chapter = "1 HTML und CSS"
+                        url-slug    = "Neue HTML-Datei">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Dashboard-Kacheln"
+                        url-chapter = "1 HTML und CSS"
+                        url-slug    = "Dashboard-Kacheln">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Joe Cocker"
+                        url-chapter = "1 HTML und CSS"
+                        url-slug    = "Joe Cocker">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Urlaub in Kanada"
+                        url-chapter = "1 HTML und CSS"
+                        url-slug    = "Urlaub in Kanada">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "npmjs.com"
+                        url-chapter = "1 HTML und CSS"
+                        url-slug    = "npmjs.com">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+
+            <section style="flex: 1;">
+                <h4>Videos</h4>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Grundlegender Aufbau einer Webseite"
+                        language  = "Deutsch"
+                        videoid   = "Kkimbj_cvo4">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Nutzung eines lokalen Webservers"
+                        language  = "Deutsch"
+                        videoid   = "FijXwFMqrVc">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Strukturgebende HTML-Elemente"
+                        language  = "Deutsch"
+                        videoid   = "OE6yR7qzsYc">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
         </wpvs-container>
 
-        <h5>Beispiele</h5>
+        <h2 style="margin-top: 1.5em;">Responsive Webdesign</h2>
         <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: HTML-Syntax">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Beispiele/HTML-Syntax/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Beispiele/HTML-Syntax"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h4>Selbststudium</h4>
+                
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-lehrbuch"
+                        title     = "Kapitel im Onlinelehrbuch"
+                        url-slug  = "3-responsive/">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+            
+            <section style="flex: 1;">
+                <h4>Beispiele</h4>
 
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Strukturgebende HTML-Elemente">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Beispiele/Strukturgebende%20Elemente/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Beispiele/Strukturgebende%20Elemente"></material-link>
-            </wpvs-material-card>
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Gutes Layout, schlechtes Layout"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Gutes Layout, schlechtes Layout">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Unterschiedliche Anordnung"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Unterschiedliche Anordnung">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Hamburger-Menü"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Hamburger-Menue">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Vollbild-Menü"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Vollbild-Menue">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Youtube"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Youtube">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Music App"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Music App">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+            
+            <section style="flex: 1;">
+                <h4>Aufgaben</h4>
 
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Keyframe-Animationen">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Beispiele/Keyframe-Animationen/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Beispiele/Keyframe-Animationen"></material-link>
-            </wpvs-material-card>
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Media Query"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Media Query">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Mobile Bildergallerie"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Mobile Bildergallerie">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "CSS-Grid mit Bootstrap"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "CSS-Grid mit Bootstrap">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Responsive Webdesign mit Bootstrap"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Responsive Webdesign mit Bootstrap">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Astructio Retis AG"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Astructio Retis AG">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Wordstrap"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Wordstrap">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Bitkits"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "Bitkits">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "GNOME-Projekt"
+                        url-chapter = "2 Responsive Webdesign"
+                        url-slug    = "GNOME-Projekt">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
 
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Simpler Parallax-Effekt">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Beispiele/Parallax-Effekt/parallax.html"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Beispiele/Parallax-Effekt"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h4>Videos</h4>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Die Entwicklungswerkzeuge des Browsers"
+                        language  = "Deutsch"
+                        videoid   = "R_2MxFEVz90">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Der Responsive-Design-Modus des Browsers"
+                        language  = "Deutsch"
+                        videoid   = "S6BUceg7UZo">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Entwicklung nach dem Mobile-First-Prinzip"
+                        language  = "Deutsch"
+                        videoid   = "B-FGa6XzKc8">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Kurzvorstellung des Bootstrap-Frameworks"
+                        language  = "Deutsch"
+                        videoid   = "HSU9rqpZcfs">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
         </wpvs-container>
 
-        <h5>Aufgabe: Erstes Stylesheet</h5>
+        <h2 style="margin-top: 1.5em;">JavaScript</h2>
         <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Einfaches Layout">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Erstes%20Stylesheet/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/Erstes%20Stylesheet/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Einfaches Layout">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Erstes%20Stylesheet/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/Erstes%20Stylesheet/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Aufgabenliste Dashboard</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Screenshot" data-name="Screenshot: Aufgabenliste Dashboard">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-image" data-label="PNG" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Aufgabenliste%20Dashboard/Screenshot.png"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Vorbereitende Gruppenarbeit: Aufgabenliste Dashboard">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Aufgabenliste%20Dashboard/Fallbeispiel%20zu%20HTML%20und%20CSS.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Aufgabenliste%20Dashboard/Fallbeispiel%20zu%20HTML%20und%20CSS.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Aufgabenliste%20Dashboard/Fallbeispiel%20zu%20HTML%20und%20CSS.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Aufgabenliste Dashboard">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Aufgabenliste520Dashboard/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/Aufgabenliste%20Dashboard/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Aufgabenliste Dashboard">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Aufgabenliste%20Dashboard/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/Aufgabenliste%20Dashboard/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Einfaches Layout</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Screenshot" data-name="Vorlage: Einfaches Layout">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-image" data-label="PNG" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Einfaches%20Layout/Vorlage.png"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Einfaches Layout">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Einfaches%20Layout/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/Einfaches%20Layout/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Einfaches Layout">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/Einfaches%20Layout/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/Einfaches%20Layout/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: One-Pager</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: One-Pager">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/One-Pager/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/One-Pager/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: One-Pager">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/One-Pager/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/One-Pager/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Layout von npmjs.com</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Screenshot" data-name="Vorlage: Layout von npmjs.com">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-image" data-label="PNG" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/npmjs.com/Vorlage.png"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Layout von npmjs.com">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/npmjs.com/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Layout von npmjs.com">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/1%20HTML%20und%20CSS/Aufgaben/npmjs.com/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/1%20HTML%20und%20CSS/Aufgaben/npmjs.com/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-    </tab-page>
-
-    <tab-page data-tab-id="responsive-webdesign" data-title="Responsive Webdesign">
-        <h5>Selbststudium</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/responsive-vorwissensabfrage.mbz"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Folien und Skript" data-name="Responsive Webdesign">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/folien/3-responsive/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/3-responsive"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/responsive-lernkontrolle.mbz"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/feedback-nach-selbststudium.mbz"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <wpvs-container>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/B-FGa6XzKc8?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="Entwicklung nach dem Mobile-First-Prinzip">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=B-FGa6XzKc8"></material-link> -->
-                </wpvs-material-card>
-            </div>
-        </wpvs-container>
-
-        <h5>Beispiele</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Music App">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Beispiele/Music%20App/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Beispiele/Music%20App"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Mobile vs. Desktop</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Ausdruck" data-name="Gruppenarbeit: Mobile vs. Desktop">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://raw.githubusercontent.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/master/2%20Responsive%20Webdesign/Aufgaben/Mobile%20vs.%20Desktop/Fallbeispiel%20zu%20Responsive%20Webdesign.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://raw.githubusercontent.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/master/2%20Responsive%20Webdesign/Aufgaben/Mobile%20vs.%20Desktop/Fallbeispiel%20zu%20Responsive%20Webdesign.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://raw.githubusercontent.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/master/2%20Responsive%20Webdesign/Aufgaben/Mobile%20vs.%20Desktop/Fallbeispiel%20zu%20Responsive%20Webdesign.doc"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Mobile-First-Entwicklung mit Media Queries</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Bitkits">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Bitkits/Beschreibung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Bitkits/Beschreibung"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Bitkits">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Bitkits/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Bitkits/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Bitkits">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Bitkits/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Bitkits/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Grid-Layout mit Bootstrap</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Fotos" data-name="Bilderpaket: Grid-Layout mit Bootstrap">
-                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Download" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/CSS-Grid%20mit%20Bootstrap/Bilder"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Grid-Layout mit Bootstrap">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/CSS-Grid%20mit%20Bootstrap/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/CSS-Grid%20mit%20Bootstrap/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: gnome.org mit Bootstrap</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: gnome.org mit Bootstrap">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Gnome%203/Beschreibung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Gnome%203/Beschreibung"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: gnome.org mit Bootstrap">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Gnome%203/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Gnome%203/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: gnome.org mit Bootstrap">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Gnome%203/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Gnome%203/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Media Query</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Media Query">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Media%20Query/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Media%20Query/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Media Query">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Media%20Query/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Media%20Query/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Mobile Bildergallerie</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Mobile Bildergallerie">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Mobile%20Bildergallerie/Beschreibung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Mobile%20Bildergallerie/Beschreibung"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Mobile Bildergallerie">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Mobile%20Bildergallerie/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Mobile%20Bildergallerie/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Mobile Bildergallerie">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Mobile%20Bildergallerie/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Mobile%20Bildergallerie/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Mobile First</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Screenshot" data-name="Vorlage: Mobile First (Mobile Darstellung)">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-image" data-label="PNG" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Mobile%20First/Vorlage1.png"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Screenshot" data-name="Vorlage: Mobile First (Große Darstellung)">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-image" data-label="PNG" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Mobile%20First/Vorlage2.png"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Mobile First">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Mobile%20First/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Mobile%20First/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Mobile First">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/2%20Responsive%20Webdesign/Aufgaben/Mobile%20First/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/2%20Responsive%20Webdesign/Aufgaben/Mobile%20First/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-    </tab-page>
-
-    <tab-page data-tab-id="javascript" data-title="JavaScript">
-        <h5>Selbststudium</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/javascript_dom-vorwissensabfrage.mbz"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Folien und Skript" data-name="Grundlagen JavaScript und DOM-Manipulation">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/folien/4-js-grundlagen/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/4-js-grundlagen"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/javascript_dom-lernkontrolle.mbz"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/feedback-nach-selbststudium.mbz"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <wpvs-container>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CG9nxqCLUTE?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="Einsatzgebiete von JavaScript">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=CG9nxqCLUTE"></material-link> -->
-                </wpvs-material-card>
-            </div>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_EFKTJFi1Es?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="Einführungsbeispiel zu JavaScript">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=_EFKTJFi1Es"></material-link> -->
-                </wpvs-material-card>
-            </div>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/n0uQRhQjx2Q?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="JavaScript online ausprobieren">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=n0uQRhQjx2Q"></material-link> -->
-                </wpvs-material-card>
-            </div>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WD63LeEJ7dM?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="JavaScript vs. Java">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=WD63LeEJ7dM"></material-link> -->
-                </wpvs-material-card>
-            </div>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Ex8QwHLfwjY?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="Variablen und Funktionen in JavaScript">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=Ex8QwHLfwjY"></material-link> -->
-                </wpvs-material-card>
-            </div>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pVnwoewvFLU?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="Rückruffunktionen in JavaScript">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=pVnwoewvFLU"></material-link> -->
-                </wpvs-material-card>
-            </div>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EIgsvBndlYY?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                <wpvs-material-card data-name="Tiefe Datenstrukturen in JavaScript">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                    <material-meta data-label="Quelldateien" data-value="Auf Anfrage"></material-meta>
-                    <!-- <material-link data-icon="icon-file-video" data-label="Youtube" data-href="https://www.youtube-nocookie.com/watch?v=EIgsvBndlYY"></material-link> -->
-                </wpvs-material-card>
-            </div>
-        </wpvs-container>
-
-        <h5>Beispiele</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Syntaxbeispiele">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Beispiele/Syntaxbeispiele"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Event Listener">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Beispiele/Mini-Beispiel%20f%C3%BCr%20Event%20Listener/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Beispiele/Mini-Beispiel%20f%C3%BCr%20Event%20Listener"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Formulareingaben prüfen">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Beispiele/Formulareingaben%20pr%C3%BCfen/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Beispiele/Formulareingaben%20pr%C3%BCfen"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Tabreiter umschalten">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Beispiele/Tabreiter%20umschalten/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Beispiele/Tabreiter%20umschalten"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Google Firebase">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Beispiele/Google%20Firebase/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Beispiele/Google%20Firebase"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Socketserver">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Beispiele/Socketserver"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Adressbuch</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Adressbuch">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Adressbuch/Beschreibung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Adressbuch/Beschreibung"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Adressbuch">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Adressbuch/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Adressbuch/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Adressbuch">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Adressbuch/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Adressbuch/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Einfache TODO-Liste</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Einfache TODO-Liste">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Einfache%20TODO-Liste/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Einfache%20TODO-Liste/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Einfache TODO-Liste">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Einfache%20TODO-Liste/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Einfache%20TODO-Liste/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Erfassungsformular</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Erfassungsformular">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Erfassungsformular/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Erfassungsformular/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Erfassungsformular">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Erfassungsformular/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Erfassungsformular/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Finde den Fehler</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Finde den Fehler">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Finde%20den%20Fehler/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Finde%20den%20Fehler/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Finde den Fehler">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Finde%20den%20Fehler/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Finde%20den%20Fehler/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Glücksrad</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Glücksrad">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Gluecksrad/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Gluecksrad/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Glücksrad">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Gluecksrad/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Gluecksrad/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Inhalte eines Arrays zeigen</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Inhalte eines Arrays zeigen">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Inhalte%20eines%20Arrays%20anzeigen/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Inhalte%20eines%20Arrays%20anzeigen/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Inhalte eines Arrays zeigen">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Inhalte%20eines%20Arrays%20anzeigen/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Inhalte%20eines%20Arrays%20anzeigen/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Media-Player</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Musik und Playliste" data-name="Songpaket: Media Player">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Download" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Media%20Player/Songs"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Media Player">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Media%20Player/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Media%20Player/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Media Player">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Media%20Player/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Media%20Player/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Stoppuhr mit Closures</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Stoppuhr mit Closures">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Stoppuhr%20mit%20Closures/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Stoppuhr%20mit%20Closures/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Stoppuhr mit Closures">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Stoppuhr%20mit%20Closures/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Stoppuhr%20mit%20Closures/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Grundstruktur einer Single Page App</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Grundstruktur einer Single Page App">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Grundstruktur%20einer%20Single%20Page%20App/Aufgabe/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Grundstruktur%20einer%20Single%20Page%20App/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Grundstruktur einer Single Page App">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/3%20JavaScript/Aufgaben/Grundstruktur%20einer%20Single%20Page%20App/Loesung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Grundstruktur%20einer%20Single%20Page%20App/Loesung"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Grundstruktur einer Single Page App (mit Parcel Bundler)">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/3%20JavaScript/Aufgaben/Grundstruktur%20einer%20Single%20Page%20App/Loesung%20(mit%20Parcel-Bundler)"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h4>Selbststudium</h4>
+                
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-lehrbuch"
+                        title     = "Kapitel im Onlinelehrbuch"
+                        url-slug  = "4-js-grundlagen/">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+            
+            <section style="flex: 1;">
+                <h4>Beispiele</h4>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Syntaxbeispiele"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Syntaxbeispiele">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Event Listener"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Event Listener">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Tabreiter umschalten"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Tabreiter umschalten">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Formulareingaben prüfen"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Formulareingaben prüfen">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Google Firebase"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Google Firebase">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "Socketserver"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Socketserver">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-beispiel"
+                        title       = "MobiDict"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "MobiDict">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+            
+            <section style="flex: 1;">
+                <h4>Aufgaben</h4>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Code-Schnippsel"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Code-Schnippsel">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe-blatt"
+                        title       = "TwoStep"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "TwoStep">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Hamburger-Menu"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Hamburger-Menu">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "SPA-Router"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "SPA-Router">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Eliza.js"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Eliza.js">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Fotobuch"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Fotobuch">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Media Player"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Media Player">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Adressbuch (Single Page App)"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Adressbuch (Single Page App)">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe"
+                        title       = "Adressbuch (Serverseitige Webanwendung)"
+                        url-chapter = "3 JavaScript"
+                        url-slug    = "Adressbuch (Serverseitige Webanwendung)">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+
+            <section style="flex: 1;">
+                <h4>Videos</h4>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Einsatzgebiete von JavaScript"
+                        language  = "Deutsch"
+                        videoid   = "CG9nxqCLUTE">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Einführungsbeispiel zu JavaScript"
+                        language  = "Deutsch"
+                        videoid   = "_EFKTJFi1Es">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "JavaScript online ausprobieren"
+                        language  = "Deutsch"
+                        videoid   = "n0uQRhQjx2Q">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "JavaScript vs. Java"
+                        language  = "Deutsch"
+                        videoid   = "WD63LeEJ7dM">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Variablen und Funktionen in JavaScript"
+                        language  = "Deutsch"
+                        videoid   = "Ex8QwHLfwjY">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Rückruffunktionen in JavaScript"
+                        language  = "Deutsch"
+                        videoid   = "pVnwoewvFLU">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name = "youtube-video"
+                        title     = "Tiefe Datenstrukturen in JavaScript"
+                        language  = "Deutsch"
+                        videoid   = "EIgsvBndlYY">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
         </wpvs-container>
     </tab-page>
 
-    <tab-page data-tab-id="server" data-title="Serverseitige Webentwicklung">
-        <h5>Selbststudium</h5>
+    <tab-page data-tab-id="archiv" data-title="Alte Unterlagen">                
+        <h2>Serverseitige Webentwicklung mit Java</h2>
+        <wpvs-info>
+            Dieses Inhalte werden nicht mehr weiter entwickelt, da die serverseitige
+            Webentwicklung mit Java seit 2019 nicht mehr Bestandteil der Vorlesung ist.
+        </wpvs-info>
         <wpvs-container>
-            <wpvs-material-card data-type="Fragensammlung" data-name="Vorwissensabfrage">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/http_jsp_servlets-vorwissensabfrage.mbz"></material-link>
-            </wpvs-material-card>
+            <section style="flex: 1;">
+                <h4>Selbststudium</h4>
+                
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name = "webprog-lehrbuch"
+                        title     = "Kapitel im Onlinelehrbuch"
+                        url-slug  = "6-server-java/">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+        
+            <section style="flex: 1;">
+                <h4>Beispiele</h4>
 
-            <wpvs-material-card data-type="Folien und Skript" data-name="Einmal Server und Zurück: HTTP, JSP und Servlets">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="repo/webprog/folien/6-server-java/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/6-server-java"></material-link>
-            </wpvs-material-card>
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name   = "webprog-code"
+                        title       = "Eingebetteter Webserver"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug    = "Beispiele/Eingebetteter Webserver">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-code"
+                        title       = "Minimales Servlet"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug    = "Beispiele/Minimales Servlet">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-code"
+                        title       = "Servletmethoden"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug    = "Beispiele/Servletmethoden">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-code"
+                        title       = "Aufgabenliste per Servlet"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug    = "Beispiele/Aufgabenliste per Servlet">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-code"
+                        title       = "Aufgabenliste per JSP"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug    = "Beispiele/Aufgabenliste per JSP">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
+        
+            <section style="flex: 1;">
+                <h4>Aufgaben</h4>
 
-            <wpvs-material-card data-type="Fragensammlung" data-name="Lernkontrolle">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/http_jsp_servlets-lernkontrolle.mbz"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Feedbackformular" data-name="Feedback zum Selbststudium">
-                <material-meta data-label="Format" data-value="Moodle-Sicherung"></material-meta>
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-archive" data-label="MBZ" data-href="repo/webprog/moodle/feedback-nach-selbststudium.mbz"></material-link>
-            </wpvs-material-card>
+                <wpvs-container data-mode="vertical">
+                    <wpvs-macro-insert
+                        data-name   = "webprog-code"
+                        title       = "Mein erstes Servlet"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug    = "Aufgaben/Mein erstes Servlet">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe-java"
+                        title       = "Formular-Servlet mit JSP"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug1   = "Formular-Servlet mit JSP (Aufgabe)"
+                        url-slug2   = "Formular-Servlet mit JSP (Loesung)">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe-java"
+                        title       = "Servlets, JSP, Templates"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug1   = "Servlets, JSP, Templates (Aufgabe)"
+                        url-slug2   = "Servlets, JSP, Templates (Loesung)">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-aufgabe-java"
+                        title       = "Templates"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug1   = "Templates (Aufgabe)"
+                        url-slug2   = "Templates (Loesung)">
+                    </wpvs-macro-insert>
+                    <wpvs-macro-insert
+                        data-name   = "webprog-code"
+                        title       = "Comicsammlung"
+                        url-chapter = "4 Serverseite mit Java"
+                        url-slug    = "Aufgaben/Comicsammlung">
+                    </wpvs-macro-insert>
+                </wpvs-container>
+            </section>
         </wpvs-container>
-
-        <h5>Beispiele</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Minimales Servlet">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Beispiele/Minimales%20Servlet"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Servletmethoden">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Beispiele/Servletmethoden"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Aufgabenliste per Servlet">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Beispiele/Aufgabenliste%20per%20Servlet"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Aufgabenliste per JSP">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Beispiele/Aufgabenliste%20per%20JSP"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Beispiel: Eingebetteter Webserver">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Beispiele/Eingebetteter%20Webserver"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Mein erstes Servlet</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Mein erstes Servlet">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Mein%20erstes%20Servlet"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Templates</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Templates">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Templates-Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Templates">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Templates-Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-
-        <h5>Aufgabe: Servlets, JSP, Templates</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Servlets, JSP, Templates">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Servlets%2C%20JSP%2C%20Templates%20(Aufgabe)"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Servlets, JSP, Templates">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Servlets%2C%20JSP%2C%20Templates%20(Loesung)"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Formular-Servlet mit JSP</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Formular-Servlet mit JSP">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Formular-Servlet%20mit%20JSP%20(Aufgabe)"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Formular-Servlet mit JSP">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Formular-Servlet%20mit%20JSP%20(Loesung)"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabe: Comicsammlung</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Aufgabenblatt" data-name="Aufgabe: Comicsammlung">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/4%20Serverseite%20mit%20Java/Aufgaben/Comicsammlung/Beschreibung/"></material-link>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Comicsammlung/Beschreibung"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Aufgabe: Comicsammlung">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Comicsammlung/Aufgabe"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Quellcode" data-name="Lösung: Comicsammlung">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/4%20Serverseite%20mit%20Java/Aufgaben/Comicsammlung/Loesung"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-    </tab-page>
-
-    <tab-page data-tab-id="projekt" data-title="Prüfung">
-        <h5>Aufgabenstellung 2019</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Ausdruck" data-name="Aufgabenstellung">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2019/Aufgabenstellung.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2019/Aufgabenstellung.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2019/Aufgabenstellung.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Häufige Fragen zum Projekt">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2019/H%c3%a4ufige%20Fragen%20zum%20Projekt.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2019/H%c3%a4ufige%20Fragen%20zum%20Projekt.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2019/H%c3%a4ufige%20Fragen%20zum%20Projekt.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für das Essay">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2019/Vorlage%20f%C3%BCr%20das%20Essay.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2019/Vorlage%20f%C3%BCr%20das%20Essay.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2019/Vorlage%20f%C3%BCr%20das%20Essay.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Leitfragen für Einleitung und Reflexion">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2019/Leitfragen%20f%C3%BCr%20Einleitung%20und%20Reflexion.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2019/Leitfragen%20f%C3%BCr%20Einleitung%20und%20Reflexion.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2019/Leitfragen%20f%C3%BCr%20Einleitung%20und%20Reflexion.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für Einleitung und Reflexion">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2019/Vorlage%20f%C3%BCr%20Einleitung%20und%20Reflexion.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2019/Vorlage%20f%C3%BCr%20Einleitung%20und%20Reflexion.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2019/Vorlage%20f%C3%BCr%20Einleitung%20und%20Reflexion.doc"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabenstellung 2018</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Ausdruck" data-name="Aufgabenstellung">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2018/Aufgabenstellung.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2018/Aufgabenstellung.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2018/Aufgabenstellung.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Beispiel für ein Fachkonzept (My Songbook)">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC-BY 4.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2018/Beispiel%20f%C3%BCr%20ein%20Fachkonzept%20(My%20Songbook).pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2018/Beispiel%20f%C3%BCr%20ein%20Fachkonzept%20(My%20Songbook).odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2018/Beispiel%20f%C3%BCr%20ein%20Fachkonzept%20(My%20Songbook).doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für das Fachkonzept">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2018/Vorlage%20f%C3%BCr%20das%20Fachkonzept.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2018/Vorlage%20f%C3%BCr%20das%20Fachkonzept.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2018/Vorlage%20f%C3%BCr%20das%20Fachkonzept.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für die Testdokumentation">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2018/Vorlage%20f%C3%BCr%20die%20Testdokumentation.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2018/Vorlage%20f%C3%BCr%20die%20Testdokumentation.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2018/Vorlage%20f%C3%BCr%20die%20Testdokumentation.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Onlinetest zur Eigenleistung im Projekt">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2018/Onlinetest%20zur%20Eigenleistung%20im%20Projekt.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2018/Onlinetest%20zur%20Eigenleistung%20im%20Projekt.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2018/Onlinetest%20zur%20Eigenleistung%20im%20Projekt.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Leistungsnachweis der Gruppenmitglieder">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2018/Leistungsnachweis%20der%20Gruppenmitglieder.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2018/Leistungsnachweis%20der%20Gruppenmitglieder.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2018/Leistungsnachweis%20der%20Gruppenmitglieder.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Bewertungsformular">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-excel" data-label="ODS" data-href="repo/webprog/pr%C3%BCfung/2018/Bewertungsformular.ods"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-
-        <h5>Aufgabenstellung 2017</h5>
-        <wpvs-container>
-            <wpvs-material-card data-type="Ausdruck" data-name="Leitfragen für Einleitung und Reflexion">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2017/Leitfragen%20f%C3%BCr%20Einleitung%20und%20Reflexion.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2017/Leitfragen%20f%C3%BCr%20Einleitung%20und%20Reflexion.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2017/Leitfragen%20f%C3%BCr%20Einleitung%20und%20Reflexion.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für Einleitung und Reflexion">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2017/Vorlage%20f%C3%BCr%20Einleitung%20und%20Reflexion.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2017/Vorlage%20f%C3%BCr%20Einleitung%20und%20Reflexion.odt"></material-link>
-                <material-link data-icon="icon-file-word" data-label="DOC" data-href="repo/webprog/pr%C3%BCfung/2017/Vorlage%20f%C3%BCr%20Einleitung%20und%20Reflexion.doc"></material-link>
-            </wpvs-material-card>
-
-            <wpvs-material-card data-type="Ausdruck" data-name="Bewertungsformular">
-                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="repo/webprog/pr%C3%BCfung/2017/Bewertungsformular%20f%C3%BCr%20die%20Portfoliopr%C3%BCfung.pdf"></material-link>
-                <material-link data-icon="icon-file-word" data-label="ODT" data-href="repo/webprog/pr%C3%BCfung/2017/Bewertungsformular%20f%C3%BCr%20die%20Portfoliopr%C3%BCfung.odt"></material-link>
-            </wpvs-material-card>
-        </wpvs-container>
-    </tab-page>
-
-    <tab-page data-tab-id="links" data-title="Nützliche Links">
-        <h3>HTML, CSS und JavaScript</h3>
-        <ul>
-            <li>
-                <b><a href="https://developer.mozilla.org/" target="_blank">Mozilla Developer Network</a>:</b>
-                Die beste Dokumentation rund um HTML, CSS und JavaScript, die es gibt. Teilweise auf deutsch, überwiegend auf englisch.
-            </li>
-            <li>
-                <b><a href="https://wiki.selfhtml.org/" target="_blank">SelfHTML</a>:</b>
-                Der Urgroßvater: Gute Sammlung von Erklärungen rund um HTML, CSS, JavaScript. Komplett auf deutsch, aber nicht immer vollständig.
-            </li>
-            <li>
-                <b><a href="https://www.w3schools.com/" target="_blank">W3Schools</a>:</b>
-                Sehr umfangreiche Sammlung von Tutorials zu HTML, CSS und JavaScript. Als zusätzliche Nachschlagequelle gut zu gebrauchen.
-            </li>
-            <li>
-                <b><a href="https://caniuse.com/" target="_blank">Can I Use?</a>:</b>
-                Umfangreiche Kompatibilitätstabellen zu allen Browsern. Sehr umfangreich und sehr aktuell.
-            </li>
-            <li>
-                <b><a href="https://javascript.info/" target="_blank">The modern JavaScript tutorial</a>:</b>
-                Sehr umfangreiches JavaScript-Tutorial mit vielen sehr guten Erklärungen.
-            </li>
-            <li>
-                <b><a href="https://mbeaudru.github.io/modern-js-cheatsheet/" target="_blank">Modern JavaScript Cheatsheet</a>:</b>
-                Übersichtsseite mit allen wesentlichen Neuerungen modernen JavaScripts.
-            </li>
-        </ul>
-
-        <h3>Fortgeschrittene Themen für JavaScript</h3>
-        <ul>
-            <li>
-                <b><a href="https://dev.to/bjhaid_93/beginners-guide-to-fetching-data-with-ajax-fetch-api--asyncawait-3m1l" target="_blank">Beginners Guide To Fetching Data With (AJAX, Fetch API & Async/Await)</a>:</b>
-                Blogbeitrag, die AJAX-Aufrufe mit XMLHttpRequest und der neueren Fetch API erklärt
-            </li>
-            <li>
-                <b><a href="https://firebase.google.com/" target="_blank">Google Firebase</a>:</b>
-                Cloudbasierte Datenbank und Laufzeitumgebung für Cloud-Anwendungen
-            </li>
-            <li>
-                <b><a href="https://www.webmasterpro.de/coding/article/javascript-html5-local-storage-tutorial.html" target="_blank">HTML5 Local Storage Tutorial</a>:</b>
-                Anleitung zur Entwicklung einer TODO-Liste, deren Inhalte clientseitig gespeichert werden
-            </li>
-            <li>
-                <b><a href="https://www.html5canvastutorials.com/" target="_blank">HTML5 Canvas Tutorials</a>:</b>
-                Umfangreiche Anleitungen zur Grafikprogrammierung mit der Canvas API
-            </li>
-            <li>
-                <b><a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame" target="_blank">window.requestAnimationFrame()</a>:</b>
-                MDN-Artikel zu window.requestAnimationFrame() für flüssige Animationen mit JavaScript
-            </li>
-            <li>
-                <b><a href="http://phaser.io/tutorials/making-your-first-phaser-3-game/index" target="_blank">Making your first Phaser 3 game</a>:</b>
-                Framework zur Entwicklung von Browserspielen
-            </li>
-        </ul>
-
-        <h3>Webentwicklung mit Java</h3>
-        <ul>
-            <li>
-                <b><a href="https://docs.oracle.com/en/java/index.html" target="_blank">Java Documentation</a>:</b>
-                API-Dokumentation aller aktuellen Java-Versionen
-            </li>
-            <li>
-                <b><a href="https://docs.oracle.com/javaee/7/api/" target="_blank">Java EE7 Klassenbibliothek</a>:</b>
-                API-Referenz zur Java Enterprise Edition 7
-            </li>
-            <li>
-                <b><a href="https://www.tutorialspoint.com/servlets/" target="_blank">Tutorialspoint: Servlets</a>:</b>
-                Umfangreiche Sammlung von Tutorials rund um Java Servlets.
-            </li>
-            <li>
-                <b><a href="https://www.tutorialspoint.com/jsp/" target="_blank">Tutorialspoint: Java Server Pages</a>:</b>
-                Umfangreiche Tutorials rund um Java Server Pages.
-            </li>
-        </ul>
     </tab-page>
 </wpvs-tabs>

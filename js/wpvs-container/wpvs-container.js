@@ -32,7 +32,7 @@ import templates from "./wpvs-container.html";
  * In order for responsive mode to work, the page must contain a
  * <wpvs-detect-screen-size> element somewhere. The `data-breakpoint` attribute
  * then sets at which screen size the page buttons will be aligned horizontally.
- * It's default value is `tablet`.
+ * Its default value is `tablet`.
  *
  * @extends CustomElement
  */
