@@ -17,6 +17,12 @@ import templates from "./wpvs-tabs.html";
  * content based upon the active button pressed. Use the element like this:
  *
  *     <wpvs-tabs data-active-tab="page1" data-mode="responsive" data-breakpoint="tablet">
+ *         <!-- Short form -->
+ *         <tab-page data-tab-id="page2" data-title="Title">
+ *             … direct HTML content ...
+ *         </tab-page>
+ * 
+ *         <!-- Long form -->
  *         <tab-page data-tab-id="page1">
  *             <page-button class="…">
  *                 Text on the page switch button
@@ -24,10 +30,6 @@ import templates from "./wpvs-tabs.html";
  *             <page-content>
  *                 …
  *             </page-content>
- *         </tab-page>
- *
- *         <tab-page data-tab-id="page2">
- *             …
  *         </tab-page>
  *     </wpvs-tabs>
  *
@@ -140,6 +142,11 @@ export class WpvsTabsElement extends CustomElement {
             // Render <li class="tab-button" data-index="0" data-tab-id="xxx"> for each button
             let pageButtonElement = pageElement.querySelector("page-button");
 
+            if (!pageButtonElement) {
+                pageButtonElement = document.createElement("page-button");
+                pageButtonElement.textContent = pageElement.dataset.title || "";
+            }
+
             if (pageButtonElement) {
                 let liElement = document.createElement("li");
                 ulElement.appendChild(liElement);
@@ -161,6 +168,12 @@ export class WpvsTabsElement extends CustomElement {
             // Render <div data-index="0" data-tab-id="xxx"> for each page
             let pageContentElement = pageElement.querySelector("page-content");
 
+            if (!pageContentElement) {
+                pageContentElement = document.createElement("div");
+                pageContentElement.innerHTML = pageElement.innerHTML;
+                pageContentElement.querySelectorAll("page-button").forEach(e => e.remove);
+            }
+            
             if (pageContentElement) {
                 let divElement = document.createElement("div");
                 containerElement.appendChild(divElement);

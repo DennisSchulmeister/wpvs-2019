@@ -1,400 +1,364 @@
 <wpvs-info>
-    Ziel des von 2016 bis 2019 gehaltenen IoT-Workshops ist die Erstellung eines
-    eigenen IoT-Devices auf Basis von Raspberry Pi, Linux, Buildroot und Debian.
-    Es handelt sich um ein Studienabschlussprojekt, das in Gruppen zwischen vier
-    und sechs Personen über ein halbes Jahr bearbeitet wird (drei Monate
-    Seminar und drei Monate Projekt).
+    Ziel des IoT-Workshops ist die Erstellung eines eigenen IoT-Devices auf Basis
+    von Raspberry Pi, Linux, Buildroot und Debian. Es handelt sich um ein Studienprojekt,
+    das in Gruppen zwischen vier und sechs Personen über ein halbes Jahr bearbeitet wird
+    (drei Monate Seminar und drei Monate Projekt).
 </wpvs-info>
 
 <wpvs-tabs data-active-tab="intro">
-    <!-- Thematische Einführung -->
-    <tab-page data-tab-id="intro">
-        <page-button>
-            Thematische Einführung
-        </page-button>
-        <page-content>
-            <wpvs-container>
-                <wpvs-material-card data-type="Ausdruck" data-name="Ablauf des Seminar-KickOff">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/01-Einf%C3%BChrung/Ablauf%20des%20Seminar-KickOff.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/01-Einf%C3%BChrung/Ablauf%20des%20Seminar-KickOff.odt"></material-link>
-                </wpvs-material-card>
+    <tab-page data-tab-id="intro" data-title="Thematische Einführung">
+        <wpvs-container>
+            <wpvs-material-card data-type="Ausdruck" data-name="Ablauf des Seminar-KickOff">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/01-Einf%C3%BChrung/Ablauf%20des%20Seminar-KickOff.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/01-Einf%C3%BChrung/Ablauf%20des%20Seminar-KickOff.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Folien" data-name="Einführung in IoT und Embedded">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/01-Einf%C3%BChrung/Einf%C3%BChrung%20in%20IoT%20und%20Embedded.pdf"></material-link>
-                    <material-link data-icon="icon-file-powerpoint" data-label="ODP" data-href="https://www.wpvs.de/repo/iot-workshop/01-Einf%C3%BChrung/Einf%C3%BChrung%20in%20IoT%20und%20Embedded.odp"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Folien" data-name="Einführung in IoT und Embedded">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/01-Einf%C3%BChrung/Einf%C3%BChrung%20in%20IoT%20und%20Embedded.pdf"></material-link>
+                <material-link data-icon="icon-file-powerpoint" data-label="ODP" data-href="https://www.wpvs.de/repo/iot-workshop/01-Einf%C3%BChrung/Einf%C3%BChrung%20in%20IoT%20und%20Embedded.odp"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Skript" data-name="Erste Schritte mit Linux, Buildroot und Debootstrap">
-                    <material-meta data-label="Fertigstellung" data-value="50%"></material-meta>
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/Erste%20Schritte%20mit%20Linux,%20Buildroot%20und%20Debootstrap.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/Erste%20Schritte%20mit%20Linux,%20Buildroot%20und%20Debootstrap.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Skript" data-name="Erste Schritte mit Linux, Buildroot und Debootstrap">
+                <material-meta data-label="Fertigstellung" data-value="50%"></material-meta>
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/Erste%20Schritte%20mit%20Linux,%20Buildroot%20und%20Debootstrap.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/Erste%20Schritte%20mit%20Linux,%20Buildroot%20und%20Debootstrap.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Aufgabenblatt" data-name="Praktischer Einstieg in Linux">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/Praktischer%20Einstieg%20in%20Linux.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/Praktischer%20Einstieg%20in%20Linux.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Aufgabenblatt" data-name="Praktischer Einstieg in Linux">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/Praktischer%20Einstieg%20in%20Linux.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/Praktischer%20Einstieg%20in%20Linux.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Installations- und Konfigurationsdateien" data-name="Konfiguration der Debian Build-VM">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-archive" data-label="ZIP" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/VirtualBox.zip"></material-link>
-                </wpvs-material-card>
-            </wpvs-container>
-        </page-content>
+            <wpvs-material-card data-type="Installations- und Konfigurationsdateien" data-name="Konfiguration der Debian Build-VM">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-archive" data-label="ZIP" data-href="https://www.wpvs.de/repo/iot-workshop/05-Werkzeuge/VirtualBox.zip"></material-link>
+            </wpvs-material-card>
+        </wpvs-container>
     </tab-page>
 
-    <!-- Seminarthemen -->
-    <tab-page data-tab-id="seminarthemen">
-        <page-button>
-            Seminarthemen
-        </page-button>
-        <page-content>
-            <wpvs-container data-mode="vertical">
-                <wpvs-material-card data-type="Infoblatt" data-name="01 Anforderungen an eingebettete Echtzeit-Betriebssysteme im Vergleich zu Desktop-Betriebssystemen">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/01%20Anforderungen%20an%20eingebettete%20Echtzeit-Betriebssysteme%20im%20Vergleich%20zu%20Desktop-Betriebssystemen.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/01%20Anforderungen%20an%20eingebettete%20Echtzeit-Betriebssysteme%20im%20Vergleich%20zu%20Desktop-Betriebssystemen.odt"></material-link>
-                </wpvs-material-card>
+    <tab-page data-tab-id="seminarthemen" data-title="Seminarthemen">
+        <wpvs-container data-mode="vertical">
+            <wpvs-material-card data-type="Infoblatt" data-name="01 Anforderungen an eingebettete Echtzeit-Betriebssysteme im Vergleich zu Desktop-Betriebssystemen">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/01%20Anforderungen%20an%20eingebettete%20Echtzeit-Betriebssysteme%20im%20Vergleich%20zu%20Desktop-Betriebssystemen.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/01%20Anforderungen%20an%20eingebettete%20Echtzeit-Betriebssysteme%20im%20Vergleich%20zu%20Desktop-Betriebssystemen.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="02 Angriffsvektoren und Abwehrmöglichkeiten für IoT-Devices">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/02%20Angriffsvektoren%20und%20Abwehrm%C3%B6glichkeiten%20f%C3%BCr%20IoT-Devices.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/02%20Angriffsvektoren%20und%20Abwehrm%C3%B6glichkeiten%20f%C3%BCr%20IoT-Devices.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="02 Angriffsvektoren und Abwehrmöglichkeiten für IoT-Devices">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/02%20Angriffsvektoren%20und%20Abwehrm%C3%B6glichkeiten%20f%C3%BCr%20IoT-Devices.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/02%20Angriffsvektoren%20und%20Abwehrm%C3%B6glichkeiten%20f%C3%BCr%20IoT-Devices.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="03 Betrieb und Skalierung von IoT-Projekten">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/03%20Betrieb%20und%20Skalierung%20von%20IoT-Projekten.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/03%20Betrieb%20und%20Skalierung%20von%20IoT-Projekten.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="03 Betrieb und Skalierung von IoT-Projekten">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/03%20Betrieb%20und%20Skalierung%20von%20IoT-Projekten.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/03%20Betrieb%20und%20Skalierung%20von%20IoT-Projekten.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="04 Hardwareschnittstellen und deren Programmierung">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/04%20Hardwareschnittstellen%20und%20deren%20Programmierung.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/04%20Hardwareschnittstellen%20und%20deren%20Programmierung.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="04 Hardwareschnittstellen und deren Programmierung">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/04%20Hardwareschnittstellen%20und%20deren%20Programmierung.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/04%20Hardwareschnittstellen%20und%20deren%20Programmierung.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="05 Machine-Learning-Technologien, Cloud und Big Data">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/05%20Machine-Learning-Technologien,%20Cloud%20und%20Big%20Data.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/05%20Machine-Learning-Technologien,%20Cloud%20und%20Big%20Data.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="05 Machine-Learning-Technologien, Cloud und Big Data">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/05%20Machine-Learning-Technologien,%20Cloud%20und%20Big%20Data.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/05%20Machine-Learning-Technologien,%20Cloud%20und%20Big%20Data.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="06 Methoden des Remote Device Management">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/06%20Methoden%20des%20Remote%20Device%20Management.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/06%20Methoden%20des%20Remote%20Device%20Management.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="06 Methoden des Remote Device Management">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/06%20Methoden%20des%20Remote%20Device%20Management.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/06%20Methoden%20des%20Remote%20Device%20Management.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="07 Netzwerkprotokolle für eingebette IoT-Systeme">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/07%20Netzwerkprotokolle%20f%C3%BCr%20eingebette%20IoT-Systeme.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/07%20Netzwerkprotokolle%20f%C3%BCr%20eingebette%20IoT-Systeme.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="07 Netzwerkprotokolle für eingebette IoT-Systeme">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/07%20Netzwerkprotokolle%20f%C3%BCr%20eingebette%20IoT-Systeme.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/07%20Netzwerkprotokolle%20f%C3%BCr%20eingebette%20IoT-Systeme.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="08 SOAP- vs. REST-Webservices, Vergleich von Webtechnologien für IoT-Devices">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/08%20SOAP-%20vs.%20REST-Webservices,%20Vergleich%20von%20Webtechnologien%20f%C3%BCr%20IoT-Devices.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/08%20SOAP-%20vs.%20REST-Webservices,%20Vergleich%20von%20Webtechnologien%20f%C3%BCr%20IoT-Devices.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="08 SOAP- vs. REST-Webservices, Vergleich von Webtechnologien für IoT-Devices">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/08%20SOAP-%20vs.%20REST-Webservices,%20Vergleich%20von%20Webtechnologien%20f%C3%BCr%20IoT-Devices.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/08%20SOAP-%20vs.%20REST-Webservices,%20Vergleich%20von%20Webtechnologien%20f%C3%BCr%20IoT-Devices.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="09 NoSQL-Datenbanken und alternative Programmiersprachen im IoT-Umfeld">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/09%20NoSQL-Datenbanken%20und%20alternative%20Programmiersprachen%20im%20IoT-Umfeld.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/09%20NoSQL-Datenbanken%20und%20alternative%20Programmiersprachen%20im%20IoT-Umfeld.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="09 NoSQL-Datenbanken und alternative Programmiersprachen im IoT-Umfeld">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/09%20NoSQL-Datenbanken%20und%20alternative%20Programmiersprachen%20im%20IoT-Umfeld.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/09%20NoSQL-Datenbanken%20und%20alternative%20Programmiersprachen%20im%20IoT-Umfeld.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="10 Fallstudie zur Architektur gängiger Mobile-, Embedded-, IoT-Betriebssysteme mit Linux">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/10%20Fallstudie%20zur%20Architektur%20g%C3%A4ngiger%20Mobile-,%20Embedded-,%20IoT-Betriebssysteme%20mit%20Linux.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/10%20Fallstudie%20zur%20Architektur%20g%C3%A4ngiger%20Mobile-,%20Embedded-,%20IoT-Betriebssysteme%20mit%20Linux.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="10 Fallstudie zur Architektur gängiger Mobile-, Embedded-, IoT-Betriebssysteme mit Linux">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/10%20Fallstudie%20zur%20Architektur%20g%C3%A4ngiger%20Mobile-,%20Embedded-,%20IoT-Betriebssysteme%20mit%20Linux.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/10%20Fallstudie%20zur%20Architektur%20g%C3%A4ngiger%20Mobile-,%20Embedded-,%20IoT-Betriebssysteme%20mit%20Linux.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="11 Nebenläufigkeit und lock-freie Datenstrukturen zur Einhaltung harter und weicher Echtzeitanforderungen">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/11%20Nebenl%C3%A4ufigkeit%20und%20lock-freie%20Datenstrukturen%20zur%20Einhaltung%20harter%20und%20weicher%20Echtzeitanforderungen.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/11%20Nebenl%C3%A4ufigkeit%20und%20lock-freie%20Datenstrukturen%20zur%20Einhaltung%20harter%20und%20weicher%20Echtzeitanforderungen.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="11 Nebenläufigkeit und lock-freie Datenstrukturen zur Einhaltung harter und weicher Echtzeitanforderungen">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/11%20Nebenl%C3%A4ufigkeit%20und%20lock-freie%20Datenstrukturen%20zur%20Einhaltung%20harter%20und%20weicher%20Echtzeitanforderungen.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/11%20Nebenl%C3%A4ufigkeit%20und%20lock-freie%20Datenstrukturen%20zur%20Einhaltung%20harter%20und%20weicher%20Echtzeitanforderungen.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="12 Übersicht aktueller und künftiger IoT-Produkte und Standards">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/12%20%C3%9Cbersicht%20aktueller%20und%20k%C3%BCnftiger%20IoT-Produkte%20und%20Standards.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/12%20%C3%9Cbersicht%20aktueller%20und%20k%C3%BCnftiger%20IoT-Produkte%20und%20Standards.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="12 Übersicht aktueller und künftiger IoT-Produkte und Standards">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/12%20%C3%9Cbersicht%20aktueller%20und%20k%C3%BCnftiger%20IoT-Produkte%20und%20Standards.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/12%20%C3%9Cbersicht%20aktueller%20und%20k%C3%BCnftiger%20IoT-Produkte%20und%20Standards.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="13 Sensornetzwerke">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/13%20Sensornetzwerke.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/13%20Sensornetzwerke.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="13 Sensornetzwerke">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/13%20Sensornetzwerke.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/13%20Sensornetzwerke.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="14 UI-Technologien und Mensch-Maschine-Schnittstellen für eingebettete Systeme">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/14%20UI-Technologien%20und%20Mensch-Maschine-Schnittstellen%20f%C3%BCr%20eingebettete%20Systeme.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/14%20UI-Technologien%20und%20Mensch-Maschine-Schnittstellen%20f%C3%BCr%20eingebettete%20Systeme.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="14 UI-Technologien und Mensch-Maschine-Schnittstellen für eingebettete Systeme">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/14%20UI-Technologien%20und%20Mensch-Maschine-Schnittstellen%20f%C3%BCr%20eingebettete%20Systeme.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/14%20UI-Technologien%20und%20Mensch-Maschine-Schnittstellen%20f%C3%BCr%20eingebettete%20Systeme.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="15 Datengetriebene Geschäftsmodellee auf der Basis von IoT, Big Data und Cloud">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/15%20Datengetriebene%20Gesch%C3%A4ftsmodellee%20auf%20der%20Basis%20von%20IoT,%20Big%20Data%20und%20Cloud.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/15%20Datengetriebene%20Gesch%C3%A4ftsmodellee%20auf%20der%20Basis%20von%20IoT,%20Big%20Data%20und%20Cloud.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="15 Datengetriebene Geschäftsmodellee auf der Basis von IoT, Big Data und Cloud">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/15%20Datengetriebene%20Gesch%C3%A4ftsmodellee%20auf%20der%20Basis%20von%20IoT,%20Big%20Data%20und%20Cloud.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/15%20Datengetriebene%20Gesch%C3%A4ftsmodellee%20auf%20der%20Basis%20von%20IoT,%20Big%20Data%20und%20Cloud.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="16 Digitale Okösysteme und technische Lösungen zur Kundenbindung">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/16%20Digitale%20Ok%C3%B6systeme%20und%20technische%20L%C3%B6sungen%20zur%20Kundenbindung.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/16%20Digitale%20Ok%C3%B6systeme%20und%20technische%20L%C3%B6sungen%20zur%20Kundenbindung.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Infoblatt" data-name="16 Digitale Okösysteme und technische Lösungen zur Kundenbindung">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/16%20Digitale%20Ok%C3%B6systeme%20und%20technische%20L%C3%B6sungen%20zur%20Kundenbindung.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/16%20Digitale%20Ok%C3%B6systeme%20und%20technische%20L%C3%B6sungen%20zur%20Kundenbindung.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Infoblatt" data-name="17 Von der Idee zum Produkt - Moderne Praktiken der Produktentwicklung">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/17%20Von%20der%20Idee%20zum%20Produkt%20-%20Moderne%20Praktiken%20der%20Produktentwicklung.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/17%20Von%20der%20Idee%20zum%20Produkt%20-%20Moderne%20Praktiken%20der%20Produktentwicklung.odt"></material-link>
-                </wpvs-material-card>
-            </wpvs-container>
-        </page-content>
+            <wpvs-material-card data-type="Infoblatt" data-name="17 Von der Idee zum Produkt - Moderne Praktiken der Produktentwicklung">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/17%20Von%20der%20Idee%20zum%20Produkt%20-%20Moderne%20Praktiken%20der%20Produktentwicklung.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/02-Seminarthemen/17%20Von%20der%20Idee%20zum%20Produkt%20-%20Moderne%20Praktiken%20der%20Produktentwicklung.odt"></material-link>
+            </wpvs-material-card>
+        </wpvs-container>
     </tab-page>
 
-    <!-- Seminararbeit -->
-    <tab-page data-tab-id="seminararbeit">
-        <page-button>
-            Seminararbeit
-        </page-button>
-        <page-content>
-            <wpvs-container>
-                <wpvs-material-card data-type="Dokument" data-name="Vorlage für das Deckblatt">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Vorlage%20f%C3%BCr%20das%20Deckblatt.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Vorlage%20f%C3%BCr%20das%20Deckblatt.odt"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Vorlage%20f%C3%BCr%20das%20Deckblatt.doc"></material-link>
-                </wpvs-material-card>
+    <tab-page data-tab-id="seminararbeit" data-title="Seminararbeit">
+        <wpvs-container>
+            <wpvs-material-card data-type="Dokument" data-name="Vorlage für das Deckblatt">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Vorlage%20f%C3%BCr%20das%20Deckblatt.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Vorlage%20f%C3%BCr%20das%20Deckblatt.odt"></material-link>
+                <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Vorlage%20f%C3%BCr%20das%20Deckblatt.doc"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Ausdruck" data-name="Ablauf der Feedback-Termine">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Ablauf%20der%20Feedback-Termine.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Ablauf%20der%20Feedback-Termine.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Ausdruck" data-name="Ablauf der Feedback-Termine">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Ablauf%20der%20Feedback-Termine.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Ablauf%20der%20Feedback-Termine.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Handout" data-name="Feedback zur Gliederung">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Feedback%20zur%20Gliederung.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Feedback%20zur%20Gliederung.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Handout" data-name="Feedback zur Gliederung">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Feedback%20zur%20Gliederung.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Feedback%20zur%20Gliederung.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Handout" data-name="Anleitung zum Peer-Review">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Anleitung%20zum%20Peer-Review.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Anleitung%20zum%20Peer-Review.odt"></material-link>
-                </wpvs-material-card>
-            </wpvs-container>
-        </page-content>
+            <wpvs-material-card data-type="Handout" data-name="Anleitung zum Peer-Review">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Anleitung%20zum%20Peer-Review.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/03-Seminararbeit/Anleitung%20zum%20Peer-Review.odt"></material-link>
+            </wpvs-material-card>
+        </wpvs-container>
     </tab-page>
 
-    <!-- Projekt -->
-    <tab-page data-tab-id="projekt">
-        <page-button>
-            Projekt
-        </page-button>
-        <page-content>
-            <wpvs-container>
-                <wpvs-material-card data-type="Ausdruck" data-name="Ablauf der Projektfindung">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Ablauf%20der%20Projektfindung.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Ablauf%20der%20Projektfindung.odt"></material-link>
-                </wpvs-material-card>
+    <tab-page data-tab-id="projekt" data-title="Projekt">
+        <wpvs-container>
+            <wpvs-material-card data-type="Ausdruck" data-name="Ablauf der Projektfindung">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Ablauf%20der%20Projektfindung.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Ablauf%20der%20Projektfindung.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Folien" data-name="Gruppenfindung und Themenauswahl">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Gruppenfindung%20und%20Themenauswahl.pdf"></material-link>
-                    <material-link data-icon="icon-file-powerpoint" data-label="ODP" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Gruppenfindung%20und%20Themenauswahl.odp"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Folien" data-name="Gruppenfindung und Themenauswahl">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Gruppenfindung%20und%20Themenauswahl.pdf"></material-link>
+                <material-link data-icon="icon-file-powerpoint" data-label="ODP" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Gruppenfindung%20und%20Themenauswahl.odp"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Ausdruck" data-name="Ablauf des Projekt-KickOff">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Ablauf%20des%20Projekt-KickOff.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Ablauf%20des%20Projekt-KickOff.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Ausdruck" data-name="Ablauf des Projekt-KickOff">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Ablauf%20des%20Projekt-KickOff.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Ablauf%20des%20Projekt-KickOff.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Folien" data-name="KickOff des Projekts">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/KickOff%20des%20Projekts.pdf"></material-link>
-                    <material-link data-icon="icon-file-powerpoint" data-label="ODP" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/KickOff%20des%20Projekts.odp"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Folien" data-name="KickOff des Projekts">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/KickOff%20des%20Projekts.pdf"></material-link>
+                <material-link data-icon="icon-file-powerpoint" data-label="ODP" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/KickOff%20des%20Projekts.odp"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Dokument" data-name="Anforderungen an die Projektidee">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Anforderungen%20an%20die%20Projektidee.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Anforderungen%20an%20die%20Projektidee.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Dokument" data-name="Anforderungen an die Projektidee">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Anforderungen%20an%20die%20Projektidee.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Anforderungen%20an%20die%20Projektidee.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Dokument" data-name="Beispiel einer Projektidee">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Beispiel%20einer%20Projektidee.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Beispiel%20einer%20Projektidee.odt"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Dokument" data-name="Beispiel einer Projektidee">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Beispiel%20einer%20Projektidee.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Beispiel%20einer%20Projektidee.odt"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Dokument" data-name="Vorlage zur Beschreibung der Projektidee">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Vorlage%20zur%20Beschreibung%20der%20Projektidee.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Vorlage%20zur%20Beschreibung%20der%20Projektidee.odt"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Vorlage%20zur%20Beschreibung%20der%20Projektidee.doc"></material-link>
-                </wpvs-material-card>
-            </wpvs-container>
-        </page-content>
+            <wpvs-material-card data-type="Dokument" data-name="Vorlage zur Beschreibung der Projektidee">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Vorlage%20zur%20Beschreibung%20der%20Projektidee.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Vorlage%20zur%20Beschreibung%20der%20Projektidee.odt"></material-link>
+                <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/iot-workshop/04-Projekt/Vorlage%20zur%20Beschreibung%20der%20Projektidee.doc"></material-link>
+            </wpvs-material-card>
+        </wpvs-container>
     </tab-page>
 
-    <!-- Beispiel-Quellcodes -->
-    <tab-page data-tab-id="quellcodes">
-        <page-button>
-            Beispiel-Quellcodes
-        </page-button>
-        <page-content>
-            <wpvs-container>
-                <wpvs-material-card data-type="Quellcode" data-name="Einfaches MQTT-Backend">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/IoT-Grundgeruest/Backend_Simple"></material-link>
-                </wpvs-material-card>
+    <tab-page data-tab-id="quellcodes" data-title="Beispiel-Quellcodes">
+        <wpvs-container>
+            <wpvs-material-card data-type="Quellcode" data-name="Einfaches MQTT-Backend">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/IoT-Grundgeruest/Backend_Simple"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Quellcode" data-name="Einfaches MQTT-Device">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/IoT-Grundgeruest/RaspiApp"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Quellcode" data-name="Einfaches MQTT-Device">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/IoT-Grundgeruest/RaspiApp"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Quellcode" data-name="Hello JavaFX">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/JavaFX/Hello_World"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Quellcode" data-name="Hello JavaFX">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/JavaFX/Hello_World"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Quellcode" data-name="Kioskanwendung für HTML UIs mit JavaFX">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/JavaFX/WebView"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Quellcode" data-name="Kioskanwendung für HTML UIs mit JavaFX">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/JavaFX/WebView"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Quellcode" data-name="GPIO-Programmierung mit pi4j">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/RaspberryPi/Maven_Pi4J"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Quellcode" data-name="GPIO-Programmierung mit pi4j">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/RaspberryPi/Maven_Pi4J"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Quellcode" data-name="Remote-Debugging mit Netbeans und Maven">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/RaspberryPi/Maven_Remote_Debugging"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Quellcode" data-name="Remote-Debugging mit Netbeans und Maven">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/RaspberryPi/Maven_Remote_Debugging"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Quellcode" data-name="Eingebetteter Servlet-Container">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/Server-Technologien/Eingebetteter_Webcontainer"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Quellcode" data-name="Eingebetteter Servlet-Container">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/Server-Technologien/Eingebetteter_Webcontainer"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Quellcode" data-name="Eingebetteter Webserver">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/Server-Technologien/Eingebetteter_Webserver"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Quellcode" data-name="Eingebetteter Webserver">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/Server-Technologien/Eingebetteter_Webserver"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Quellcode" data-name="Eingebetteter REST-Server">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/Server-Technologien/Embedded_Jetty_und_Jersey"></material-link>
-                </wpvs-material-card>
-            </wpvs-container>
-        </page-content>
+            <wpvs-material-card data-type="Quellcode" data-name="Eingebetteter REST-Server">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-git" data-label="Quellcode" data-href="https://github.com/DennisSchulmeister/dhbwka-wwi-iotws-beispiele/tree/master/Server-Technologien/Embedded_Jetty_und_Jersey"></material-link>
+            </wpvs-material-card>
+        </wpvs-container>
     </tab-page>
 
-    <!-- Portfolioprüfung -->
-    <tab-page data-tab-id="portfolioprüfung">
-        <page-button>
-            Portfolioprüfung
-        </page-button>
-        <page-content>
-            <wpvs-container>
-                <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für den Einleitungsbericht">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Einleitungsbericht.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Einleitungsbericht.odt"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Einleitungsbericht.doc"></material-link>
-                </wpvs-material-card>
+    <tab-page data-tab-id="portfolioprüfung" data-title="Portfolioprüfung">
+        <wpvs-container>
+            <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für den Einleitungsbericht">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Einleitungsbericht.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Einleitungsbericht.odt"></material-link>
+                <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Einleitungsbericht.doc"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für den Reflexionsbericht">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
-                    <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Reflexionsbericht.pdf"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Reflexionsbericht.odt"></material-link>
-                    <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Reflexionsbericht.doc"></material-link>
-                </wpvs-material-card>
-            </wpvs-container>
-        </page-content>
+            <wpvs-material-card data-type="Ausdruck" data-name="Vorlage für den Reflexionsbericht">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC0-1.0"></material-meta>
+                <material-link data-icon="icon-file-pdf" data-label="PDF" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Reflexionsbericht.pdf"></material-link>
+                <material-link data-icon="icon-file-word" data-label="ODT" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Reflexionsbericht.odt"></material-link>
+                <material-link data-icon="icon-file-word" data-label="DOC" data-href="https://www.wpvs.de/repo/iot-workshop/06-Portfoliopr%C3%BCfung/Vorlage%20f%C3%BCr%20den%20Reflexionsbericht.doc"></material-link>
+            </wpvs-material-card>
+        </wpvs-container>
     </tab-page>
 
-    <!-- Projektblogs -->
-    <tab-page data-tab-id="blogs">
-        <page-button>
-            Projektblogs
-        </page-button>
-        <page-content>
-            <wpvs-container>
-                <wpvs-material-card data-type="Blog" data-name="Projektblog 2019">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.iot-embedded.de/2019/"></material-link>
-                </wpvs-material-card>
+    <tab-page data-tab-id="blogs" data-title="Projektblogs">
+        <wpvs-container>
+            <wpvs-material-card data-type="Blog" data-name="Projektblog 2021">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.iot-embedded.de/iot-2021/">
+                </material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Blog" data-name="Projektblog 2018">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.iot-embedded.de/2018/"></material-link>
-                </wpvs-material-card>
+            <wpvs-material-card data-type="Blog" data-name="Projektblog 2019">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.iot-embedded.de/iot-2019/"></material-link>
+            </wpvs-material-card>
 
-                <wpvs-material-card data-type="Blog" data-name="Projektblog 2017">
-                    <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
-                    <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
-                    <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.iot-embedded.de/2017/"></material-link>
-                </wpvs-material-card>
-            </wpvs-container>
-        </page-content>
+            <wpvs-material-card data-type="Blog" data-name="Projektblog 2018">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.iot-embedded.de/iot-2018/"></material-link>
+            </wpvs-material-card>
+
+            <wpvs-material-card data-type="Blog" data-name="Projektblog 2017">
+                <material-meta data-label="Sprache" data-value="Deutsch"></material-meta>
+                <material-meta data-label="Lizenz" data-value="CC-BY-4.0"></material-meta>
+                <material-link data-icon="icon-globe" data-label="Onlineansicht" data-href="https://www.iot-embedded.de/iot-2017/"></material-link>
+            </wpvs-material-card>
+        </wpvs-container>
     </tab-page>
 </wpvs-tabs>
