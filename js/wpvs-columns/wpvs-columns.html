@@ -1,0 +1,31 @@
+<style>
+/* Display as block element */
+:host {
+    display: block;
+}
+
+:host([hidden]) {
+    display: none;
+}
+
+/* Use column layout */
+.container {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    column-count: 1; /* Set via JavaScript */
+    column-gap: 2em;
+    orphans: 2;
+    widows: 2;
+}
+
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6 {
+    break-after: avoid;
+}
+</style>

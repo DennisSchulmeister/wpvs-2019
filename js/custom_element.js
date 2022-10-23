@@ -206,7 +206,7 @@ class CustomElement extends HTMLElement {
      * @return {String}
      * The chosen display mode
      */
-     adaptToScreenSize(containerElement, detectScreenSizeElement, config) {
+    adaptToScreenSize(containerElement, detectScreenSizeElement, config) {
         // Read configuration
         if (!containerElement) return;
         if (!config) config = {};
