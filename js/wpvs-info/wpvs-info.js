@@ -23,6 +23,12 @@ import templates from "./wpvs-info.html";
  * @extends CustomElement
  */
 export class WpvsInfoElement extends CustomElement {
+    static #templates;
+
+    static {
+        this.#templates = document.createElement("div");
+        this.#templates.innerHTML = templates;
+    }
 
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -30,9 +36,6 @@ export class WpvsInfoElement extends CustomElement {
      */
     constructor() {
         super();
-
-        this.templates = document.createElement("div");
-        this.templates.innerHTML = templates;
 
         this.postConstruct();
     }
@@ -42,16 +45,16 @@ export class WpvsInfoElement extends CustomElement {
      */
     async _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Apply style
-        let styleElement = this.templates.querySelector("style").cloneNode(true);
+        let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
         // Render content
         let containerElement = document.createElement("div");
         containerElement.classList.add("container");
-        containerElement.innerHTML = this.innerHTML;
+        containerElement.append(...this.childNodes);
         this.sRoot.appendChild(containerElement);
     }
 

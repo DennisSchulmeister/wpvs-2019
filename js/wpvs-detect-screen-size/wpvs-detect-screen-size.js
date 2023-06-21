@@ -45,7 +45,7 @@ export class WpvsDetectScreenSizeElement extends CustomElement {
      */
     _render() {
         // Cannot use the shadowRoot here, as global CSS classes have no effect there!
-        this.innerHTML = "";
+        this.replaceChildren();
 
         this.divPhone = document.createElement("div");
         this.divPhone.classList.add(screenSizePhone);

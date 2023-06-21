@@ -27,6 +27,12 @@ import templates from "./wpvs-material-card.html";
  * @extends CustomElement
  */
 export class WpvsMaterialCardElement extends CustomElement {
+    static #templates;
+
+    static {
+        this.#templates = document.createElement("div");
+        this.#templates.innerHTML = templates;
+    }
 
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -34,9 +40,6 @@ export class WpvsMaterialCardElement extends CustomElement {
      */
     constructor() {
         super();
-
-        this.templates = document.createElement("div");
-        this.templates.innerHTML = templates;
 
         this.postConstruct();
     }
@@ -46,13 +49,13 @@ export class WpvsMaterialCardElement extends CustomElement {
      */
     _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Apply template and styles
-        let cardTemplate = this.templates.querySelector("#card-template").cloneNode(true);
+        let cardTemplate = this.constructor.#templates.querySelector("#card-template").cloneNode(true);
         this.sRoot.innerHTML = cardTemplate.innerHTML;
 
-        let styleElement = this.templates.querySelector("style").cloneNode(true);
+        let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
         // Render header with type and name of card
@@ -60,29 +63,29 @@ export class WpvsMaterialCardElement extends CustomElement {
         this._renderCardName();
 
         // Render meta information
-        let metaTemplate = this.templates.querySelector("#meta-template");
+        let metaTemplate = this.constructor.#templates.querySelector("#meta-template");
         let metaParentElement = this.sRoot.querySelector(".meta");
 
-        this.querySelectorAll("material-meta").forEach(metaElement => {
+        for (let metaElement of this.querySelectorAll("material-meta")) {
             let metaChildElement = metaTemplate.content.firstElementChild.cloneNode(true);
             metaParentElement.appendChild(metaChildElement);
 
             metaChildElement.querySelector(".label").textContent = metaElement.dataset.label + ":";
             metaChildElement.querySelector(".value").textContent = metaElement.dataset.value;
-        });
+        }
 
         // Render download links
-        let linkTemplate = this.templates.querySelector("#link-template");
+        let linkTemplate = this.constructor.#templates.querySelector("#link-template");
         let linkParentElement = this.sRoot.querySelector(".links");
 
-        this.querySelectorAll("material-link").forEach(linkElement => {
+        for (let linkElement of this.querySelectorAll("material-link")) {
             let aElement = linkTemplate.content.firstElementChild.cloneNode(true);
             linkParentElement.appendChild(aElement);
 
             aElement.href = linkElement.dataset.href;
             aElement.querySelector("i").classList.add(linkElement.dataset.icon);
             aElement.querySelector(".label").textContent = linkElement.dataset.label;
-        });
+        }
     }
 
     /**
@@ -108,7 +111,7 @@ export class WpvsMaterialCardElement extends CustomElement {
      * @param {MutationRecord[]} mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
-        mutations.forEach(mutation => {
+        for (let mutation of mutations) {
             switch (mutation.attributeName) {
                 case "data-type":
                     this._renderCardType();
@@ -117,7 +120,7 @@ export class WpvsMaterialCardElement extends CustomElement {
                     this._renderCardName();
                     break;
             }
-        });
+        }
     }
 
 }

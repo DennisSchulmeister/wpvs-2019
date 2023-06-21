@@ -53,10 +53,10 @@ export class WpvsRouterElement extends CustomElement {
      */
     _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Add routes
-        this.querySelectorAll("script").forEach(scriptElement => {
+        for (let scriptElement of this.querySelectorAll("script")) {
             let callback = (url) => {
                 // Show content
                 this.sRoot.innerHTML = scriptElement.innerHTML;
@@ -71,7 +71,7 @@ export class WpvsRouterElement extends CustomElement {
             } else if (scriptElement.dataset.routeFallback) {
                 this._fallback = callback;
             }
-        });
+        }
 
         // Enable routing
         window.addEventListener("hashchange", () => this._handleRouting());

@@ -39,6 +39,13 @@ import templates from "./wpvs-columns.html";
  * @extends CustomElement
  */
 export class WpvsColumnsElement extends CustomElement {
+    static #templates;
+    static #detectScreenSizeElement;
+
+    static {
+        this.#templates = document.createElement("div");
+        this.#templates.innerHTML = templates;
+    }
 
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -47,13 +54,12 @@ export class WpvsColumnsElement extends CustomElement {
     constructor() {
         super();
 
-        this.templates = document.createElement("div");
-        this.templates.innerHTML = templates;
+        if (!this.constructor.#detectScreenSizeElement) {
+            this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+        }
 
-        this._detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
-
-        if (this._detectScreenSizeElement) {
-            this._detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+        if (this.constructor.#detectScreenSizeElement) {
+            this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
         }
 
         this.postConstruct();
@@ -64,18 +70,17 @@ export class WpvsColumnsElement extends CustomElement {
      */
     _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Apply style
-        let styleElement = this.templates.querySelector("style").cloneNode(true);
+        let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
         // Render container
         this.containerElement = document.createElement("container");
         this.containerElement.classList.add("container");
+        this.containerElement.append(...this.childNodes);
         this.sRoot.appendChild(this.containerElement);
-
-        this.containerElement.innerHTML = this.innerHTML;
 
         // Adapt to current viewport size
         this._updateDisplayMode();
@@ -86,7 +91,7 @@ export class WpvsColumnsElement extends CustomElement {
      * @param {MutationRecord[]} mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
-        mutations.forEach(mutation => {
+        for (let mutation of mutations) {
             switch (mutation.attributeName) {
                 case "data-mode":
                 case "data-breakpoint":
@@ -94,7 +99,7 @@ export class WpvsColumnsElement extends CustomElement {
                     this._updateDisplayMode();
                     break;
             }
-        });
+        }
     }
 
     /**
@@ -107,7 +112,7 @@ export class WpvsColumnsElement extends CustomElement {
         if (!containerElement) return;
 
         let columns = this.dataset.columns || 3;
-        let mode = this.adaptToScreenSize(containerElement, this._detectScreenSizeElement);
+        let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
 
         if (mode != "horizontal") {
             columns = 1;

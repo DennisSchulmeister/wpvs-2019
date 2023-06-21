@@ -31,6 +31,13 @@ import templates from "./wpvs-image.html";
  * @extends CustomElement
  */
 export class WpvsImageElement extends CustomElement {
+    static #templates;
+    static #detectScreenSizeElement;
+
+    static {
+        this.#templates = document.createElement("div");
+        this.#templates.innerHTML = templates;
+    }
 
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -39,13 +46,12 @@ export class WpvsImageElement extends CustomElement {
     constructor() {
         super();
 
-        this.templates = document.createElement("div");
-        this.templates.innerHTML = templates;
-
-        this._detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
-
-        if (this._detectScreenSizeElement) {
-            this._detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+        if (!this.constructor.#detectScreenSizeElement) {
+            this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+        }
+        
+        if (this.constructor.#detectScreenSizeElement) {
+            this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
         }
 
         this.postConstruct();
@@ -56,10 +62,10 @@ export class WpvsImageElement extends CustomElement {
      */
     async _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Apply style
-        let styleElement = this.templates.querySelector("style").cloneNode(true);
+        let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
         // Render image
@@ -84,13 +90,13 @@ export class WpvsImageElement extends CustomElement {
      * @param {MutationRecord[]} mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
-        mutations.forEach(mutation => {
+        for (let mutation of mutations) {
             switch (mutation.attributeName) {
                 case "data-breakpoint":
                     this._updateDisplayMode();
                     break;
             }
-        });
+        }
     }
 
     /**
@@ -102,7 +108,7 @@ export class WpvsImageElement extends CustomElement {
         let containerElement = this.sRoot.querySelector("img");
         if (!containerElement) return;
 
-        let mode = this.adaptToScreenSize(containerElement, this._detectScreenSizeElement);
+        let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
     }
 
 }

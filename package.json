@@ -24,6 +24,7 @@
         "src_dir": "src",
         "static_dir": "static",
         "build_dir": "build",
+        "public_url": "",
         "replace_variables_extensions": ".htm; .html"
     },
     "main": "index.js",

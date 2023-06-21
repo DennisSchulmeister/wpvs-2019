@@ -47,7 +47,7 @@ export class WpvsPageElement extends CustomElement {
      */
     async _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Fetch page and render its content
         // See: https://developer.mozilla.org/en-US/docs/Web/API/Request/cache

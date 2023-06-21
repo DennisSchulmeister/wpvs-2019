@@ -199,7 +199,7 @@ class ObservableValue {
      * @param  {Any} oldValue Old value
      */
     _callObservers(newValue, oldValue) {
-        this._bindings.forEach(binding => {
+        for (let binding of this_bindings) {
             switch (binding.type) {
                 case "function":
                     binding.object(newValue, oldValue);
@@ -215,7 +215,7 @@ class ObservableValue {
                     binding.object.html(newValue);
                     break;
             }
-        });
+        }
     }
 }
 

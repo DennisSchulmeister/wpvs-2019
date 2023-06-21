@@ -44,7 +44,7 @@ export class WpvsIconLinkElement extends CustomElement {
      * Render link content
      */
     async _render() {
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         let aElement = document.createElement("a");
         aElement.href = this.getAttribute("href") || "";
@@ -75,7 +75,7 @@ export class WpvsIconLinkElement extends CustomElement {
      * @param {MutationRecord[]} mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
-        mutations.forEach(mutation => {
+        for (let mutation of mutations) {
             switch (mutation.attributeName) {
                 case "icon":
                 case "label":
@@ -84,7 +84,7 @@ export class WpvsIconLinkElement extends CustomElement {
                     this._render();
                     break;
             }
-        });
+        }
     }
 }
 

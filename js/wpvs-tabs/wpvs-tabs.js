@@ -55,6 +55,13 @@ import templates from "./wpvs-tabs.html";
  * @extends CustomElement
  */
 export class WpvsTabsElement extends CustomElement {
+    static #templates;
+    static #detectScreenSizeElement;
+
+    static {
+        this.#templates = document.createElement("div");
+        this.#templates.innerHTML = templates;
+    }
 
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -63,13 +70,12 @@ export class WpvsTabsElement extends CustomElement {
     constructor() {
         super();
 
-        this.templates = document.createElement("div");
-        this.templates.innerHTML = templates;
-
-        this._detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
-
-        if (this._detectScreenSizeElement) {
-            this._detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+        if (!this.constructor.#detectScreenSizeElement) {
+            this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+        }
+        
+        if (this.constructor.#detectScreenSizeElement) {
+            this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
         }
 
         this.postConstruct();
@@ -80,10 +86,10 @@ export class WpvsTabsElement extends CustomElement {
      */
     _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Apply styles
-        let styleElement = this.templates.querySelector("style").cloneNode(true);
+        let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
         // Render container element
@@ -103,7 +109,6 @@ export class WpvsTabsElement extends CustomElement {
         let dropdownArrowElement = document.createElement("div");
         dropdownArrowElement.classList.add("arrow");
         dropdownArrowElement.classList.add("icon-down-open");
-        //dropdownArrowElement.textContent = "⯆";
         dropdownParentElement.appendChild(dropdownArrowElement);
 
         // Render <ul class="button-bar"> for the button bar (horizontal mode)
@@ -132,66 +137,44 @@ export class WpvsTabsElement extends CustomElement {
         // Render page buttons and content
         let index = -1;
 
-        this.querySelectorAll("tab-page").forEach(pageElement => {
+        for (let pageElement of this.querySelectorAll("tab-page")) {
             let active = null;
             index++;
 
-            let tabId = "";
-            if (pageElement.dataset.tabId) tabId = pageElement.dataset.tabId;
+            let tabId = pageElement.dataset.tabId || "";
+            let pageTitle = pageElement.dataset.title || "";
 
             // Render <li class="tab-button" data-index="0" data-tab-id="xxx"> for each button
-            let pageButtonElement = pageElement.querySelector("page-button");
+            let liElement = document.createElement("li");
+            ulElement.appendChild(liElement);
 
-            if (!pageButtonElement) {
-                pageButtonElement = document.createElement("page-button");
-                pageButtonElement.textContent = pageElement.dataset.title || "";
-            }
+            liElement.classList.add("tab-button");
+            liElement.textContent = pageTitle;
+            liElement.dataset.index = index;
+            liElement.dataset.tabId = tabId;
 
-            if (pageButtonElement) {
-                let liElement = document.createElement("li");
-                ulElement.appendChild(liElement);
+            active = pageElement.getAttribute("active");
+            if (active != null) liElement.setAttribute("active", active);
 
-                this.copyAttributes(pageButtonElement, liElement);
-                liElement.classList.add("tab-button");
-                liElement.innerHTML = pageButtonElement.innerHTML;
-                liElement.dataset.index = index;
-                liElement.dataset.tabId = tabId;
-
-                active = pageElement.getAttribute("active");
-                if (active != null) liElement.setAttribute("active", active);
-
-                liElement.addEventListener("click", event => {
-                    this._switchToPage(event.target.dataset.index);
-                });
-            }
+            liElement.addEventListener("click", event => {
+                this._switchToPage(event.target.dataset.index);
+            });
 
             // Render <div data-index="0" data-tab-id="xxx"> for each page
-            let pageContentElement = pageElement.querySelector("page-content");
+            let divElement = document.createElement("div");            
+            divElement.classList.add("page");
+            divElement.dataset.index = index;
+            divElement.dataset.tabId = tabId;
+            divElement.append(...pageElement.childNodes);
+            containerElement.appendChild(divElement);
 
-            if (!pageContentElement) {
-                pageContentElement = document.createElement("div");
-                pageContentElement.innerHTML = pageElement.innerHTML;
-                pageContentElement.querySelectorAll("page-button").forEach(e => e.remove);
-            }
-            
-            if (pageContentElement) {
-                let divElement = document.createElement("div");
-                containerElement.appendChild(divElement);
-
-                this.copyAttributes(pageContentElement, divElement);
-                divElement.classList.add("page");
-                divElement.innerHTML = pageContentElement.innerHTML;
-                divElement.dataset.index = index;
-                divElement.dataset.tabId = tabId;
-
-                if (active != null) {
-                    divElement.setAttribute("active", active);
-                }
+            if (active != null) {
+                divElement.setAttribute("active", active);
             }
 
             // Adapt to initial viewport size
             this._updateDisplayMode();
-        });
+        }
 
         // Switch to the first visible page
         if (this.dataset.activeTab) {
@@ -204,7 +187,7 @@ export class WpvsTabsElement extends CustomElement {
      * @param {MutationRecord[]} mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
-        mutations.forEach(mutation => {
+        for (let mutation of mutations) {
             switch (mutation.attributeName) {
                 case "data-active-tab":
                     this._switchToPageById(this.dataset.activeTab);
@@ -214,7 +197,7 @@ export class WpvsTabsElement extends CustomElement {
                     this._updateDisplayMode();
                     break;
             }
-        });
+        }
     }
 
     /**
@@ -284,7 +267,7 @@ export class WpvsTabsElement extends CustomElement {
         let containerElement = this.sRoot.querySelector(".container");
         if (!containerElement) return;
 
-        let mode = this.adaptToScreenSize(containerElement, this._detectScreenSizeElement);
+        let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
 
         // Hide page menu by default in vertical mode
         let buttonBarElement = this.sRoot.querySelector(".button-bar");

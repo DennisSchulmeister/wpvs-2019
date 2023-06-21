@@ -27,15 +27,18 @@ import templates from "./wpvs-material.html";
  * @extends CustomElement
  */
 export class WpvsMaterialElement extends CustomElement {
+    static #templates;
+
+    static {
+        this.#templates = document.createElement("div");
+        this.#templates.innerHTML = templates;
+    }
 
     /**
      * Constructor as required for custom elements. Also parses the HTML templates.
      */
     constructor() {
         super();
-
-        this.templates = document.createElement("div");
-        this.templates.innerHTML = templates;
 
         this.postConstruct();
     }
@@ -45,21 +48,21 @@ export class WpvsMaterialElement extends CustomElement {
      */
     async _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Apply template and styles
-        let containerTemplate = this.templates.querySelector("#container-template").cloneNode(true);
+        let containerTemplate = this.constructor.#templates.querySelector("#container-template").cloneNode(true);
         this.sRoot.innerHTML = containerTemplate.innerHTML;
         let containerElement = this.sRoot.querySelector(".container");
 
-        let styleElement = this.templates.querySelector("style").cloneNode(true);
+        let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
         // Render content
         this._renderHeader();
 
         let bodyElement = containerElement.querySelector(".body");
-        bodyElement.innerHTML = this.innerHTML;
+        bodyElement.replaceChildren(...this.childNodes);
 
         // Add click event listener
         let headerElement = containerElement.querySelector(".header");
@@ -89,14 +92,14 @@ export class WpvsMaterialElement extends CustomElement {
      * @param {MutationRecord[]} mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
-        mutations.forEach(mutation => {
+        for (let mutation of mutations) {
             switch (mutation.attributeName) {
                 case "icon":
                 case "name":
                     this._renderHeader();
                     break;
             }
-        });
+        }
     }
 }
 

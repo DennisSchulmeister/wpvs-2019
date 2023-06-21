@@ -24,6 +24,12 @@ import templates from "./wpvs-tile.html";
  * @extends CustomElement
  */
 export class WpvsTileElement extends CustomElement {
+    static #templates;
+
+    static {
+        this.#templates = document.createElement("div");
+        this.#templates.innerHTML = templates;
+    }
 
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -31,9 +37,6 @@ export class WpvsTileElement extends CustomElement {
      */
     constructor() {
         super();
-
-        this.templates = document.createElement("div");
-        this.templates.innerHTML = templates;
 
         this.postConstruct();
     }
@@ -43,13 +46,13 @@ export class WpvsTileElement extends CustomElement {
      */
     _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Apply template and styles
-        let cardTemplate = this.templates.querySelector("#tile-template").cloneNode(true);
+        let cardTemplate = this.constructor.#templates.querySelector("#tile-template").cloneNode(true);
         this.sRoot.innerHTML = cardTemplate.innerHTML;
 
-        let styleElement = this.templates.querySelector("style").cloneNode(true);
+        let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
         // Render card content
@@ -60,23 +63,13 @@ export class WpvsTileElement extends CustomElement {
         }
 
         let contentElement = this.sRoot.querySelector(".content");
-        if (this.innerHTML) contentElement.innerHTML = this.innerHTML;
+        if (this.innerHTML) contentElement.replaceChildren(...this.childNodes);
         else contentElement.parentElement.removeChild(contentElement);
 
         if (this.dataset.href) {
             containerElement.addEventListener("click", () => {
                 if (!this.dataset.href) return;
-
-                let aElement = document.createElement("a");
-                aElement.href = this.dataset.href;
-
-                if (this.dataset.target) {
-                    aElement.target = this.dataset.target;
-                }
-
-                let clickEvent = document.createEvent("MouseEvents");
-                clickEvent.initEvent("click", true, true);
-                aElement.dispatchEvent(clickEvent);
+                location.href = this.dataset.href;
             });
         } else {
             containerElement.classList.add("inactive");

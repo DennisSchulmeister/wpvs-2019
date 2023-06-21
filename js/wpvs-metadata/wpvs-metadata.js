@@ -26,15 +26,18 @@ import templates from "./wpvs-metadata.html";
  * @extends CustomElement
  */
 export class WpvsMetadataElement extends CustomElement {
+    static #templates;
+
+    static {
+        this.#templates = document.createElement("div");
+        this.#templates.innerHTML = templates;
+    }
 
     /**
      * Constructor as required for custom elements. Also parses the HTML templates.
      */
     constructor() {
         super();
-
-        this.templates = document.createElement("div");
-        this.templates.innerHTML = templates;
 
         this.postConstruct();
     }
@@ -44,26 +47,26 @@ export class WpvsMetadataElement extends CustomElement {
      */
     async _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Apply template and styles
-        let containerTemplate = this.templates.querySelector("#container-template").cloneNode(true);
+        let containerTemplate = this.constructor.#templates.querySelector("#container-template").cloneNode(true);
         this.sRoot.innerHTML = containerTemplate.innerHTML;
         let containerElement = this.sRoot.querySelector(".container");
 
-        let styleElement = this.templates.querySelector("style").cloneNode(true);
+        let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
         // Render metadata values
-        let valueTemplate = this.templates.querySelector("#value-template");
+        let valueTemplate = this.constructor.#templates.querySelector("#value-template");
 
-        this.querySelectorAll("metadata-value").forEach(valueElement => {
+        for (let valueElement of this.querySelectorAll("metadata-value")) {
             let valueChildElement = valueTemplate.content.firstElementChild.cloneNode(true);
             containerElement.appendChild(valueChildElement);
 
             valueChildElement.querySelector(".label").textContent = (valueElement.getAttribute("label") || "") + ":";
             valueChildElement.querySelector(".value").textContent = valueElement.getAttribute("value") || "";
-        });
+        }
     }
 
 }

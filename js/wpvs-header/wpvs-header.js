@@ -41,6 +41,13 @@ import templates from "./wpvs-header.html";
  * @extends CustomElement
  */
 export class WpvsHeaderElement extends CustomElement {
+    static #templates;
+    static #detectScreenSizeElement;
+
+    static {
+        this.#templates = document.createElement("div");
+        this.#templates.innerHTML = templates;
+    }
 
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -49,13 +56,12 @@ export class WpvsHeaderElement extends CustomElement {
     constructor() {
         super();
 
-        this.templates = document.createElement("div");
-        this.templates.innerHTML = templates;
-
-        this._detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
-
-        if (this._detectScreenSizeElement) {
-            this._detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+        if (!this.constructor.#detectScreenSizeElement) {
+            this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+        }
+        
+        if (this.constructor.#detectScreenSizeElement) {
+            this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
         }
 
         this.postConstruct();
@@ -66,19 +72,19 @@ export class WpvsHeaderElement extends CustomElement {
      */
     _render() {
         // Remove old content
-        this.sRoot.innerHTML = "";
+        this.sRoot.replaceChildren();
 
         // Apply template and styles
-        let headerTemplate = this.templates.querySelector("#header-template").cloneNode(true);
+        let headerTemplate = this.constructor.#templates.querySelector("#header-template").cloneNode(true);
         this.sRoot.innerHTML = headerTemplate.innerHTML;
 
-        let styleElement = this.templates.querySelector("style").cloneNode(true);
+        let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
         this._renderSiteTitle();
         this._renderPageTitle();
 
-        this.sRoot.querySelector(".content").innerHTML = this.innerHTML;
+        this.sRoot.querySelector(".content").replaceChildren(...this.childNodes);
 
         // Adapt to current viewport size
         this._updateDisplayMode();
@@ -107,7 +113,7 @@ export class WpvsHeaderElement extends CustomElement {
      * @param {MutationRecord[]} mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
-        mutations.forEach(mutation => {
+        for (let mutation of mutations) {
             switch (mutation.attributeName) {
                 case "data-site-title":
                     this._renderSiteTitle();
@@ -120,7 +126,7 @@ export class WpvsHeaderElement extends CustomElement {
                     this._updateDisplayMode();
                     break;
             }
-        });
+        }
     }
 
     /**
@@ -132,7 +138,7 @@ export class WpvsHeaderElement extends CustomElement {
         let containerElement = this.sRoot.querySelector(".container");
         if (!containerElement) return;
 
-        let mode = this.adaptToScreenSize(containerElement, this._detectScreenSizeElement);
+        let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
     }
 
 }
