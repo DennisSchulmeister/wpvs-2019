@@ -43,20 +43,23 @@ export function bubble(element, func, data) {
  * This can be used by custom elements to find the nearest elements, that
  * contain a specific configuration required by the custom element.
  * 
- * @param {*} element Starting element whose children a matched first
+ * @param {*} startElement Starting element whose children a matched first
  * @param {*} selector CSS selector string to match the search nodes
  * @returns {Array} Array of all found nodes in the order they were found
  */
-export function upwardsSearch(element, selector) {
+export function upwardsSearch(startElement, selector) {
     let result = [];
 
-    bubble(element, q => {
-        if (q) {
-            q.querySelectorAll(selector).forEach(f => {
-                result.push(f);
-            });
+    bubble(startElement, checkedElement => {
+        if (!checkedElement) return;
+
+        for (let childElement of checkedElement.children) {
+            if (childElement.matches(selector)) {
+                result.push(childElement);
+            }
         }
     });
+
 
     return result;
 }
