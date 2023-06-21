@@ -13,58 +13,30 @@ import CustomElement from "../custom_element.js";
 import {upwardsSearch} from "../dom_utils.js";
 
 /**
- * Custom element <wpvs-macro-define> to define a reusable fragment of HTML
- * code, that can be placed at different positions in the page with the
- * corresponding element <wpvs-macro-insert>.
- *
- *   <wpvs-macro-define data-name="say-hello">
- *      Hello, $username$
- *   </wpvs-macro-define>
- *
- * The macro content is treated as a string that can have variables denoted
- * by $xxx$. Normally, the variable is simply replaced by the content set
- * when inserting the macro. However, if the variable name starts with `url-`
- * the value will automatically be URL encoded. Variables are expanded in
- * a loop until the expansion doesn't change the HTML result anymore. This
- * means, that a variable can contain the name of another variable in its
- * content, and both variables will be expanded.
+ * Custom element `<wpvs-macro-insert>` that can be used to insert a HTML string macro
+ * into the DOM. For this to work, the macro bust be defined somewhere at an outer level
+ * like this. Because when the macro is inserted, its definition is searched by bubbling
+ * up the DOM until a corresponding `<script>` element has been found.
  * 
- * The macro can then be inserted anywhere like this:
+ * ```html
+ * <script type="text/html" data-macro="say-hello">
+ *     Hello, $username$
+ * </script>
+ * ```
  * 
+ * Since it is a script, the browser does not interpret the actual HTML content. The
+ * macro can then be inserted as often as wanted with:
+ * 
+ * ```html
  * <wpvs-macro-insert data-name="say-hello" username="World"></wpvs-macro-insert>
+ * ```
  * 
- * Note, that <wpvs-macro-insert> is a block element whose innerHTML will be
- * set based on the macro definition.
+ * Variables denoted by `$xxx$` will be replaced by the value give to the same named
+ * attribute of `<wpvs-macro-insert>`. If the variable name stats with `url-` its
+ * value will automatically be URL encoded.
  * 
- * When inserting a macro, its definition is search by bubbling the DOM upwards.
- * This is, a recursive search is started, walking the DOM upwards, until either
- * one parent elements contains a corresponding macro definition or no definition
- * is found.
- * 
- * @extends CustomElement
- */
-export class WpvsMacroDefineElement extends CustomElement {
-
-    /**
-     * Constructor as required for custom elements.
-     */
-    constructor() {
-        super(true);
-        this.postConstruct();
-    }
-
-    /**
-     * Make sure, the macro definition is stored in the DOM but remains invisible.
-     */
-    async _render() {
-        this.style.display = "none";
-    }
-
-}
-
-/**
- * Custom element <wpvs-macro-insert>, which is the counter part of the element
- * <wpvs-macro-define>. See the class documentation there for details.
+ * Note, that `<wpvs-macro-insert>` is a block element whose innerHTML will be set
+ * based on the macro definition.
  * 
  * @extends CustomElement
  */
@@ -87,7 +59,8 @@ export class WpvsMacroInsertElement extends CustomElement {
         this.innerHTML = "";
 
         // Find macro definition
-        let query = `wpvs-macro-define[data-name="${this.dataset.name}"]`;
+        // let query = `wpvs-macro-define[data-name="${this.dataset.name}"]`;
+        let query = `script[data-macro="${this.dataset.name}"]`;
         let macroDefinitionElements = upwardsSearch(this.parentElement, query);
         let macroDefinitionElement = undefined;
 
@@ -121,5 +94,4 @@ export class WpvsMacroInsertElement extends CustomElement {
 
 }
 
-window.customElements.define("wpvs-macro-define", WpvsMacroDefineElement);
 window.customElements.define("wpvs-macro-insert", WpvsMacroInsertElement);

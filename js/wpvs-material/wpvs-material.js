@@ -13,7 +13,7 @@ import CustomElement from "../custom_element.js";
 import templates from "./wpvs-material.html";
 
 /**
- * Newer and more compact custom element <wpvs-metadata> to insert a downloadable
+ * Newer and more compact custom element <wpvs-material> to insert a downloadable
  * lecture material into the page. This will initially be rendered as link with a
  * circled icon, which reveals its HTML content as a card when clicked. Example:
  * 
