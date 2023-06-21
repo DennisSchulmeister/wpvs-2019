@@ -182,6 +182,55 @@
     </wpvs-material>
 </wpvs-macro-define>
 
+<wpvs-macro-define data-name="webprog-beispiel-4in1">
+    <wpvs-material icon="icon-file-code" name="$title$">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: $01_label$"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/$01_dir$/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: $02_label$"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/$02_dir$/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: $03_label$"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/$03_dir$/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: $04_label$"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/$04_dir$/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Beispiele/$url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Beispiele/$url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+</wpvs-macro-define>
+
 <wpvs-macro-define data-name="webprog-code">
     <wpvs-material icon="icon-file-code" name="$title$">
         <wpvs-metadata>
@@ -545,10 +594,18 @@
 
                 <wpvs-container data-mode="vertical">
                     <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
+                        data-name   = "webprog-beispiel-4in1"
                         title       = "Gutes Layout, schlechtes Layout"
                         url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Gutes Layout, schlechtes Layout">
+                        url-slug    = "Gutes Layout, schlechtes Layout"
+                        01_label    = "Fixes Layout"
+                        01_dir      = "01 Fixes Layout"
+                        02_label    = "Fluides Layout"
+                        02_dir      = "02 Fluides Layout"
+                        03_label    = "Adaptives Layout"
+                        03_dir      = "03 Adaptives Layout"
+                        04_label    = "Mobile First"
+                        04_dir      = "04 Mobile First">
                     </wpvs-macro-insert>
                     <wpvs-macro-insert
                         data-name   = "webprog-beispiel"
