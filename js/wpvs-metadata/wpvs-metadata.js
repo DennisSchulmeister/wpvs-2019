@@ -46,12 +46,9 @@ export class WpvsMetadataElement extends CustomElement {
      * Render link content
      */
     async _render() {
-        // Remove old content
-        this.sRoot.replaceChildren();
-
         // Apply template and styles
         let containerTemplate = this.constructor.#templates.querySelector("#container-template").cloneNode(true);
-        this.sRoot.innerHTML = containerTemplate.innerHTML;
+        this.sRoot.replaceChildren(...containerTemplate.content.childNodes);
         let containerElement = this.sRoot.querySelector(".container");
 
         let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);

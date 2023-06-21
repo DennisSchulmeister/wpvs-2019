@@ -74,7 +74,7 @@ export class WpvsNavBarElement extends CustomElement {
 
         // Apply template and styles
         let headerTemplate = this.constructor.#templates.querySelector("template").cloneNode(true);
-        this.sRoot.innerHTML = headerTemplate.innerHTML;
+        this.sRoot.replaceChildren(...headerTemplate.content.childNodes);
 
         let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);

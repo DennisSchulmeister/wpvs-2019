@@ -71,12 +71,9 @@ export class WpvsHeaderElement extends CustomElement {
      * Render shadow DOM to display the element.
      */
     _render() {
-        // Remove old content
-        this.sRoot.replaceChildren();
-
         // Apply template and styles
         let headerTemplate = this.constructor.#templates.querySelector("#header-template").cloneNode(true);
-        this.sRoot.innerHTML = headerTemplate.innerHTML;
+        this.sRoot.replaceChildren(...headerTemplate.content.childNodes);
 
         let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);

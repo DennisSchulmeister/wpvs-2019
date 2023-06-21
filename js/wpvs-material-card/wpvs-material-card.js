@@ -48,12 +48,9 @@ export class WpvsMaterialCardElement extends CustomElement {
      * Render shadow DOM to display the element.
      */
     _render() {
-        // Remove old content
-        this.sRoot.replaceChildren();
-
         // Apply template and styles
         let cardTemplate = this.constructor.#templates.querySelector("#card-template").cloneNode(true);
-        this.sRoot.innerHTML = cardTemplate.innerHTML;
+        this.sRoot.replaceChildren(...cardTemplate.content.childNodes);
 
         let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
