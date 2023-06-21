@@ -9,20 +9,21 @@
  */
 "use strict"
 
+import Navigo from "navigo/lib/navigo.js";
 import CustomElement from "../custom_element.js";
 
 /**
- * Custom element <wpvs-router> with a plan and simple single page router.
+ * Custom element <wpvs-router> to integrate the Navigo single page router.
  * This is just a bare-bones implementation with just the very few features
  * needed by this side. Namely to change the page content upon navigation to
- * another URL. For this the router works with HTML templates like so:
+ * another url. For this the router works with HTML templates like so:
  *
  *   <wpvs-router>
- *       <script type="text/html" data-route="/webprog">
- *           <wpvs-page data-src="webprog.html" data-title="…"></wpvs-page>
+ *       <script type="text/html" data-route="/webdev">
+ *           <wpvs-page data-src="webdev.html" data-title="…"></wpvs-page>
  *       </script>
- *       <script type="text/html" data-route="/vertsys">
- *           <wpvs-page data-src="vertsys.html" data-title="…"></wpvs-page>
+ *       <script type="text/html" data-route="/distsys">
+ *           <wpvs-page data-src="distsys.html" data-title="…"></wpvs-page>
  *       </script>
  *   </wpvs-router>
  *
@@ -30,8 +31,7 @@ import CustomElement from "../custom_element.js";
  * their content. Therefor the <wpvs-page> elements will only be instantiated
  * when they are picked up by the router to be placed on the site. For the router
  * to know, when to use which template, the URL pattern given in `data-route`
- * will be used verbatim (no regular expressions, though that would be trivial
- * to implement ...).
+ * will be used. This can be any valid pattern that is understood by Navigo.
  *
  * @extends CustomElement
  */
@@ -43,8 +43,7 @@ export class WpvsRouterElement extends CustomElement {
      */
     constructor() {
         super();
-        this._routes = [];
-        this._fallback = undefined;
+        this._router = null;
         this.postConstruct();
     }
 
@@ -55,45 +54,45 @@ export class WpvsRouterElement extends CustomElement {
         // Remove old content
         this.sRoot.innerHTML = "";
 
+        // Initialize single page router
+        if (this._router) this._router.pause(true);
+        this._router = new Navigo(null, true, "#");
+
         // Add routes
         this.querySelectorAll("script").forEach(scriptElement => {
-            let callback = (url) => {
-                // Show content
-                this.sRoot.innerHTML = scriptElement.innerHTML;
-
-                // Raise event to inform the outside world of the new page
-                let event = new CustomEvent("route-changed", { detail: { route: url, sRoot: this.sRoot } });
-                this.dispatchEvent(event);
-            };
-
             if (scriptElement.dataset.route) {
-                this._routes.push({ url: scriptElement.dataset.route, show: callback });
-            } else if (scriptElement.dataset.routeFallback) {
-                this._fallback = callback;
+                this._router.on(scriptElement.dataset.route, () => {
+                    this.sRoot.innerHTML = scriptElement.innerHTML;
+                });
+            } else {
+                this._router.notFound(() => {
+                    this.sRoot.innerHTML = scriptElement.innerHTML;
+                });
             }
         });
 
-        // Enable routing
-        window.addEventListener("hashchange", () => this._handleRouting());
-        this._handleRouting();
+        this._router.hooks({
+            // before, after, leave, already
+            after: () => {
+                // Activate <a data-navigo> links on the newly loaded page
+                this._router.updatePageLinks();
+
+                // Raise event to inform the outside world of the new page
+                let event = new CustomEvent("route-changed", {
+                    detail: {
+                        route: this._router.lastRouteResolved(),
+                        sRoot: this.sRoot,
+                    }
+                });
+
+                this.dispatchEvent(event);
+            },
+        });
+
+        // Resolve first route
+        this._router.resolve();
     }
 
-    /**
-     * The actual single page router. Analyzes the URL hash tag to find a route and then
-     * calls the corresponding callback function. Can you believe it? A full SPA router
-     * in six lines with no external dependencies. Want regular expressions? Just change
-     * three lines. Look, young folks: That's how you pull it off! :-)
-     */
-    _handleRouting() {
-        let url = location.hash.slice(1);
-        if (url.length === 0) url = "/";
-
-        let route = this._routes.find(p => p.url === url);
-
-        if (route) route.show(url);
-        else if (this._fallback) this._fallback(url);
-        else if (!this._fallback) console.error(`No route found for URL '${url}'`);
-    }
 }
 
 window.customElements.define("wpvs-router", WpvsRouterElement);
