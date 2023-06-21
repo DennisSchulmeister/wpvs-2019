@@ -1,13 +1,283 @@
-<!-- Makros -->
+{define vertsys-planung}
+    <wpvs-material icon="icon-book" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC0 1.0"></metadata-value>
+        </wpvs-metadata>
 
-<!-- Seiteninhalt -->
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-file-pdf"
+                label  = "PDF-Version herunterladen"
+                href   = "repo/vertsys/vorlesungen/{url-file}.pdf"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-file-word"
+                label  = "LibreOffice-Dokument herunterladen"
+                href   = "repo/vertsys/vorlesungen/{url-file}.odt"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
+{define vertsys-lehrbuch}
+    <wpvs-material icon="icon-book" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="HTML"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht"
+                href   = "repo/vertsys/folien/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-folien/tree/master/static/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
+{define vertsys-aufgabe}
+    <wpvs-material icon="icon-file-code" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <h5>Aufgabenstellung</h5>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht des Aufgabenblatts"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Aufgaben/{url-slug}/Beschreibung/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht der Musterlösung"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Aufgaben/{url-slug}/Loesung/"
+                target = "_blank">
+            </wpvs-icon-link>
+
+            <h5>Quellcode</h5>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
+{define vertsys-aufgabe-blatt}
+    <wpvs-material icon="icon-file-code" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Format" value="HTML"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz" value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link icon="icon-globe" label="Onlineansicht des Aufgabenblatts"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Aufgaben/{url-slug}/Beschreibung/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}/Beschreibung"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
+{define vertsys-aufgabe-java}
+    <wpvs-material icon="icon-file-code" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <h5>Aufgabe</h5>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug1}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug1}"
+                target = "_blank">
+            </wpvs-icon-link>
+
+            <h5>Lösung</h5>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug2}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug2}"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
+{define vertsys-beispiel}
+    <wpvs-material icon="icon-file-code" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
+{define vertsys-beispiel-4in1}
+    <wpvs-material icon="icon-file-code" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {01-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/{01-url}/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {02-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/{02-url}/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {03-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/{03-url}/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {04-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/{04-url}/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
+{define vertsys-code}
+    <wpvs-material icon="icon-file-code" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
+{define youtube-video}
+    <wpvs-material icon="icon-youtube" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Sprache" value="{language}"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-icon-link
+            icon   = "icon-globe"
+            label  = "Link zu Youtube"
+            href   = "https://youtu.be/{videoid}"
+            target = "_blank">
+        </wpvs-icon-link>
+    </wpvs-material>
+{enddefine}
+
 <wpvs-tabs data-active-tab="intro">
     <tab-page data-tab-id="intro" data-title="Beschreibung">
         <wpvs-container>
             <section style="flex: 1;">
                 <h2>Inhalt der Vorlesung</h2>
                 <p>
-                    Die Vorlesung „Webprogrammierung“ des dritten Semesters
+                    Die Vorlesung „vertsysrammierung“ des dritten Semesters
                     Wirtschaftsinformatik bildet zusammen mit „Verteilte Systeme“ im
                     vierten Semester das Modul „Entwicklung verteilter Systeme“, durch
                     welches die Programmierschiene des Studiums fortgeführt wird.
@@ -75,25 +345,14 @@
 
         <h2>Vorlesungsplanung</h2>
         <wpvs-container>
-            <section style="flex: 1;">
-                <wpvs-info>
-                    Für die neue Version der Vorlesung leider noch nicht vorhanden.
-                </wpvs-info>
-                <!--
+            <section style="flex: 1;">                
                 <h4>Semesterstart</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "vertsys-planung"
-                        title     = "Planungsübersicht 2022"
-                        url-file  = "00 Planungsübersicht 2022">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "vertsys-planung"
-                        title     = "Semesterstart und Grundlagen des Web"
-                        url-file  = "01 Semesterstart und Grundlagen des Web">
-                    </wpvs-macro-insert>
-                -->
+                    {insert vertsys-planung}
+                        title     = Semesterstart
+                        url-file  = 01 Semesterstart
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -126,16 +385,14 @@
                 <h4>Selbststudium</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "vertsys-lehrbuch"
-                        title     = "Gesamtes Lehrbuch"
-                        url-slug  = "">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "vertsys-lehrbuch"
-                        title     = "Kapitel im Onlinelehrbuch"
-                        url-slug  = "1-grundlagen/begriffe/2">
-                    </wpvs-macro-insert>
+                    {insert vertsys-lehrbuch}
+                        title     = Gesamtes Lehrbuch
+                        url-slug  =
+                    {endinsert}
+                    {insert vertsys-lehrbuch}
+                        title     = Kapitel im Onlinelehrbuch
+                        url-slug  = 1-grundlagen/begriffe/2
+                    {endinsert}
                 </wpvs-container>
             </section>
 

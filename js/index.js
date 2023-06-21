@@ -22,7 +22,6 @@ import "./wpvs-header/wpvs-header.js";
 import "./wpvs-icon-link/wpvs-icon-link.js";
 import "./wpvs-image/wpvs-image.js";
 import "./wpvs-info/wpvs-info.js";
-import "./wpvs-macro/wpvs-macro.js";
 import "./wpvs-material/wpvs-material.js";
 import "./wpvs-material-card/wpvs-material-card.js";
 import "./wpvs-metadata/wpvs-metadata.js";

@@ -10,7 +10,7 @@
         "url": "git@github.com:DennisSchulmeister/wpvs-2019.git"
     },
     "scripts": {
-        "_build:static": "node scripts/build-static.js",
+        "_build:static": "node scripts/build-static.mjs",
         "_build:webpack": "webpack --mode production",
         "_watch:static": "watch-run -p 'static/**' npm run build:static",
         "_webpack:serve": "webpack serve --mode development --static-directory build/",

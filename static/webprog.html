@@ -1,6 +1,5 @@
-<!-- Makros -->
-<script type="text/html" data-macro="webprog-planung">
-    <wpvs-material icon="icon-book" name="$title$">
+{define webprog-planung}
+    <wpvs-material icon="icon-book" name="{title}">
         <wpvs-metadata>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
             <metadata-value label="Lizenz"  value="CC0 1.0"></metadata-value>
@@ -10,21 +9,21 @@
             <wpvs-icon-link
                 icon   = "icon-file-pdf"
                 label  = "PDF-Version herunterladen"
-                href   = "repo/webprog/vorlesungen/$url-file$.pdf"
+                href   = "repo/webprog/vorlesungen/{url-file}.pdf"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-file-word"
                 label  = "LibreOffice-Dokument herunterladen"
-                href   = "repo/webprog/vorlesungen/$url-file$.odtf"
+                href   = "repo/webprog/vorlesungen/{url-file}.odt"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
     </wpvs-material>
-</script>
+{enddefine}
 
-<script type="text/html" data-macro="webprog-lehrbuch">
-    <wpvs-material icon="icon-book" name="$title$">
+{define webprog-lehrbuch}
+    <wpvs-material icon="icon-book" name="{title}">
         <wpvs-metadata>
             <metadata-value label="Format"  value="HTML"></metadata-value>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
@@ -35,21 +34,21 @@
             <wpvs-icon-link
                 icon   = "icon-globe"
                 label  = "Onlineansicht"
-                href   = "repo/webprog/folien/$url-slug$"
+                href   = "repo/webprog/folien/{url-slug}"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/$url-slug$"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/{url-slug}"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
     </wpvs-material>
-</script>
+{enddefine}
 
-<script type="text/html" data-macro="webprog-aufgabe">
-    <wpvs-material icon="icon-file-code" name="$title$">
+{define webprog-aufgabe}
+    <wpvs-material icon="icon-file-code" name="{title}">
         <wpvs-metadata>
             <metadata-value label="Format"  value="Quellcode"></metadata-value>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
@@ -61,13 +60,13 @@
             <wpvs-icon-link
                 icon   = "icon-globe"
                 label  = "Onlineansicht des Aufgabenblatts"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Aufgaben/$url-slug$/Beschreibung/"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Aufgaben/{url-slug}/Beschreibung/"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-globe"
                 label  = "Onlineansicht der Musterlösung"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Aufgaben/$url-slug$/Loesung/"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Aufgaben/{url-slug}/Loesung/"
                 target = "_blank">
             </wpvs-icon-link>
 
@@ -75,21 +74,21 @@
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug$"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-beaker"
                 label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug$"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
     </wpvs-material>
-</script>
+{enddefine}
 
-<script type="text/html" data-macro="webprog-aufgabe-blatt">
-    <wpvs-material icon="icon-file-code" name="$title$">
+{define webprog-aufgabe-blatt}
+    <wpvs-material icon="icon-file-code" name="{title}">
         <wpvs-metadata>
             <metadata-value label="Format" value="HTML"></metadata-value>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
@@ -98,21 +97,21 @@
 
         <wpvs-container data-mode="vertical">
             <wpvs-icon-link icon="icon-globe" label="Onlineansicht des Aufgabenblatts"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Aufgaben/$url-slug$/Beschreibung/"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Aufgaben/{url-slug}/Beschreibung/"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug$/Beschreibung"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}/Beschreibung"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
     </wpvs-material>
-</script>
+{enddefine}
 
-<script type="text/html" data-macro="webprog-aufgabe-java">
-    <wpvs-material icon="icon-file-code" name="$title$">
+{define webprog-aufgabe-java}
+    <wpvs-material icon="icon-file-code" name="{title}">
         <wpvs-metadata>
             <metadata-value label="Format"  value="Quellcode"></metadata-value>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
@@ -124,13 +123,13 @@
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug1$"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug1}"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-beaker"
                 label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug1$"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug1}"
                 target = "_blank">
             </wpvs-icon-link>
 
@@ -138,21 +137,21 @@
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug2$"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug2}"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-beaker"
                 label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Aufgaben/$url-slug2$"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug2}"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
     </wpvs-material>
-</script>
+{enddefine}
 
-<script type="text/html" data-macro="webprog-beispiel">
-    <wpvs-material icon="icon-file-code" name="$title$">
+{define webprog-beispiel}
+    <wpvs-material icon="icon-file-code" name="{title}">
         <wpvs-metadata>
             <metadata-value label="Format"  value="Quellcode"></metadata-value>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
@@ -163,27 +162,27 @@
             <wpvs-icon-link
                 icon   = "icon-globe"
                 label  = "Onlineansicht"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Beispiele/$url-slug$"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-beaker"
                 label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Beispiele/$url-slug$"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
     </wpvs-material>
-</script>
+{enddefine}
 
-<script type="text/html" data-macro="webprog-beispiel-4in1">
-    <wpvs-material icon="icon-file-code" name="$title$">
+{define webprog-beispiel-4in1}
+    <wpvs-material icon="icon-file-code" name="{title}">
         <wpvs-metadata>
             <metadata-value label="Format"  value="Quellcode"></metadata-value>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
@@ -193,46 +192,46 @@
         <wpvs-container data-mode="vertical">
             <wpvs-icon-link
                 icon   = "icon-globe"
-                label  = "Onlineansicht: $label-01$"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/$url-01$/"
+                label  = "Onlineansicht: {01-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{01-url}/"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-globe"
-                label  = "Onlineansicht: $label-02$"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/$url-02$/"
+                label  = "Onlineansicht: {02-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{02-url}/"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-globe"
-                label  = "Onlineansicht: $label-03$"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/$url-03$/"
+                label  = "Onlineansicht: {03-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{03-url}/"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-globe"
-                label  = "Onlineansicht: $label-04$"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/$url-chapter$/Beispiele/$url-slug$/$url-04$/"
+                label  = "Onlineansicht: {04-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{04-url}/"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Beispiele/$url-slug$"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-beaker"
                 label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/Beispiele/$url-slug$"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
     </wpvs-material>
-</script>
+{enddefine}
 
-<script type="text/html" data-macro="webprog-code">
-    <wpvs-material icon="icon-file-code" name="$title$">
+{define webprog-code}
+    <wpvs-material icon="icon-file-code" name="{title}">
         <wpvs-metadata>
             <metadata-value label="Format"  value="Quellcode"></metadata-value>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
@@ -243,20 +242,35 @@
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/$url-slug$"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/{url-slug}"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-beaker"
                 label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/$url-chapter$/url-slug$"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/url-slug$"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
     </wpvs-material>
-</script>
+{enddefine}
 
-<!-- Seiteninhalt -->
+{define youtube-video}
+    <wpvs-material icon="icon-youtube" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Sprache" value="{language}"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-icon-link
+            icon   = "icon-globe"
+            label  = "Link zu Youtube"
+            href   = "https://youtu.be/{videoid}"
+            target = "_blank">
+        </wpvs-icon-link>
+    </wpvs-material>
+{enddefine}
+
 <wpvs-tabs data-active-tab="intro">
     <tab-page data-tab-id="intro" data-title="Beschreibung">
         <wpvs-container>
@@ -333,16 +347,14 @@
                 <h4>Semesterstart</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "Planungsübersicht 2022"
-                        url-file  = "00 Planungsübersicht 2022">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "Semesterstart und Grundlagen des Web"
-                        url-file  = "01 Semesterstart und Grundlagen des Web">
-                    </wpvs-macro-insert>
+                    {insert webprog-planung}
+                        title     = Planungsübersicht 2022
+                        url-file  = 00 Planungsübersicht 2022
+                    {endinsert}
+                    {insert webprog-planung}
+                        title     = Semesterstart und Grundlagen des Web
+                        url-file  = 01 Semesterstart und Grundlagen des Web
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -350,16 +362,14 @@
                 <h4>HTML und CSS</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "Aufgabe Dashboard-Kacheln"
-                        url-file  = "02 Aufgabe Dashboard-Kacheln">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "Übungsstunde zu HTML und CSS"
-                        url-file  = "03 Übungsstunde zu HTML und CSS">
-                    </wpvs-macro-insert>
+                    {insert webprog-planung}
+                        title     = Aufgabe Dashboard-Kacheln
+                        url-file  = 02 Aufgabe Dashboard-Kacheln
+                    {endinsert}
+                    {insert webprog-planung}
+                        title     = Übungsstunde zu HTML und CSS
+                        url-file  = 03 Übungsstunde zu HTML und CSS
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -367,21 +377,18 @@
                 <h4>Responsive Webdesign</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "Resonsive Webdesign mit Media Queries"
-                        url-file  = "04 Resonsive Webdesign mit Media Queries">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "UI-Entwicklung mit Bootstrap"
-                        url-file  = "05 UI-Entwicklung mit Bootstrap">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "Übungsstunde zu Responsive Webdesign"
-                        url-file  = "06 Übungsstunde zu Responsive Webdesign">
-                    </wpvs-macro-insert>
+                    {insert webprog-planung}
+                        title     = Responsive Webdesign mit Media Queries
+                        url-file  = 04 Responsive Webdesign mit Media Queries
+                    {endinsert}
+                    {insert webprog-planung}
+                        title     = UI-Entwicklung mit Bootstrap
+                        url-file  = 05 UI-Entwicklung mit Bootstrap
+                    {endinsert}
+                    {insert webprog-planung}
+                        title     = Übungsstunde zu Responsive Webdesign
+                        url-file  = 06 Übungsstunde zu Responsive Webdesign
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -389,26 +396,22 @@
                 <h4>JavaScript</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "Einführung in JavaScript"
-                        url-file  = "07 Einführung in JavaScript">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = " Übungsstunde zur DOM-Manipulation mit JavaScript"
-                        url-file  = "08 Übungsstunde zur DOM-Manipulation mit JavaScript">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "Modernes JavaScript"
-                        url-file  = "09 Modernes JavaScript">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "webprog-planung"
-                        title     = "App-Entwicklung mit JavaScript"
-                        url-file  = "10 App-Entwicklung mit JavaScript">
-                    </wpvs-macro-insert>
+                    {insert webprog-planung}
+                        title     = Einführung in JavaScript
+                        url-file  = 07 Einführung in JavaScript
+                    {endinsert}
+                    {insert webprog-planung}
+                        title     = Übungsstunde zur DOM-Manipulation mit JavaScript
+                        url-file  = 08 Übungsstunde zur DOM-Manipulation mit JavaScript
+                    {endinsert}
+                    {insert webprog-planung}
+                        title     = Modernes JavaScript
+                        url-file  = 09 Modernes JavaScript
+                    {endinsert}
+                    {insert webprog-planung}
+                        title     = App-Entwicklung mit JavaScript
+                        url-file  = 10 App-Entwicklung mit JavaScript
+                    {endinsert}
                 </wpvs-container>
             </section>
         </wpvs-container>
@@ -421,16 +424,14 @@
                 <h4>Selbststudium</h4>
                 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-lehrbuch"
-                        title     = "Gesamtes Lehrbuch"
-                        url-slug  = "">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "webprog-lehrbuch"
-                        title     = "Kapitel im Onlinelehrbuch"
-                        url-slug  = "1-grundlagen/">
-                    </wpvs-macro-insert>
+                    {insert webprog-lehrbuch}
+                        title     = Gesamtes Lehrbuch
+                        url-slug  =
+                    {endinsert}
+                    {insert webprog-lehrbuch}
+                        title     = Kapitel im Onlinelehrbuch
+                        url-slug  = 1-grundlagen/
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -438,16 +439,14 @@
                 <h4>Vorlesung</h4>
                 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-lehrbuch"
-                        title     = "Vorstellung des Dozenten"
-                        url-slug  = "0-vorstellung-dennis/">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "webprog-lehrbuch"
-                        title     = "Einführung in die Vorlesung"
-                        url-slug  = "0-intro/">
-                </wpvs-macro-insert>
+                    {insert webprog-lehrbuch}
+                        title     = Vorstellung des Dozenten
+                        url-slug  = 0-vorstellung-dennis/
+                    {endinsert}
+                    {insert webprog-lehrbuch}
+                        title     = Einführung in die Vorlesung
+                        url-slug  = 0-intro/
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -457,12 +456,11 @@
                 <h4>Videos</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "HTTP-Anfragen ohne Browser testen"
-                        language  = "Deutsch"
-                        videoid   = "qnPutbEmkWA">
-                    </wpvs-macro-insert>
+                    {insert youtube-video}
+                        title     = HTTP-Anfragen ohne Browser testen
+                        language  = Deutsch
+                        videoid   = qnPutbEmkWA
+                    {endinsert}
                 </wpvs-container>
             </section>
         </wpvs-container>
@@ -473,11 +471,10 @@
                 <h4>Selbststudium</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-lehrbuch"
-                        title     = "Kapitel im Onlinelehrbuch"
-                        url-slug  = "2-html_css/">
-                    </wpvs-macro-insert>
+                    {insert webprog-lehrbuch}
+                        title     = Kapitel im Onlinelehrbuch
+                        url-slug  = 2-html_css/
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -485,30 +482,26 @@
                 <h4>Beispiele</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "HTML-Syntax"
-                        url-chapter = "1 HTML und CSS"
-                        url-slug    = "HTML-Syntax">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Strukturgebende Elemente"
-                        url-chapter = "1 HTML und CSS"
-                        url-slug    = "Strukturgebende Elemente">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Parallax-Effekt"
-                        url-chapter = "1 HTML und CSS"
-                        url-slug    = "Parallax-Effekt">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-code"
-                        title       = "Static Website Generator"
-                        url-chapter = "1 HTML und CSS"
-                        url-slug    = "Beiepiele/Static Website Generator">
-                    </wpvs-macro-insert>
+                    {insert webprog-beispiel}
+                        title       = HTML-Syntax
+                        url-chapter = 1 HTML und CSS
+                        url-slug    = HTML-Syntax
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Strukturgebende Elemente
+                        url-chapter = 1 HTML und CSS
+                        url-slug    = Strukturgebende Elemente
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Parallax-Effekt
+                        url-chapter = 1 HTML und CSS
+                        url-slug    = Parallax-Effekt
+                    {endinsert}
+                    {insert webprog-code}
+                        title       = Static Website Generator
+                        url-chapter = 1 HTML und CSS
+                        url-slug    = Beispiele/Static Website Generator"
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -516,36 +509,31 @@
                 <h4>Aufgaben</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Neue HTML-Datei"
-                        url-chapter = "1 HTML und CSS"
-                        url-slug    = "Neue HTML-Datei">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Dashboard-Kacheln"
-                        url-chapter = "1 HTML und CSS"
-                        url-slug    = "Dashboard-Kacheln">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Joe Cocker"
-                        url-chapter = "1 HTML und CSS"
-                        url-slug    = "Joe Cocker">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Urlaub in Kanada"
-                        url-chapter = "1 HTML und CSS"
-                        url-slug    = "Urlaub in Kanada">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "npmjs.com"
-                        url-chapter = "1 HTML und CSS"
-                        url-slug    = "npmjs.com">
-                    </wpvs-macro-insert>
+                    {insert webprog-aufgabe}
+                        title       = Neue HTML-Datei
+                        url-chapter = 1 HTML und CSS
+                        url-slug    = Neue HTML-Datei
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Dashboard-Kacheln
+                        url-chapter = 1 HTML und CSS
+                        url-slug    = Dashboard-Kacheln
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Joe Cocker
+                        url-chapter = 1 HTML und CSS
+                        url-slug    = Joe Cocker
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Urlaub in Kanada
+                        url-chapter = 1 HTML und CSS
+                        url-slug    = Urlaub in Kanada
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = npmjs.com
+                        url-chapter = 1 HTML und CSS
+                        url-slug    = npmjs.com
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -553,24 +541,21 @@
                 <h4>Videos</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Grundlegender Aufbau einer Webseite"
-                        language  = "Deutsch"
-                        videoid   = "Kkimbj_cvo4">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Nutzung eines lokalen Webservers"
-                        language  = "Deutsch"
-                        videoid   = "FijXwFMqrVc">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Strukturgebende HTML-Elemente"
-                        language  = "Deutsch"
-                        videoid   = "OE6yR7qzsYc">
-                    </wpvs-macro-insert>
+                    {insert youtube-video}
+                        title     = Grundlegender Aufbau einer Webseite
+                        language  = Deutsch
+                        videoid   = Kkimbj_cvo4
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = Nutzung eines lokalen Webservers
+                        language  = Deutsch
+                        videoid   = FijXwFMqrVc
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = Strukturgebende HTML-Elemente
+                        language  = Deutsch
+                        videoid   = OE6yR7qzsYc
+                    {endinsert}
                 </wpvs-container>
             </section>
         </wpvs-container>
@@ -581,11 +566,10 @@
                 <h4>Selbststudium</h4>
                 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-lehrbuch"
-                        title     = "Kapitel im Onlinelehrbuch"
-                        url-slug  = "3-responsive/">
-                    </wpvs-macro-insert>
+                    {insert webprog-lehrbuch}
+                        title     = Kapitel im Onlinelehrbuch
+                        url-slug  = 3-responsive/
+                    {endinsert}
                 </wpvs-container>
             </section>
             
@@ -593,50 +577,44 @@
                 <h4>Beispiele</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel-4in1"
-                        title       = "Gutes Layout, schlechtes Layout"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Gutes Layout, schlechtes Layout"
-                        label-01    = "Fixes Layout"
-                        url-01      = "01 Fixes Layout"
-                        label-02    = "Fluides Layout"
-                        url-02      = "02 Fluides Layout"
-                        label-03    = "Adaptives Layout"
-                        url-03      = "03 Adaptives Layout"
-                        label-04    = "Mobile First"
-                        url-04      = "04 Mobile First">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Unterschiedliche Anordnung"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Unterschiedliche Anordnung">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Hamburger-Menü"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Hamburger-Menue">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Vollbild-Menü"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Vollbild-Menue">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Youtube"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Youtube">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Music App"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Music App">
-                    </wpvs-macro-insert>
+                    {insert webprog-beispiel-4in1}
+                        title       = Gutes Layout, schlechtes Layout
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Gutes Layout, schlechtes Layout
+                        01-label    = Fixes Layout
+                        01-url      = 01 Fixes Layout
+                        02-label    = Fluides Layout
+                        02-url      = 02 Fluides Layout
+                        03-label    = Adaptives Layout
+                        03-url      = 03 Adaptives Layout
+                        04-label    = Mobile First
+                        04-url      = 04 Mobile First
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Unterschiedliche Anordnung
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Unterschiedliche Anordnung
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Hamburger-Menü
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Hamburger-Menue
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Vollbild-Menü
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Vollbild-Menue
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Youtube
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Youtube
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Music App
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Music App
+                    {endinsert}
                 </wpvs-container>
             </section>
             
@@ -644,54 +622,46 @@
                 <h4>Aufgaben</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Media Query"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Media Query">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Mobile Bildergallerie"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Mobile Bildergallerie">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "CSS-Grid mit Bootstrap"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "CSS-Grid mit Bootstrap">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Responsive Webdesign mit Bootstrap"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Responsive Webdesign mit Bootstrap">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Astructio Retis AG"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Astructio Retis AG">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Wordstrap"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Wordstrap">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Bitkits"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "Bitkits">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "GNOME-Projekt"
-                        url-chapter = "2 Responsive Webdesign"
-                        url-slug    = "GNOME-Projekt">
-                    </wpvs-macro-insert>
+                    {insert webprog-aufgabe}
+                        title       = Media Query
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Media Query
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Mobile Bildergalerie
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Mobile Bildergalerie
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = CSS-Grid mit Bootstrap
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = CSS-Grid mit Bootstrap
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Responsive Webdesign mit Bootstrap
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Responsive Webdesign mit Bootstrap
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Astructio Retis AG
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Astructio Retis AG
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Wordstrap
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Wordstrap
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Bitkits
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = Bitkits
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = GNOME-Projekt
+                        url-chapter = 2 Responsive Webdesign
+                        url-slug    = GNOME-Projekt
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -699,30 +669,26 @@
                 <h4>Videos</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Die Entwicklungswerkzeuge des Browsers"
-                        language  = "Deutsch"
-                        videoid   = "R_2MxFEVz90">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Der Responsive-Design-Modus des Browsers"
-                        language  = "Deutsch"
-                        videoid   = "S6BUceg7UZo">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Entwicklung nach dem Mobile-First-Prinzip"
-                        language  = "Deutsch"
-                        videoid   = "B-FGa6XzKc8">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Kurzvorstellung des Bootstrap-Frameworks"
-                        language  = "Deutsch"
-                        videoid   = "HSU9rqpZcfs">
-                    </wpvs-macro-insert>
+                    {insert youtube-video}
+                        title     = Die Entwicklungswerkzeuge des Browsers
+                        language  = Deutsch
+                        videoid   = R_2MxFEVz90
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = Der Responsive-Design-Modus des Browsers
+                        language  = Deutsch
+                        videoid   = S6BUceg7UZo
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = Entwicklung nach dem Mobile-First-Prinzip
+                        language  = Deutsch
+                        videoid   = B-FGa6XzKc8
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = Kurzvorstellung des Bootstrap-Frameworks
+                        language  = Deutsch
+                        videoid   = HSU9rqpZcfs
+                    {endinsert}
                 </wpvs-container>
             </section>
         </wpvs-container>
@@ -733,11 +699,10 @@
                 <h4>Selbststudium</h4>
                 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-lehrbuch"
-                        title     = "Kapitel im Onlinelehrbuch"
-                        url-slug  = "4-js-grundlagen/">
-                    </wpvs-macro-insert>
+                    {insert webprog-lehrbuch}
+                        title    = Kapitel im Onlinelehrbuch
+                        url-slug = 4-js-grundlagen/
+                    {endinsert}
                 </wpvs-container>
             </section>
             
@@ -745,48 +710,41 @@
                 <h4>Beispiele</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Syntaxbeispiele"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Syntaxbeispiele">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Event Listener"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Event Listener">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Tabreiter umschalten"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Tabreiter umschalten">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Formulareingaben prüfen"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Formulareingaben prüfen">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Google Firebase"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Google Firebase">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "Socketserver"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Socketserver">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-beispiel"
-                        title       = "MobiDict"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "MobiDict">
-                    </wpvs-macro-insert>
+                    {insert webprog-beispiel}
+                        title       = Syntaxbeispiele
+                        url-chapter = 3 JavaScript
+                        url-slug    = Syntaxbeispiele
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Event Listener
+                        url-chapter = 3 JavaScript
+                        url-slug    = Event Listener
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Tabreiter umschalten
+                        url-chapter = 3 JavaScript
+                        url-slug    = Tabreiter umschalten
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Formulareingaben prüfen
+                        url-chapter = 3 JavaScript
+                        url-slug    = Formulareingaben prüfen
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Google Firebase
+                        url-chapter = 3 JavaScript
+                        url-slug    = Google Firebase
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = Socketserver
+                        url-chapter = 3 JavaScript
+                        url-slug    = Socketserver
+                    {endinsert}
+                    {insert webprog-beispiel}
+                        title       = MobiDict
+                        url-chapter = 3 JavaScript
+                        url-slug    = MobiDict
+                    {endinsert}
                 </wpvs-container>
             </section>
             
@@ -794,60 +752,51 @@
                 <h4>Aufgaben</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Code-Schnippsel"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Code-Schnippsel">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe-blatt"
-                        title       = "TwoStep"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "TwoStep">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Hamburger-Menu"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Hamburger-Menu">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "SPA-Router"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "SPA-Router">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Eliza.js"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Eliza.js">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Fotobuch"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Fotobuch">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Media Player"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Media Player">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Adressbuch (Single Page App)"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Adressbuch (Single Page App)">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe"
-                        title       = "Adressbuch (Serverseitige Webanwendung)"
-                        url-chapter = "3 JavaScript"
-                        url-slug    = "Adressbuch (Serverseitige Webanwendung)">
-                    </wpvs-macro-insert>
+                    {insert webprog-aufgabe}
+                        title       = Code-Schnippsel
+                        url-chapter = 3 JavaScript
+                        url-slug    = Code-Schnippsel
+                    {endinsert}
+                    {insert webprog-aufgabe-blatt}
+                        title       = TwoStep
+                        url-chapter = 3 JavaScript
+                        url-slug    = TwoStep
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Hamburger-Menu
+                        url-chapter = 3 JavaScript
+                        url-slug    = Hamburger-Menu
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = SPA-Router
+                        url-chapter = 3 JavaScript
+                        url-slug    = SPA-Router
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Eliza.js
+                        url-chapter = 3 JavaScript
+                        url-slug    = Eliza.js
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Fotobuch
+                        url-chapter = 3 JavaScript
+                        url-slug    = Fotobuch
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Media Player
+                        url-chapter = 3 JavaScript
+                        url-slug    = Media Player
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Adressbuch (Single Page App)
+                        url-chapter = 3 JavaScript
+                        url-slug    = Adressbuch (Single Page App)
+                    {endinsert}
+                    {insert webprog-aufgabe}
+                        title       = Adressbuch (Serverseitige Webanwendung)
+                        url-chapter = 3 JavaScript
+                        url-slug    = Adressbuch (Serverseitige Webanwendung)
+                    {endinsert}
                 </wpvs-container>
             </section>
 
@@ -855,48 +804,41 @@
                 <h4>Videos</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Einsatzgebiete von JavaScript"
-                        language  = "Deutsch"
-                        videoid   = "CG9nxqCLUTE">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Einführungsbeispiel zu JavaScript"
-                        language  = "Deutsch"
-                        videoid   = "_EFKTJFi1Es">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "JavaScript online ausprobieren"
-                        language  = "Deutsch"
-                        videoid   = "n0uQRhQjx2Q">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "JavaScript vs. Java"
-                        language  = "Deutsch"
-                        videoid   = "WD63LeEJ7dM">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Variablen und Funktionen in JavaScript"
-                        language  = "Deutsch"
-                        videoid   = "Ex8QwHLfwjY">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Rückruffunktionen in JavaScript"
-                        language  = "Deutsch"
-                        videoid   = "pVnwoewvFLU">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name = "youtube-video"
-                        title     = "Tiefe Datenstrukturen in JavaScript"
-                        language  = "Deutsch"
-                        videoid   = "EIgsvBndlYY">
-                    </wpvs-macro-insert>
+                    {insert youtube-video}
+                        title     = Einsatzgebiete von JavaScript
+                        language  = Deutsch
+                        videoid   = CG9nxqCLUTE
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = Einführungsbeispiel zu JavaScript
+                        language  = Deutsch
+                        videoid   = _EFKTJFi1Es
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = JavaScript online ausprobieren
+                        language  = Deutsch
+                        videoid   = n0uQRhQjx2Q
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = JavaScript vs. Java
+                        language  = Deutsch
+                        videoid   = WD63LeEJ7dM
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = Variablen und Funktionen in JavaScript
+                        language  = Deutsch
+                        videoid   = Ex8QwHLfwjY
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = Rückruffunktionen in JavaScript
+                        language  = Deutsch
+                        videoid   = pVnwoewvFLU
+                    {endinsert}
+                    {insert youtube-video}
+                        title     = Tiefe Datenstrukturen in JavaScript
+                        language  = Deutsch
+                        videoid   = EIgsvBndlYY
+                    {endinsert}
                 </wpvs-container>
             </section>
         </wpvs-container>
@@ -913,11 +855,10 @@
                 <h4>Selbststudium</h4>
                 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name = "webprog-lehrbuch"
-                        title     = "Kapitel im Onlinelehrbuch"
-                        url-slug  = "6-server-java/">
-                    </wpvs-macro-insert>
+                    {insert webprog-lehrbuch}
+                        title     = Kapitel im Onlinelehrbuch
+                        url-slug  = 6-server-java/
+                    {endinsert}
                 </wpvs-container>
             </section>
         
@@ -925,36 +866,31 @@
                 <h4>Beispiele</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name   = "webprog-code"
-                        title       = "Eingebetteter Webserver"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug    = "Beispiele/Eingebetteter Webserver">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-code"
-                        title       = "Minimales Servlet"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug    = "Beispiele/Minimales Servlet">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-code"
-                        title       = "Servletmethoden"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug    = "Beispiele/Servletmethoden">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-code"
-                        title       = "Aufgabenliste per Servlet"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug    = "Beispiele/Aufgabenliste per Servlet">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-code"
-                        title       = "Aufgabenliste per JSP"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug    = "Beispiele/Aufgabenliste per JSP">
-                    </wpvs-macro-insert>
+                    {insert webprog-code}
+                        title       = Eingebetteter Webserver
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug    = Beispiele/Eingebetteter Webserver
+                    {endinsert}
+                    {insert webprog-code}
+                        title       = Minimales Servlet
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug    = Beispiele/Minimales Servlet
+                    {endinsert}
+                    {insert webprog-code}
+                        title       = Servletmethoden
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug    = Beispiele/Servletmethoden
+                    {endinsert}
+                    {insert webprog-code}
+                        title       = Aufgabenliste per Servlet
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug    = Beispiele/Aufgabenliste per Servlet
+                    {endinsert}
+                    {insert webprog-code}
+                        title       = Aufgabenliste per JSP
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug    = Beispiele/Aufgabenliste per JSP
+                    {endinsert}
                 </wpvs-container>
             </section>
         
@@ -962,39 +898,34 @@
                 <h4>Aufgaben</h4>
 
                 <wpvs-container data-mode="vertical">
-                    <wpvs-macro-insert
-                        data-name   = "webprog-code"
-                        title       = "Mein erstes Servlet"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug    = "Aufgaben/Mein erstes Servlet">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe-java"
-                        title       = "Formular-Servlet mit JSP"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug1   = "Formular-Servlet mit JSP (Aufgabe)"
-                        url-slug2   = "Formular-Servlet mit JSP (Loesung)">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe-java"
-                        title       = "Servlets, JSP, Templates"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug1   = "Servlets, JSP, Templates (Aufgabe)"
-                        url-slug2   = "Servlets, JSP, Templates (Loesung)">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-aufgabe-java"
-                        title       = "Templates"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug1   = "Templates (Aufgabe)"
-                        url-slug2   = "Templates (Loesung)">
-                    </wpvs-macro-insert>
-                    <wpvs-macro-insert
-                        data-name   = "webprog-code"
-                        title       = "Comicsammlung"
-                        url-chapter = "4 Serverseite mit Java"
-                        url-slug    = "Aufgaben/Comicsammlung">
-                    </wpvs-macro-insert>
+                    {insert webprog-code}
+                        title       = Mein erstes Servlet
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug    = Aufgaben/Mein erstes Servlet
+                    {endinsert}
+                    {insert webprog-aufgabe-java}
+                        title       = Formular-Servlet mit JSP
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug1   = Formular-Servlet mit JSP (Aufgabe)
+                        url-slug2   = Formular-Servlet mit JSP (Loesung)
+                    {endinsert}
+                    {insert webprog-aufgabe-java}
+                        title       = Servlets, JSP, Templates
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug1   = Servlets, JSP, Templates (Aufgabe)
+                        url-slug2   = Servlets, JSP, Templates (Loesung)
+                    {endinsert}
+                    {insert webprog-aufgabe-java}
+                        title       = Templates"
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug1   = Templates (Aufgabe)
+                        url-slug2   = Templates (Loesung)
+                    {endinsert}
+                    {insert webprog-code}
+                        title       = Comicsammlung
+                        url-chapter = 4 Serverseite mit Java
+                        url-slug    = Aufgaben/Comicsammlung
+                    {endinsert}
                 </wpvs-container>
             </section>
         </wpvs-container>
