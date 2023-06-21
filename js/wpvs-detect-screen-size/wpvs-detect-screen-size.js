@@ -10,7 +10,7 @@
 "use strict"
 
 import CustomElement from "../custom_element.js";
-import style from "./wpvs-detect-screen-size.less";
+import { screenSizeHires, screenSizePhone, screenSizeScreen, screenSizeTablet } from "./wpvs-detect-screen-size.less";
 
 /**
  * Custom element <wpvs-detect-screen-size> to use the browser's media query
@@ -48,19 +48,19 @@ export class WpvsDetectScreenSizeElement extends CustomElement {
         this.innerHTML = "";
 
         this.divPhone = document.createElement("div");
-        this.divPhone.classList.add(style["screen-size-phone"]);
+        this.divPhone.classList.add(screenSizePhone);
         this.appendChild(this.divPhone);
 
         this.divTablet = document.createElement("div");
-        this.divTablet.classList.add(style["screen-size-tablet"]);
+        this.divTablet.classList.add(screenSizeScreen);
         this.appendChild(this.divTablet);
 
         this.divScreen = document.createElement("div");
-        this.divScreen.classList.add(style["screen-size-screen"]);
+        this.divScreen.classList.add(screenSizeTablet);
         this.appendChild(this.divScreen);
 
         this.divHires = document.createElement("div");
-        this.divHires.classList.add(style["screen-size-hires"]);
+        this.divHires.classList.add(screenSizeHires);
         this.appendChild(this.divHires);
 
         this._raiseScreenSizeChanged();

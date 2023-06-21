@@ -1,32 +1,32 @@
 @import "../../css/variables.less";
 
-:local(.screen-size-phone),
-:local(.screen-size-tablet),
-:local(.screen-size-screen),
-:local(.screen-size-hires) {
+.screen-size-phone,
+.screen-size-tablet,
+.screen-size-screen,
+.screen-size-hires {
     display: none;
 }
 
 @media all and (max-width: @phone_max) {
-    :local(.screen-size-phone) {
+    .screen-size-phone {
         display: block;
     }
 }
 
 @media all and (min-width: @tablet_min) and (max-width: @tablet_max) {
-    :local(.screen-size-tablet) {
+    .screen-size-tablet {
         display: block;
     }
 }
 
 @media all and (min-width: @screen_min) and (max-width: @screen_max) {
-    :local(.screen-size-screen) {
+    .screen-size-screen {
         display: block;
     }
 }
 
 @media all and (min-width: @hires_min) {
-    :local(.screen-size-hires) {
+    .screen-size-hires {
         display: block;
     }
 }
