@@ -60,17 +60,22 @@ export class WpvsMaterialElement extends CustomElement {
 
         let bodyElement = containerElement.querySelector(".body");
         bodyElement.replaceChildren(...this.childNodes);
-
+        
         // Add click event listener
-        let headerElement = containerElement.querySelector(".header");
+        if (this.getAttribute("always-open") === "true") {
+            containerElement.classList.add("expanded");
+        } else {
+            let headerElement = containerElement.querySelector(".header");
+    
+            headerElement.addEventListener("click", () => {
+                if (containerElement.classList.contains("expanded")) {
+                    containerElement.classList.remove("expanded");
+                } else {
+                    containerElement.classList.add("expanded");
+                }
+            });
+        }
 
-        headerElement.addEventListener("click", () => {
-            if (containerElement.classList.contains("expanded")) {
-                containerElement.classList.remove("expanded");
-            } else {
-                containerElement.classList.add("expanded");
-            }
-        })
     }
 
     /**

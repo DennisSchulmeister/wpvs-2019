@@ -23,7 +23,7 @@
 {enddefine}
 
 {define webprog-lehrbuch}
-    <wpvs-material icon="icon-book" name="{title}">
+    <wpvs-material icon="icon-book" name="{title}" always-open="{always-open}">
         <wpvs-metadata>
             <metadata-value label="Format"  value="HTML"></metadata-value>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
@@ -34,13 +34,13 @@
             <wpvs-icon-link
                 icon   = "icon-globe"
                 label  = "Onlineansicht"
-                href   = "repo/webprog/folien/{url-slug}"
+                href   = "repo/webprog/folien/{kapitel}"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/static/{url-slug}"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/{github}"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
@@ -104,46 +104,6 @@
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
                 href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}/Beschreibung"
-                target = "_blank">
-            </wpvs-icon-link>
-        </wpvs-container>
-    </wpvs-material>
-{enddefine}
-
-{define webprog-aufgabe-java}
-    <wpvs-material icon="icon-file-code" name="{title}">
-        <wpvs-metadata>
-            <metadata-value label="Format"  value="Quellcode"></metadata-value>
-            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
-            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
-
-        <wpvs-container data-mode="vertical">
-            <h5>Aufgabe</h5>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug1}"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-beaker"
-                label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug1}"
-                target = "_blank">
-            </wpvs-icon-link>
-
-            <h5>Lösung</h5>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug2}"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-beaker"
-                label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug2}"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
@@ -277,23 +237,19 @@
             <section style="flex: 1;">
                 <h2>Inhalt der Vorlesung</h2>
                 <p>
-                    Die Vorlesung „Webprogrammierung“ des dritten Semesters
-                    Wirtschaftsinformatik bildet zusammen mit „Verteilte Systeme“ im
-                    vierten Semester das Modul „Entwicklung verteilter Systeme“, durch
-                    welches die Programmierschiene des Studiums fortgeführt wird.
-                    Aufbauend auf den in „Programmierung I“ und „Programmierung II“
-                    gelehrten Grundlagen verlagert sich der Schwerpunkt auf die
-                    Entwicklung cloudbasierter Webanwendungen, die als „Cloud Native App /
-                    12-Faktor-App“ in einer Cloudumgebung betrieben und über einen
-                    Webbrowser als Frontend zugänglich gemacht werden. Das Modul teilt
-                    sich inhaltlich daher in die Frontendentwicklung im dritten und die
-                    Backendentwicklung im vierten Semester auf, wobei die Kommunikation
-                    zwischen Frontend und Backend hauptsächlich über REST-Webservices
-                    abgewickelt wird. Da mobile Applikationen und IoT-Anwendungen häufig
-                    vergleichbare Backendstrukturen besitzen, dient dies gleichzeitig auch
-                    als Grundlage für die Wahlmodule „Entwicklung mobiler Applikationen“
-                    und „Hardwarenahe Programmierung für das Internet of Things“. Konkret
-                    werden im dritten Semester folgende Inhalte behandelt:
+                    Die Vorlesung „Webprogrammierung“ des dritten Semesters bildet zusammen mit
+                    „Verteilte Systeme“ im vierten Semester das Modul „Entwicklung verteilter Systeme“,
+                    durch welches die Programmierschiene des Studiums fortgeführt wird. Aufbauend auf den
+                    in „Programmierung I“ und „Programmierung II“ gelehrten Grundlagen verlagert sich der
+                    Schwerpunkt auf die Entwicklung verteilter Anwendungen, bei denen sich die Anwendungslogik
+                    auf mehrere Maschinen wie zum Beispiel Client und Server verteilt. Hierunter fallen
+                    Webanwendungen, Cloudanwendungen, IoT-Anwendungen, mobile Applikationen und viele mehr.
+                    Das Modul teilt sich inhaltlich daher in die Grundlagen der Webentwicklung im dritten
+                    Semester und die Entwicklung komplexer Backendstrukturen im vierten Semester auf.
+                    Da die Grenzen zwischen den Anwendungstypen aus technischer Sicht fließend verlaufen,
+                    dient dies gleichzeitig als Grundlage für die Wahlmodule „Entwicklung mobiler Applikationen“ 
+                    nd „Hardwarenahe Programmierung für das Internet of Things“. Konkret werden im dritten Semester
+                    folgende Inhalte behandelt:
                 </p>
                 <ul>
                     <li>Die geschichtliche Entwicklung des Internets und des World Wide Web</li>
@@ -348,8 +304,8 @@
 
                 <wpvs-container data-mode="vertical">
                     {insert webprog-planung}
-                        title     = Planungsübersicht 2022
-                        url-file  = 00 Planungsübersicht 2022
+                        title     = Planungsübersicht 2023
+                        url-file  = 00 Planungsübersicht 2023
                     {endinsert}
                     {insert webprog-planung}
                         title     = Semesterstart und Grundlagen des Web
@@ -418,19 +374,32 @@
     </tab-page>
 
     <tab-page data-tab-id="current" data-title="Vorlesungsmaterialien">
-        <h2>Grundlagen des Web</h2>
+        <wpvs-container>
+            <section style="flex: 1;">
+                <wpvs-container data-mode="vertical">
+                    {insert webprog-lehrbuch}
+                        title       = Onlinelehrbuch
+                        always-open = true
+                        kapitel     =
+                        github      =
+                    {endinsert}
+                </wpvs-container>
+            </section>
+            <section style="flex: 1;"></section>
+            <section style="flex: 1;"></section>
+            <section style="flex: 1;"></section>
+        </wpvs-container>
+
+        <h2 style="margin-top: 2em;">Grundlagen des Web</h2>
         <wpvs-container>
             <section style="flex: 1;">
                 <h4>Selbststudium</h4>
                 
                 <wpvs-container data-mode="vertical">
                     {insert webprog-lehrbuch}
-                        title     = Gesamtes Lehrbuch
-                        url-slug  =
-                    {endinsert}
-                    {insert webprog-lehrbuch}
-                        title     = Kapitel im Onlinelehrbuch
-                        url-slug  = 1-grundlagen/
+                        title   = Kapitel im Onlinelehrbuch
+                        kapitel = #2
+                        github  = static/1-grundlagen.html
                     {endinsert}
                 </wpvs-container>
             </section>
@@ -440,12 +409,9 @@
                 
                 <wpvs-container data-mode="vertical">
                     {insert webprog-lehrbuch}
-                        title     = Vorstellung des Dozenten
-                        url-slug  = 0-vorstellung-dennis/
-                    {endinsert}
-                    {insert webprog-lehrbuch}
-                        title     = Einführung in die Vorlesung
-                        url-slug  = 0-intro/
+                        title   = Einführung in die Vorlesung
+                        kapitel = #1
+                        github  = static/0-intro.html
                     {endinsert}
                 </wpvs-container>
             </section>
@@ -472,8 +438,9 @@
 
                 <wpvs-container data-mode="vertical">
                     {insert webprog-lehrbuch}
-                        title     = Kapitel im Onlinelehrbuch
-                        url-slug  = 2-html_css/
+                        title   = Kapitel im Onlinelehrbuch
+                        kapitel = #3
+                        github  = static/2-html_css.html
                     {endinsert}
                 </wpvs-container>
             </section>
@@ -567,8 +534,9 @@
                 
                 <wpvs-container data-mode="vertical">
                     {insert webprog-lehrbuch}
-                        title     = Kapitel im Onlinelehrbuch
-                        url-slug  = 3-responsive/
+                        title   = Kapitel im Onlinelehrbuch
+                        kapitel = #4
+                        github  = static/3-responsive.html
                     {endinsert}
                 </wpvs-container>
             </section>
@@ -700,8 +668,9 @@
                 
                 <wpvs-container data-mode="vertical">
                     {insert webprog-lehrbuch}
-                        title    = Kapitel im Onlinelehrbuch
-                        url-slug = 4-js-grundlagen/
+                        title   = Kapitel im Onlinelehrbuch
+                        kapitel = #5
+                        github  = static/4-js-grundlagen.html
                     {endinsert}
                 </wpvs-container>
             </section>
@@ -838,93 +807,6 @@
                         title     = Tiefe Datenstrukturen in JavaScript
                         language  = Deutsch
                         videoid   = EIgsvBndlYY
-                    {endinsert}
-                </wpvs-container>
-            </section>
-        </wpvs-container>
-    </tab-page>
-
-    <tab-page data-tab-id="archiv" data-title="Alte Unterlagen">                
-        <h2>Serverseitige Webentwicklung mit Java</h2>
-        <wpvs-info>
-            Dieses Inhalte werden nicht mehr weiter entwickelt, da die serverseitige
-            Webentwicklung mit Java seit 2019 nicht mehr Bestandteil der Vorlesung ist.
-        </wpvs-info>
-        <wpvs-container>
-            <section style="flex: 1;">
-                <h4>Selbststudium</h4>
-                
-                <wpvs-container data-mode="vertical">
-                    {insert webprog-lehrbuch}
-                        title     = Kapitel im Onlinelehrbuch
-                        url-slug  = 6-server-java/
-                    {endinsert}
-                </wpvs-container>
-            </section>
-        
-            <section style="flex: 1;">
-                <h4>Beispiele</h4>
-
-                <wpvs-container data-mode="vertical">
-                    {insert webprog-code}
-                        title       = Eingebetteter Webserver
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug    = Beispiele/Eingebetteter Webserver
-                    {endinsert}
-                    {insert webprog-code}
-                        title       = Minimales Servlet
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug    = Beispiele/Minimales Servlet
-                    {endinsert}
-                    {insert webprog-code}
-                        title       = Servletmethoden
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug    = Beispiele/Servletmethoden
-                    {endinsert}
-                    {insert webprog-code}
-                        title       = Aufgabenliste per Servlet
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug    = Beispiele/Aufgabenliste per Servlet
-                    {endinsert}
-                    {insert webprog-code}
-                        title       = Aufgabenliste per JSP
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug    = Beispiele/Aufgabenliste per JSP
-                    {endinsert}
-                </wpvs-container>
-            </section>
-        
-            <section style="flex: 1;">
-                <h4>Aufgaben</h4>
-
-                <wpvs-container data-mode="vertical">
-                    {insert webprog-code}
-                        title       = Mein erstes Servlet
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug    = Aufgaben/Mein erstes Servlet
-                    {endinsert}
-                    {insert webprog-aufgabe-java}
-                        title       = Formular-Servlet mit JSP
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug1   = Formular-Servlet mit JSP (Aufgabe)
-                        url-slug2   = Formular-Servlet mit JSP (Loesung)
-                    {endinsert}
-                    {insert webprog-aufgabe-java}
-                        title       = Servlets, JSP, Templates
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug1   = Servlets, JSP, Templates (Aufgabe)
-                        url-slug2   = Servlets, JSP, Templates (Loesung)
-                    {endinsert}
-                    {insert webprog-aufgabe-java}
-                        title       = Templates"
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug1   = Templates (Aufgabe)
-                        url-slug2   = Templates (Loesung)
-                    {endinsert}
-                    {insert webprog-code}
-                        title       = Comicsammlung
-                        url-chapter = 4 Serverseite mit Java
-                        url-slug    = Aufgaben/Comicsammlung
                     {endinsert}
                 </wpvs-container>
             </section>

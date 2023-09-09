@@ -12,7 +12,7 @@
     "scripts": {
         "_build:static": "node scripts/build-static.mjs",
         "_build:webpack": "webpack --mode production",
-        "_watch:static": "watch-run -p 'static/**' npm run build:static",
+        "_watch:static": "watch-run -p 'static/**' npm run _build:static",
         "_webpack:serve": "webpack serve --mode development --static-directory build/",
         "clean": "node scripts/clean.js",
         "build": "run-s clean _build:static _build:webpack",
