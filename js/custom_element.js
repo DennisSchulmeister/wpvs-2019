@@ -10,7 +10,7 @@
 "use strict"
 
 /**
- * Abstract base class for customer HTML elements. Instead of the built-in
+ * Abstract base class for custom HTML elements. Instead of the built-in
  * HTMLElement class, this extended version offers automatic rerendering,
  * when the DOM content inside the element changes.
  *
@@ -52,7 +52,9 @@ class CustomElement extends HTMLElement {
      * them again afterwards, because otherwise we would have an infinite loop.
      *
      * If a custom element wants to rerender its content it also must call this
-     * method instead of render() to prevent an infinite loop.
+     * method to prevent an infinite loop.
+     * 
+     * Also adds global stylesheets for theming to the custom element.
      */
     async render() {
         this._disableObservers();
@@ -155,7 +157,7 @@ class CustomElement extends HTMLElement {
      * Utility method to be called by sub-classes to adapt to the current
      * screen size. The way this works is to use a <wpvs-detect-screen-size>
      * element, that must already be present on the page, to query the current
-     * screen type and to switch between two display modes base on whether the
+     * screen type and to switch between two display modes based on whether the
      * size is lower or greater-than-equal a given break point size. The chosen
      * display mode is then set as a CSS class to the given container element.
      *
