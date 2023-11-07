@@ -88,7 +88,7 @@
 {enddefine}
 
 {define webprog-aufgabe-blatt}
-    <wpvs-material icon="icon-file-code" name="{title}">
+    <wpvs-material icon="icon-file-code" name="{title}" always-open="{always-open}">
         <wpvs-metadata>
             <metadata-value label="Format" value="HTML"></metadata-value>
             <metadata-value label="Sprache" value="Deutsch"></metadata-value>
@@ -385,7 +385,16 @@
                     {endinsert}
                 </wpvs-container>
             </section>
-            <section style="flex: 1;"></section>
+            <section style="flex: 1;">
+                <wpvs-container data-mode="vertical">
+                    {insert webprog-aufgabe-blatt}
+                        title       = Abschlussworkshop
+                        always-open = false
+                        url-chapter = 5 Sonstiges
+                        url-slug    = Abschlussworkshop
+                    {endinsert}
+                </wpvs-container>
+            </section>
             <section style="flex: 1;"></section>
             <section style="flex: 1;"></section>
         </wpvs-container>
@@ -821,5 +830,3 @@
                 </wpvs-container>
             </section>
         </wpvs-container>
-    </tab-page>
-</wpvs-tabs>
