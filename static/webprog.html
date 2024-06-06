@@ -141,6 +141,7 @@
     </wpvs-material>
 {enddefine}
 
+
 {define webprog-beispiel-4in1}
     <wpvs-material icon="icon-file-code" name="{title}">
         <wpvs-metadata>
@@ -190,6 +191,73 @@
     </wpvs-material>
 {enddefine}
 
+{define webprog-beispiel-7in1}
+    <wpvs-material icon="icon-file-code" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {01-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{01-url}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {02-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{02-url}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {03-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{03-url}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {04-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{04-url}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {05-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{05-url}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {06-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{06-url}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht: {07-label}"
+                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/{url-chapter}/Beispiele/{url-slug}/{07-url}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
 {define webprog-code}
     <wpvs-material icon="icon-file-code" name="{title}">
         <wpvs-metadata>
@@ -199,6 +267,36 @@
         </wpvs-metadata>
 
         <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/{url-slug}"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-beaker"
+                label  = "Bearbeiten mit GitPod"
+                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/{url-chapter}/url-slug$"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
+{define webprog-code-3in1}
+    <wpvs-material icon="icon-file-code" name="{title}">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="Quellcode"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <ol>
+                <li>{01-label}</li>
+                <li>{02-label}</li>
+                <li>{03-label}</li>
+            </ol>
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
@@ -476,7 +574,7 @@
                     {insert webprog-code}
                         title       = Static Website Generator
                         url-chapter = 1 HTML und CSS
-                        url-slug    = Beispiele/Static Website Generator"
+                        url-slug    = Beispiele/Static Website Generator
                     {endinsert}
                 </wpvs-container>
             </section>
@@ -693,10 +791,24 @@
                 <h4>Beispiele</h4>
 
                 <wpvs-container data-mode="vertical">
-                    {insert webprog-beispiel}
+                    {insert webprog-beispiel-7in1}
                         title       = Syntaxbeispiele
                         url-chapter = 3 JavaScript
                         url-slug    = Syntaxbeispiele
+                        01-label    = JavaScript und HTML in einer Datei
+                        01-url      = js-in-html.html
+                        02-label    = Einzelne DOM-Elemente auslesen                        
+                        02-url      = dom-einzelne-elemente.html
+                        03-label    = Mehrere DOM-Elemente auslesen
+                        03-url      = dom-mehrere-elemente.html
+                        04-label    = Auf Ereignisse reagieren
+                        04-url      = dom-ereignisse.html
+                        05-label    = Inhalte verändern mit JavaScript
+                        05-url      = dom-inhalt.html
+                        06-label    = Aussehen verändern mit JavaScript
+                        06-url      = dom-aussehen.html
+                        07-label    = Die DOM-Objektstruktur bearbeiten
+                        07-url      = dom-struktur.html
                     {endinsert}
                     {insert webprog-beispiel}
                         title       = Event Listener
@@ -723,10 +835,13 @@
                         url-chapter = 3 JavaScript
                         url-slug    = Socketserver
                     {endinsert}
-                    {insert webprog-beispiel}
+                    {insert webprog-code-3in1}
                         title       = MobiDict
                         url-chapter = 3 JavaScript
                         url-slug    = MobiDict
+                        01-label    = Serverseitige Webanwendung
+                        02-label    = Clientseitige Webanwendung
+                        03-label    = Single Page App
                     {endinsert}
                 </wpvs-container>
             </section>
