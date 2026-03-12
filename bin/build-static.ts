@@ -1,15 +1,15 @@
 /**
  * Utility script to copy static assets from the source directory into the build directory.
  * Includes some special logic for text files in which simple macros can be extended.
- * For this the following settings can be made in file `package.json`:
+ * For this the following settings can be made in file `config.json`:
  * 
  * ````js
  * {
  *     "config": {
-
  *       "static_dir": "static",                           // Source directory from which to copy files
  *       "build_dir": "build",                             // Target directory to which to copy files
  *       "replace_variables_extensions": ".htm; .html"     // Extensions of text files with macros
+ *       "encoding": "utf8"                                // Output file encoding
  *     },
  * }
  * ```
@@ -39,30 +39,21 @@
  * URL encoded. Otherwise it will be replaced verbatim, only removing leading and trailing
  * whitespace.
  */
-"use strict";
 
+import config   from "../config.js";
 import fs       from "node:fs";
 import path     from "node:path";
 import readline from "node:readline";
 import shell    from "shelljs";
 
-import * as url from 'url';
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+shell.mkdir("-p", config.build_dir);
 
-const sourceDir = path.normalize(path.join(__dirname, "..", process.env.npm_package_config_static_dir));
-const buildDir  = path.normalize(path.join(__dirname, "..", process.env.npm_package_config_build_dir));
-const encoding  = process.env.npm_package_config_encoding || "utf8";
-
-const replaceExtensions = process.env.npm_package_config_replace_variables_extensions.split(";").map(v => v.trim());
-
-shell.mkdir("-p", buildDir);
-
-for (let file of shell.ls("-R", sourceDir)) {
+for (let file of shell.ls("-R", config.src_dir)) {
     if (file.startsWith("_") || file.includes("/_")) continue;
     
-    let sourcePath = path.join(sourceDir, file);
+    let sourcePath = path.join(config.src_dir, file);
     let sourceStat = fs.statSync(sourcePath);
-    let buildPath  = path.join(buildDir, file);
+    let buildPath  = path.join(config.build_dir, file);
     
     console.log(file, "=>", buildPath);
     
@@ -71,26 +62,27 @@ for (let file of shell.ls("-R", sourceDir)) {
         shell.mkdir("-p", buildPath);
     } else {
         // Copy static file and replace macros in text files
-        if (!replaceExtensions.some(extension => file.endsWith(extension))) {
+        if (!config.replace_variables_extensions.some(extension => file.endsWith(extension))) {
             shell.cp(sourcePath, buildPath);
         } else {
             let sourceLines = readline.createInterface({
-                input:     fs.createReadStream(sourcePath, { encoding }),
+                input:     fs.createReadStream(sourcePath, {encoding: config.encoding}),
                 crlfDelay: Infinity,
             });
 
             let buildLines  = "";
-            let macros      = {};
-            let defineMacro = undefined;
-            let insertMacro = undefined;
-            let macroParams = {};
+            let defineMacro: string[] | null = null;
+            let insertMacro: string[] | null = null;
+
+            let macros: Record<string, string[]>      = {};
+            let macroParams: Record<string, string> = {};
     
             for await (let line of sourceLines) {
                 let lineTrimmed = line.trim();
 
                 if (defineMacro) {
                     if (lineTrimmed === "{enddefine}") {
-                        defineMacro = undefined;
+                        defineMacro = null;
                         continue;
                     }
 
@@ -125,7 +117,7 @@ for (let file of shell.ls("-R", sourceDir)) {
                             buildLines += insertLine + "\n";
                         }
 
-                        insertMacro = undefined;
+                        insertMacro = null;
                         macroParams = {};
                         continue;
                     }
@@ -149,7 +141,7 @@ for (let file of shell.ls("-R", sourceDir)) {
                 buildLines += line + "\n";
             }
     
-            fs.writeFileSync(buildPath, buildLines, { encoding });
+            fs.writeFileSync(buildPath, buildLines, {encoding: config.encoding});
         }
     }
 }

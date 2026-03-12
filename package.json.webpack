@@ -1,0 +1,46 @@
+{
+    "name": "wpvs-2019",
+    "version": "1.0.0",
+    "description": "Webseite von Dennis Schulmeister-Zimolong",
+    "author": "Dennis Schulmeister-Zimolong",
+    "license": "CC-BY-4.0",
+    "homepage": "https://www.wpvs.de",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:DennisSchulmeister/wpvs-2019.git"
+    },
+    "scripts": {
+        "_build:static": "node scripts/build-static.mjs",
+        "_build:webpack": "webpack --mode production",
+        "_watch:static": "watch-run -p 'static/**' npm run _build:static",
+        "_webpack:serve": "webpack serve --mode development --static-directory build/",
+        "clean": "node scripts/clean.js",
+        "build": "run-s clean _build:static _build:webpack",
+        "watch": "run-s clean _build:static _watch:static",
+        "devserver": "run-p watch _webpack:serve",
+        "publish": "scripts/publish.sh"
+    },
+    "config": {
+        "src_dir": "src",
+        "static_dir": "static",
+        "build_dir": "build",
+        "public_url": "",
+        "replace_variables_extensions": ".htm; .html"
+    },
+    "main": "index.js",
+    "devDependencies": {
+        "@webcomponents/custom-elements": "^1.6.0",
+        "css-loader": "^7.1.4",
+        "email-link.js": "^1.0.1",
+        "html-loader": "^5.1.0",
+        "less": "^4.6.3",
+        "less-loader": "^12.3.2",
+        "mini-css-extract-plugin": "^2.10.1",
+        "npm-run-all": "^4.1.5",
+        "shelljs": "^0.10.0",
+        "watch-run": "^1.2.5",
+        "webpack": "^5.105.4",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.3"
+    }
+}
