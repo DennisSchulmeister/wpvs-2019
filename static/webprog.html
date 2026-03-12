@@ -10,13 +10,13 @@
             <wpvs-icon-link
                 icon   = "icon-globe"
                 label  = "Onlineansicht"
-                href   = "repo/webprog/folien/{kapitel}"
+                href   = "repo/webprog/folien/"
                 target = "_blank">
             </wpvs-icon-link>
             <wpvs-icon-link
                 icon   = "icon-git"
                 label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/tree/master/{github}"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/"
                 target = "_blank">
             </wpvs-icon-link>
         </wpvs-container>
@@ -51,13 +51,14 @@
     <section>
         <wpvs-container data-mode="vertical"> 
             {insert webprog-lehrbuch}
-                title       = Onlinelehrbuch
+                title       = Online-Lehrbuch
                 always-open = true
                 kapitel     =
                 github      =
             {endinsert}
 
             <h4>Vorlesungsplanung</h3>
+                
             {insert webprog-planung}
                 title     = Semesterstart und Grundlagen des Web
                 url-file  = 01 Semesterstart

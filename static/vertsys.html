@@ -1,3 +1,28 @@
+{define vertsys-lehrbuch}
+    <wpvs-material icon="icon-book" name="{title}" always-open="{always-open}">
+        <wpvs-metadata>
+            <metadata-value label="Format"  value="HTML"></metadata-value>
+            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+        </wpvs-metadata>
+
+        <wpvs-container data-mode="vertical">
+            <wpvs-icon-link
+                icon   = "icon-globe"
+                label  = "Onlineansicht"
+                href   = "repo/vertsys/skript/"
+                target = "_blank">
+            </wpvs-icon-link>
+            <wpvs-icon-link
+                icon   = "icon-git"
+                label  = "Quellcode auf GitHub"
+                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-2024-skript/"
+                target = "_blank">
+            </wpvs-icon-link>
+        </wpvs-container>
+    </wpvs-material>
+{enddefine}
+
 {define vertsys-planung}
     <wpvs-material icon="icon-book" name="{title}">
         <wpvs-metadata>
@@ -22,397 +47,113 @@
     </wpvs-material>
 {enddefine}
 
-{define vertsys-lehrbuch}
-    <wpvs-material icon="icon-book" name="{title}">
-        <wpvs-metadata>
-            <metadata-value label="Format"  value="HTML"></metadata-value>
-            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
-            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
 
-        <wpvs-container data-mode="vertical">
-            <wpvs-icon-link
-                icon   = "icon-globe"
-                label  = "Onlineansicht"
-                href   = "repo/vertsys/folien/{url-slug}"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-folien/tree/master/static/{url-slug}"
-                target = "_blank">
-            </wpvs-icon-link>
+<wpvs-container>
+    <section>
+        <wpvs-container data-mode="vertical"> 
+            {insert vertsys-lehrbuch}
+                title       = Online-Lehrbuch
+                always-open = true
+                kapitel     =
+                github      =
+            {endinsert}
+
+            <h4>Vorlesungsplanung</h3>
+
+            {insert vertsys-planung}
+                title     = Grundlagen verteilter Systeme
+                url-file  = 01 Grundlagen verteilter Systeme
+            {endinsert}
+            {insert vertsys-planung}
+                title     = Microservice-Architektur
+                url-file  = 02 Microservice-Architektur
+            {endinsert}
+            {insert vertsys-planung}
+                title     = REST-Webservices
+                url-file  = 03 REST-Webservices
+            {endinsert}
+            {insert vertsys-planung}
+                title     = Erste Schritte mit REST und Node.js
+                url-file  = 04 Erste Schritte mit REST und Node.js
+            {endinsert}
+            {insert vertsys-planung}
+                title     = Programmieren mit Node.js und Express
+                url-file  = 05 Programmieren mit Node.js und Express
+            {endinsert}
+            {insert vertsys-planung}
+                title     = Termin 6: TODO März 2026
+                url-file  = TODO
+            {endinsert}
+            {insert vertsys-planung}
+                title     = Termin 7: TODO März 2026
+                url-file  = TODO
+            {endinsert}
         </wpvs-container>
-    </wpvs-material>
-{enddefine}
+    </section>
 
-{define vertsys-aufgabe}
-    <wpvs-material icon="icon-file-code" name="{title}">
-        <wpvs-metadata>
-            <metadata-value label="Format"  value="Quellcode"></metadata-value>
-            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
-            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
+    <section style="flex: 1;">
+        <h2>Inhalt der Vorlesung</h2>
+        <p>
+            Die Vorlesung „Webprogrammierung“ des dritten Semesters
+            Wirtschaftsinformatik bildet zusammen mit „Verteilte Systeme“ im
+            vierten Semester das Modul „Entwicklung verteilter Systeme“, durch
+            welches die Programmierschiene des Studiums fortgeführt wird.
+            Aufbauend auf den in „Programmierung I“ und „Programmierung II“
+            gelehrten Grundlagen verlagert sich der Schwerpunkt auf die
+            Entwicklung cloudbasierter Webanwendungen, die als „Cloud Native App /
+            12-Faktor-App“ in einer Cloudumgebung betrieben und über einen
+            Webbrowser als Frontend zugänglich gemacht werden. Das Modul teilt
+            sich inhaltlich daher in die Frontendentwicklung im dritten und die
+            Backendentwicklung im vierten Semester auf, wobei die Kommunikation
+            zwischen Frontend und Backend hauptsächlich über REST-Webservices
+            abgewickelt wird. Da mobile Applikationen und IoT-Anwendungen häufig
+            vergleichbare Backendstrukturen besitzen, dient dies gleichzeitig auch
+            als Grundlage für die Wahlmodule „Entwicklung mobiler Applikationen“
+            und „Hardwarenahe Programmierung für das Internet of Things“. Konkret
+            werden im vierten Semester folgende Inhalte behandelt:
+        </p>
+        <ul>
+            <li>Definition „verteiltes System” und „verteilte Anwendung”</li>
+            <li>Grundsätzliche Anforderungen an verteilte Systeme</li>
+            <li>Transparenz, Ausfallsicherheit, Skalierung, Transaktionen</li>
+            <li>Architektur eines typischen Cloud-Clusters</li>
+            <li>Eigenschaften einer Cloud Native / 12-Faktor App</li>
+            <li>Theoretische Grundalgen zu REST-Webservices</li>
+            <li>Beschreibung von REST-Webserivces mit OpenAPI</li>
+            <li>Implementierung von Microservices mit node.js</li>
+        </ul>
+    </section>
 
-        <wpvs-container data-mode="vertical">
-            <h5>Aufgabenstellung</h5>
-            <wpvs-icon-link
-                icon   = "icon-globe"
-                label  = "Onlineansicht des Aufgabenblatts"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Aufgaben/{url-slug}/Beschreibung/"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-globe"
-                label  = "Onlineansicht der Musterlösung"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Aufgaben/{url-slug}/Loesung/"
-                target = "_blank">
-            </wpvs-icon-link>
-
-            <h5>Quellcode</h5>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-beaker"
-                label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}"
-                target = "_blank">
-            </wpvs-icon-link>
-        </wpvs-container>
-    </wpvs-material>
-{enddefine}
-
-{define vertsys-aufgabe-blatt}
-    <wpvs-material icon="icon-file-code" name="{title}">
-        <wpvs-metadata>
-            <metadata-value label="Format" value="HTML"></metadata-value>
-            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
-            <metadata-value label="Lizenz" value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
-
-        <wpvs-container data-mode="vertical">
-            <wpvs-icon-link icon="icon-globe" label="Onlineansicht des Aufgabenblatts"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Aufgaben/{url-slug}/Beschreibung/"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug}/Beschreibung"
-                target = "_blank">
-            </wpvs-icon-link>
-        </wpvs-container>
-    </wpvs-material>
-{enddefine}
-
-{define vertsys-aufgabe-java}
-    <wpvs-material icon="icon-file-code" name="{title}">
-        <wpvs-metadata>
-            <metadata-value label="Format"  value="Quellcode"></metadata-value>
-            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
-            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
-
-        <wpvs-container data-mode="vertical">
-            <h5>Aufgabe</h5>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug1}"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-beaker"
-                label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug1}"
-                target = "_blank">
-            </wpvs-icon-link>
-
-            <h5>Lösung</h5>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug2}"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-beaker"
-                label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Aufgaben/{url-slug2}"
-                target = "_blank">
-            </wpvs-icon-link>
-        </wpvs-container>
-    </wpvs-material>
-{enddefine}
-
-{define vertsys-beispiel}
-    <wpvs-material icon="icon-file-code" name="{title}">
-        <wpvs-metadata>
-            <metadata-value label="Format"  value="Quellcode"></metadata-value>
-            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
-            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
-
-        <wpvs-container data-mode="vertical">
-            <wpvs-icon-link
-                icon   = "icon-globe"
-                label  = "Onlineansicht"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-beaker"
-                label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
-                target = "_blank">
-            </wpvs-icon-link>
-        </wpvs-container>
-    </wpvs-material>
-{enddefine}
-
-{define vertsys-beispiel-4in1}
-    <wpvs-material icon="icon-file-code" name="{title}">
-        <wpvs-metadata>
-            <metadata-value label="Format"  value="Quellcode"></metadata-value>
-            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
-            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
-
-        <wpvs-container data-mode="vertical">
-            <wpvs-icon-link
-                icon   = "icon-globe"
-                label  = "Onlineansicht: {01-label}"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/{01-url}/"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-globe"
-                label  = "Onlineansicht: {02-label}"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/{02-url}/"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-globe"
-                label  = "Onlineansicht: {03-label}"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/{03-url}/"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-globe"
-                label  = "Onlineansicht: {04-label}"
-                href   = "https://dennisschulmeister.github.io/dhbwka-wwi-vertsys-quellcodes/{url-chapter}/Beispiele/{url-slug}/{04-url}/"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-beaker"
-                label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/Beispiele/{url-slug}"
-                target = "_blank">
-            </wpvs-icon-link>
-        </wpvs-container>
-    </wpvs-material>
-{enddefine}
-
-{define vertsys-code}
-    <wpvs-material icon="icon-file-code" name="{title}">
-        <wpvs-metadata>
-            <metadata-value label="Format"  value="Quellcode"></metadata-value>
-            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
-            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
-
-        <wpvs-container data-mode="vertical">
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/{url-slug}"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-beaker"
-                label  = "Bearbeiten mit GitPod"
-                href   = "https://www.gitpod.io/#https://github.com/DennisSchulmeister/dhbwka-wwi-vertsys-quellcodes/tree/master/{url-chapter}/url-slug$"
-                target = "_blank">
-            </wpvs-icon-link>
-        </wpvs-container>
-    </wpvs-material>
-{enddefine}
-
-{define youtube-video}
-    <wpvs-material icon="icon-youtube" name="{title}">
-        <wpvs-metadata>
-            <metadata-value label="Sprache" value="{language}"></metadata-value>
-            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
-
-        <wpvs-icon-link
-            icon   = "icon-globe"
-            label  = "Link zu Youtube"
-            href   = "https://youtu.be/{videoid}"
-            target = "_blank">
-        </wpvs-icon-link>
-    </wpvs-material>
-{enddefine}
-
-<wpvs-tabs data-active-tab="intro">
-    <tab-page data-tab-id="intro" data-title="Beschreibung">
-        <wpvs-container>
-            <section style="flex: 1;">
-                <h2>Inhalt der Vorlesung</h2>
-                <p>
-                    Die Vorlesung „vertsysrammierung“ des dritten Semesters
-                    Wirtschaftsinformatik bildet zusammen mit „Verteilte Systeme“ im
-                    vierten Semester das Modul „Entwicklung verteilter Systeme“, durch
-                    welches die Programmierschiene des Studiums fortgeführt wird.
-                    Aufbauend auf den in „Programmierung I“ und „Programmierung II“
-                    gelehrten Grundlagen verlagert sich der Schwerpunkt auf die
-                    Entwicklung cloudbasierter Webanwendungen, die als „Cloud Native App /
-                    12-Faktor-App“ in einer Cloudumgebung betrieben und über einen
-                    Webbrowser als Frontend zugänglich gemacht werden. Das Modul teilt
-                    sich inhaltlich daher in die Frontendentwicklung im dritten und die
-                    Backendentwicklung im vierten Semester auf, wobei die Kommunikation
-                    zwischen Frontend und Backend hauptsächlich über REST-Webservices
-                    abgewickelt wird. Da mobile Applikationen und IoT-Anwendungen häufig
-                    vergleichbare Backendstrukturen besitzen, dient dies gleichzeitig auch
-                    als Grundlage für die Wahlmodule „Entwicklung mobiler Applikationen“
-                    und „Hardwarenahe Programmierung für das Internet of Things“. Konkret
-                    werden im vierten Semester folgende Inhalte behandelt:
-                </p>
-                <ul>
-                    <li>Definition „verteiltes System” und „verteilte Anwendung”</li>
-                    <li>Grundsätzliche Anforderungen an verteilte Systeme</li>
-                    <li>Transparenz, Ausfallsicherheit, Skalierung, Transaktionen</li>
-                    <li>Architektur eines typischen Cloud-Clusters</li>
-                    <li>Eigenschaften einer Cloud Native / 12-Faktor App</li>
-                    <li>Theoretische Grundalgen zu REST-Webservices</li>
-                    <li>Beschreibung von REST-Webserivces mit OpenAPI</li>
-                    <li>Implementierung von Microservices mit node.js</li>
-                    <li>REST-APIs mit JavaScript im Browser aufrufen</li>
-                    <li>Nutzung moderner Werkzeuge wie git und Docker</li>
-                </ul>
-            </section>
-        
-            <section style="flex: 1;">
-                <h2>Didaktisches Modell</h2>
-                <p>
-                    Das didaktische Modell der Vorlesung entspricht weitgehend dem
-                    Inverted Classroom Model, wandelt dieses jedoch zu Gunsten einer
-                    besseren Inhaltsvermittlung und Vertiefung an einigen Punkten ab. So
-                    werden die Inhalte nicht durch aufgezeichnete Videos oder Web Based
-                    Trainings, bei denen mehr oder weniger die selben Folien wie in der
-                    klassischen Präsenzlehre verwertet werden, sondern durch ein speziell
-                    aufbereitetes Onlinelehrbuch vermittelt. Das Onlinelehrbuch besteht hierzu
-                    aus schriftlich ausformulierten Inhalten, Visualisierungen,
-                    interaktiven Elementen, Screencasts, Quizes und Übungsaufgaben, um die
-                    Inhalte bestmöglich zu präsentieren. Auf diese Weise soll die aktive
-                    Auseinandersetzung mit den Lerninhalten gefördert werden, anstatt
-                    diese zum passiven Konsum anzubieten. Die Kapitel sind daher wie
-                    folgt gegliedert:
-                </p>
-                <ol>
-                    <li>Selbststudium des Onlinelehrbuchs</li>
-                    <li>Eine oder mehrere Theorievorlesungen</li>
-                    <li>Prüfungsrelevante Lernkontrolle</li>
-                    <li>Eine oder mehrere Übungsstunden</li>
-                </ol>
-                <p>
-                    Im Anschluss an das Selbststudium können die Studierenden die Lerninhalte
-                    anhand eines einfachen Feedbackformulars reflektieren sowie Fragen für
-                    die nächste Präsenzvorlesung stellen. Dies findet zusammen mit dem benoteten
-                    Online-Assessment als Lernkontrolle derzeit noch in Moodle statt, wird in
-                    künftig aber ebenfalls innerhalb des Onlinelehrbuchs angeboten, um die
-                    Teilnahmequote zu erhöhen.
-                </p>
-            </section>
-        </wpvs-container>
-
-        <h2>Vorlesungsplanung</h2>
-        <wpvs-container>
-            <section style="flex: 1;">                
-                <h4>Semesterstart</h4>
-
-                <wpvs-container data-mode="vertical">
-                    {insert vertsys-planung}
-                        title     = Semesterstart
-                        url-file  = 01 Semesterstart
-                    {endinsert}
-                </wpvs-container>
-            </section>
-
-            <section style="flex: 1;"></section>
-        </wpvs-container>
-    </tab-page>
-
-    <tab-page data-tab-id="current" data-title="Vorlesungsmaterialien">
-        <h4>Cloud-Anwendungen mit JavaScript</h5>
-
-        <wpvs-info>
-            Um die Vorlesung besser auf „Webprogrammierung” abzustimmen, wird sie derzeit mit
-            neuen Inhalten komplett neuerstellt. Im Gegensatz zu vorherigen Versionen soll der
-            Schwerpunkt auf der Entwicklung von Cloud-Native-Anwendungen mit JavaScript liegen.
-            Es wird allerdings noch mindestens eine Iteration brauchen, bis die Materialien auf
-            einen akzeptablen Stand kommen.
-        </wpvs-info>
-    </tab-page>
-
-    <tab-page data-tab-id="2020-spring" data-title="Unterlagen von 2020">
-        <h4>Cloud-Anwendungen mit Spring</h4>
-    </tab-page>
-
-    <tab-page data-tab-id="2018-javaee" data-title="Unterlagen von 2018">
-        <h4>Java Enterprise Edition</h4>
-
-        <h2>Grundlagen verteilter Systeme</h2>
-        <wpvs-container>
-            <section style="flex: 1;">
-                <h4>Selbststudium</h4>
-
-                <wpvs-container data-mode="vertical">
-                    {insert vertsys-lehrbuch}
-                        title     = Gesamtes Lehrbuch
-                        url-slug  =
-                    {endinsert}
-                    {insert vertsys-lehrbuch}
-                        title     = Kapitel im Onlinelehrbuch
-                        url-slug  = 1-grundlagen/begriffe/2
-                    {endinsert}
-                </wpvs-container>
-            </section>
-
-            <section style="flex: 1;">
-                <h4>Beispiele</h4>
-            </section>
-
-            <section style="flex: 1;">
-                <h4>Aufgaben</h4>
-            </section>
-        </wpvs-container>
-
-        <h2>Enterprise Java Beans</h2>
-
-        <h2>Java Persistence API</h2>
-
-        <h2>SOAP-Webservices</h2>
-
-        <h2>REST-Webservices</h2>
-
-        <h2>Publish/Subscribe mit MQTT</h2>
-    </tab-page>
-</wpvs-tabs>
+    <section style="flex: 1;">
+        <h2>Didaktisches Modell</h2>
+        <p>
+            Das didaktische Modell der Vorlesung entspricht weitgehend dem
+            Inverted Classroom Model, wandelt dieses jedoch zu Gunsten einer
+            besseren Inhaltsvermittlung und Vertiefung an einigen Punkten ab. So
+            werden die Inhalte nicht durch aufgezeichnete Videos oder Web Based
+            Trainings, bei denen mehr oder weniger die selben Folien wie in der
+            klassischen Präsenzlehre verwertet werden, sondern durch ein speziell
+            aufbereitetes Onlinelehrbuch vermittelt. Das Onlinelehrbuch besteht hierzu
+            aus schriftlich ausformulierten Inhalten, Visualisierungen,
+            interaktiven Elementen, Screencasts, Quizes und Übungsaufgaben, um die
+            Inhalte bestmöglich zu präsentieren. Auf diese Weise soll die aktive
+            Auseinandersetzung mit den Lerninhalten gefördert werden, anstatt
+            diese zum passiven Konsum anzubieten. Die Kapitel sind daher wie
+            folgt gegliedert:
+        </p>
+        <ol>
+            <li>Selbststudium des Onlinelehrbuchs</li>
+            <li>Eine oder mehrere Theorievorlesungen</li>
+            <li>Prüfungsrelevante Lernkontrolle</li>
+            <li>Eine oder mehrere Übungsstunden</li>
+        </ol>
+        <p>
+            Im Anschluss an das Selbststudium können die Studierenden die Lerninhalte
+            anhand eines einfachen Feedbackformulars reflektieren sowie Fragen für
+            die nächste Präsenzvorlesung stellen. Dies findet zusammen mit dem benoteten
+            Online-Assessment als Lernkontrolle derzeit noch in Moodle statt, wird in
+            künftig aber ebenfalls innerhalb des Onlinelehrbuchs angeboten, um die
+            Teilnahmequote zu erhöhen.
+        </p>
+    </section>
+</wpvs-container>
