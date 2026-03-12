@@ -7,18 +7,20 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-"use strict"
+
 
 import CustomElement from "../custom_element.js";
-import templates from "./wpvs-container.html";
+import templates from "./wpvs-columns.html";
 
 /**
- * Custom element <wpvs-container> which positions with flexbox on large screens
- * and block-display on small screens.
+ * Custom element <wpvs-columns> which can break up long texts into a
+ * multi-column layout similar to a newspaper. On small screens only
+ * one column is used. On larger screens the number of columns can be
+ * set via data attributes, but defaults to three.
  *
- *     <wpvs-container data-mode="responsive" data-breakpoint="tablet">
+ *     <wpvs-columns data-mode="responsive" data-breakpoint="tablet" data-columns="3">
  *         …
- *     </wpvs-container>
+ *     </wpvs-columns>
  *
  * The `data-mode` attribute is optional. It can have the following values:
  *
@@ -32,11 +34,11 @@ import templates from "./wpvs-container.html";
  * In order for responsive mode to work, the page must contain a
  * <wpvs-detect-screen-size> element somewhere. The `data-breakpoint` attribute
  * then sets at which screen size the page buttons will be aligned horizontally.
- * Its default value is `tablet`.
+ * It's default value is `tablet`.
  *
  * @extends CustomElement
  */
-export class WpvsContainerElement extends CustomElement {
+export class WpvsColumnsElement extends CustomElement {
     static #templates;
     static #detectScreenSizeElement;
 
@@ -55,7 +57,7 @@ export class WpvsContainerElement extends CustomElement {
         if (!this.constructor.#detectScreenSizeElement) {
             this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
         }
-        
+
         if (this.constructor.#detectScreenSizeElement) {
             this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
         }
@@ -75,11 +77,10 @@ export class WpvsContainerElement extends CustomElement {
         this.sRoot.appendChild(styleElement);
 
         // Render container
-        let containerElement = document.createElement("container");
-        containerElement.classList.add("container");
-        containerElement.append(...this.childNodes);
-        this.sRoot.appendChild(containerElement);
-
+        this.containerElement = document.createElement("container");
+        this.containerElement.classList.add("container");
+        this.containerElement.append(...this.childNodes);
+        this.sRoot.appendChild(this.containerElement);
 
         // Adapt to current viewport size
         this._updateDisplayMode();
@@ -94,6 +95,7 @@ export class WpvsContainerElement extends CustomElement {
             switch (mutation.attributeName) {
                 case "data-mode":
                 case "data-breakpoint":
+                case "data-columns":
                     this._updateDisplayMode();
                     break;
             }
@@ -109,9 +111,16 @@ export class WpvsContainerElement extends CustomElement {
         let containerElement = this.sRoot.querySelector(".container");
         if (!containerElement) return;
 
+        let columns = this.dataset.columns || 3;
         let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
+
+        if (mode != "horizontal") {
+            columns = 1;
+        }
+
+        this.containerElement.style.columnCount = columns;
     }
 
 }
 
-window.customElements.define("wpvs-container", WpvsContainerElement);
+window.customElements.define("wpvs-columns", WpvsColumnsElement);

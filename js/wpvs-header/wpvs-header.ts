@@ -7,20 +7,22 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-"use strict"
+
 
 import CustomElement from "../custom_element.js";
-import templates from "./wpvs-columns.html";
+import templates from "./wpvs-header.html";
 
 /**
- * Custom element <wpvs-columns> which can break up long texts into a
- * multi-column layout similar to a newspaper. On small screens only
- * one column is used. On larger screens the number of columns can be
- * set via data attributes, but defaults to three.
+ * Custom element <wpvs-header> to render the main page header. Use it like this:
  *
- *     <wpvs-columns data-mode="responsive" data-breakpoint="tablet" data-columns="3">
- *         …
- *     </wpvs-columns>
+ *     <wpvs-header
+ *         data-site-title = "Name of the website"
+ *         data-page-title = "Name of the current page"
+ *         data-mode       = "responsive"
+ *         data-breakpoint = "tablet"
+ *     >
+ *         Header content, e.g. navigation bar
+ *     </wpvs-header>
  *
  * The `data-mode` attribute is optional. It can have the following values:
  *
@@ -38,7 +40,7 @@ import templates from "./wpvs-columns.html";
  *
  * @extends CustomElement
  */
-export class WpvsColumnsElement extends CustomElement {
+export class WpvsHeaderElement extends CustomElement {
     static #templates;
     static #detectScreenSizeElement;
 
@@ -57,7 +59,7 @@ export class WpvsColumnsElement extends CustomElement {
         if (!this.constructor.#detectScreenSizeElement) {
             this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
         }
-
+        
         if (this.constructor.#detectScreenSizeElement) {
             this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
         }
@@ -69,21 +71,38 @@ export class WpvsColumnsElement extends CustomElement {
      * Render shadow DOM to display the element.
      */
     _render() {
-        // Remove old content
-        this.sRoot.replaceChildren();
+        // Apply template and styles
+        let headerTemplate = this.constructor.#templates.querySelector("#header-template").cloneNode(true);
+        this.sRoot.replaceChildren(...headerTemplate.content.childNodes);
 
-        // Apply style
         let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
-        // Render container
-        this.containerElement = document.createElement("container");
-        this.containerElement.classList.add("container");
-        this.containerElement.append(...this.childNodes);
-        this.sRoot.appendChild(this.containerElement);
+        this._renderSiteTitle();
+        this._renderPageTitle();
+
+        this.sRoot.querySelector(".content").replaceChildren(...this.childNodes);
 
         // Adapt to current viewport size
         this._updateDisplayMode();
+    }
+
+    /**
+     * Update the visible site title based on the `data-site-title` attribute.
+     */
+    _renderSiteTitle() {
+        let element = this.sRoot.querySelector(".site-title");
+        if (!element) return;
+        element.textContent = this.dataset.siteTitle;
+    }
+
+    /**
+     * Update the visible site title based on the `data-page-title` attribute.
+     */
+    _renderPageTitle() {
+        let element = this.sRoot.querySelector(".page-title");
+        if (!element) return;
+        element.textContent = this.dataset.pageTitle;
     }
 
     /**
@@ -93,9 +112,14 @@ export class WpvsColumnsElement extends CustomElement {
     _onAttributeChanged(mutations) {
         for (let mutation of mutations) {
             switch (mutation.attributeName) {
+                case "data-site-title":
+                    this._renderSiteTitle();
+                    break;
+                case "data-page-title":
+                    this._renderPageTitle();
+                    break;
                 case "data-mode":
                 case "data-breakpoint":
-                case "data-columns":
                     this._updateDisplayMode();
                     break;
             }
@@ -111,16 +135,9 @@ export class WpvsColumnsElement extends CustomElement {
         let containerElement = this.sRoot.querySelector(".container");
         if (!containerElement) return;
 
-        let columns = this.dataset.columns || 3;
         let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
-
-        if (mode != "horizontal") {
-            columns = 1;
-        }
-
-        this.containerElement.style.columnCount = columns;
     }
 
 }
 
-window.customElements.define("wpvs-columns", WpvsColumnsElement);
+window.customElements.define("wpvs-header", WpvsHeaderElement);

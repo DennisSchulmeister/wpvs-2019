@@ -7,7 +7,6 @@
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  */
-"use strict";
 
 import utils from "./utils.js";
 

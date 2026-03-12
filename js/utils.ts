@@ -7,7 +7,7 @@
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  */
-"use strict";
+
 
 /**
  * Take an HTML string and replace all &, <, > with &amp;, &lt;, &gt;

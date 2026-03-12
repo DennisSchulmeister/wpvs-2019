@@ -7,7 +7,6 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-"use strict"
 
 /**
  * Abstract base class for custom HTML elements. Instead of the built-in

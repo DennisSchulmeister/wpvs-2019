@@ -7,38 +7,30 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-"use strict"
+
 
 import CustomElement from "../custom_element.js";
-import templates from "./wpvs-nav-bar.html";
+import templates from "./wpvs-image.html";
 
 /**
- * Custom element <wpvs-nav-bar> to render a simple navigation bar for the
- * site header.
+ * Custom element <wpvs-image> for responsive images. On large screens the
+ * image takes its assigned height and an automatic width according to the
+ * image's aspect ratio. On small screens it takes 100% width and the height
+ * according to the ratio. Use it like this:
  *
- *     <wpvs-nav-bar data-mode="responsive" data-breakpoint="tablet">
- *         <a href="…">…</a>
- *         <a href="…">…</a>
- *         <a href="…">…</a>
- *     </wpvs-nav-bar>
+ *   <wpvs-image
+ *      data-src        = "image.jpg"
+ *      data-alt        = "alternative text"
+ *      data-height     = "15em"
+ *      data-breakpoint = "tablet"
+ *   ></wpvs-image>
  *
- * The `data-mode` attribute is optional. It can have the following values:
- *
- *   * `responsive` (default): Decide upon current viewport width whether to
- *     show the page buttons horizontally or vertically.
- *
- *   * `horizontal`: Always use horizontal page buttons (best for large screens).
- *
- *   * `vertical`: Always use vertical page buttons (best for small screens).
- *
- * In order for responsive mode to work, the page must contain a
- * <wpvs-detect-screen-size> element somewhere. The `data-breakpoint` attribute
- * then sets at which screen size the page buttons will be aligned horizontally.
- * It's default value is `tablet`.
+ * The `data-breakpoint` attribute is optional and defaults to `tablet`.
+ * In fact only the `data-src` attribute is really needed.
  *
  * @extends CustomElement
  */
-export class WpvsNavBarElement extends CustomElement {
+export class WpvsImageElement extends CustomElement {
     static #templates;
     static #detectScreenSizeElement;
 
@@ -68,25 +60,26 @@ export class WpvsNavBarElement extends CustomElement {
     /**
      * Render shadow DOM to display the element.
      */
-    _render() {
+    async _render() {
         // Remove old content
         this.sRoot.replaceChildren();
 
-        // Apply template and styles
-        let headerTemplate = this.constructor.#templates.querySelector("template").cloneNode(true);
-        this.sRoot.replaceChildren(...headerTemplate.content.childNodes);
-
+        // Apply style
         let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
         this.sRoot.appendChild(styleElement);
 
-        // Render navigation list items
-        let ulElement = this.sRoot.querySelector("ul");
+        // Render image
+        if (!this.dataset.src) return;
 
-        for (let i = 0; i < this.children.length; i++) {
-            let liElement = document.createElement("li");
-            liElement.appendChild(this.children[i].cloneNode(true));
-            ulElement.appendChild(liElement);
+        let imageElement = document.createElement("img");
+        imageElement.src = this.dataset.src;
+        imageElement.alt = this.dataset.alt;
+
+        if (this.dataset.height) {
+            imageElement.style.height = this.dataset.height;
         }
+
+        this.sRoot.appendChild(imageElement);
 
         // Adapt to current viewport size
         this._updateDisplayMode();
@@ -99,7 +92,6 @@ export class WpvsNavBarElement extends CustomElement {
     _onAttributeChanged(mutations) {
         for (let mutation of mutations) {
             switch (mutation.attributeName) {
-                case "data-mode":
                 case "data-breakpoint":
                     this._updateDisplayMode();
                     break;
@@ -108,12 +100,12 @@ export class WpvsNavBarElement extends CustomElement {
     }
 
     /**
-     * Decide whether to display the two titles horizontally or vertically.
-     * This depends on the current value of the `data-mode` and `data-breakpoint`
-     * attributes as described in the class documentation above.
+     * Decide how to display the image. This depends on the current value of
+     * the `data-mode` and `data-breakpoint` attributes as described in the
+     * class documentation above.
      */
     _updateDisplayMode() {
-        let containerElement = this.sRoot.querySelector(".container");
+        let containerElement = this.sRoot.querySelector("img");
         if (!containerElement) return;
 
         let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
@@ -121,4 +113,4 @@ export class WpvsNavBarElement extends CustomElement {
 
 }
 
-window.customElements.define("wpvs-nav-bar", WpvsNavBarElement);
+window.customElements.define("wpvs-image", WpvsImageElement);

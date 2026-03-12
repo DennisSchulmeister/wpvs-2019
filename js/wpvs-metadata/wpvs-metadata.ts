@@ -7,7 +7,7 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-"use strict"
+
 
 import CustomElement from "../custom_element.js";
 import templates from "./wpvs-metadata.html";
