@@ -15,7 +15,7 @@
         "check": "tsc",
         "start": "conc -r \"npm run build \" \"npm run watch:static\" \"tsx bin/esbuild-serve.ts\"",
         "build": "npm run build:static && tsx bin/esbuild-bundle.ts",
-        "publish": "scripts/publish.sh",
+        "publish": "bin/publish.sh",
         "build:static": "npm run clean && npm run check && tsx bin/build-static.ts",
         "watch:static": "watch-run -p 'static/**' tsx bin/build-static.ts"
     },
