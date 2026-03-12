@@ -14,7 +14,7 @@ interface Config {
 };
 
 export default {
-    src_dir:    path.normalize(path.join(sourceDir, "js")),
+    src_dir:    path.normalize(path.join(sourceDir, "src")),
     static_dir: path.normalize(path.join(sourceDir, "static")),
     build_dir:  path.normalize(path.join(sourceDir, "build")),
     public_url: "",

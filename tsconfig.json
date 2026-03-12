@@ -4,9 +4,9 @@
     "compilerOptions": {
         // JavaScript version settings
         "target": "esnext",
-        "lib": ["ESNext", "DOM"], // Backend projects: ["ESNext"]
+        "lib": ["ESNext", "DOM", "DOM.Iterable"], // Backend projects: ["ESNext"]
         "module": "esnext",       // Backend projects: "nodenext"
-        "moduleResolution": "Bundler",
+        "moduleResolution": "bundler",
 
         // Output settings
         "noEmit": true,
@@ -14,7 +14,7 @@
         // "sourceMap": true,
         // "declarationMap": true,
         // "outDir": "./build",
-        "rootDir": "./js/",
+        "rootDir": "./src/",
 
         // Compilation options
         "allowJs": true,
@@ -32,7 +32,7 @@
     },
 
     "include": [
-        "./js/"
+        "./src/"
         // // Add TS-only packages like this:
         // "./node_modules/OTHERLIB/**/package.json",
         // "./node_modules/OTHERLIB/**/*.ts",

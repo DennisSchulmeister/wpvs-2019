@@ -19,7 +19,7 @@ esbuild.build({
         ".jpg":   "dataurl",
         ".png":   "dataurl",
         ".gif":   "dataurl",
-        ".htm":   "dataurl",
-        ".html":  "dataurl",
+        ".htm":   "text",
+        ".html":  "text",
     },
 });

@@ -701,8 +701,11 @@
     window.__CE_installPolyfill = Ia;
   }).call(self);
 
-  // js/custom_element.js
+  // src/custom_element.ts
   var CustomElement = class extends HTMLElement {
+    _childMutationObserver;
+    _attributeMutationObserver;
+    sRoot;
     /**
      * Constructor as required for custom elements. This makes sure that the
      * element will only be rendered once the document has finished loading.
@@ -756,7 +759,7 @@
      * Internal callback to completely render the custom element. Needs to be
      * overwritten by the sub-classes. Never call it manually!
      */
-    async _render() {
+    _render() {
     }
     /**
      * Internal method to call the subclasses `_onAttributeChanged()` method.
@@ -764,7 +767,7 @@
      * `_onAttributeChanged()` and enabling them again afterwards, because
      * otherwise we could produce an infinite loop.
      *
-     * @param {MutationRecord[]} mutations Array of all detected changes,
+     * @param mutations Array of all detected changes,
      *   see: https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord
      */
     async onAttributeChanged(mutations) {
@@ -778,12 +781,9 @@
      * default behavior, if the method is not overridden, is to simply rerender
      * the element. Elements may however override this method to implement a
      * smarter logic to save rendering time.
-     *
-     * @param {MutationRecord[]} mutations Array of all detected changes,
-     *   see: https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord
      */
-    async _onAttributeChanged(mutations) {
-      await this.render();
+    _onAttributeChanged(_mutations) {
+      return this.render();
     }
     /**
      * Disable all mutation observers to prevent an infinite loop while modifying
@@ -811,9 +811,6 @@
     /**
      * Utility method to copy all HTML attributes of the src element over
      * to the dst element. To be called by the sub-classes, when needed.
-     *
-     * @param {HTMLElement} src Source element
-     * @param {HTMLElement} dst Destination element
      */
     copyAttributes(src, dst) {
       for (let i = 0; i < src.attributes.length; i++) {
@@ -863,34 +860,31 @@
      *
      * and to switch to large display for screen class "tablet" and above.
      *
-     * @param {HTMLElement} containerElement
+     * @param containerElement
      * HTML element to apply the detected CSS classes to.
      *
-     * @param {HTMLElement} detectScreenSizeElement
+     * @param detectScreenSizeElement
      * Already existing element <wpvs-detect-screen-size> to be queried for the
      * viewport size.
      *
-     * @param {Object} config
+     * @param config
      * Configuration object, see above
      *
-     * @return {String}
-     * The chosen display mode
+     * @returns The chosen display mode
      */
     adaptToScreenSize(containerElement, detectScreenSizeElement, config) {
       if (!containerElement) return;
       if (!config) config = {};
-      let defaultBreakpoint = config.defaultBreakpoint ? config.defaultBreakpoint : "tablet";
-      let defaultMode = config.defaultMode ? config.defaultMode : "responsive";
-      let responsiveMode = config.responsiveMode ? config.responsiveMode : "responsive";
-      let belowMode = config.belowMode ? config.belowMode : "vertical";
-      let aboveMode = config.aboveMode ? config.aboveMode : "horizontal";
-      if (!this.dataset.mode) this.dataset.mode = defaultMode;
-      this.dataset.mode = this.dataset.mode.toLowerCase();
+      let defaultBreakpoint = config.defaultBreakpoint ?? "tablet";
+      let defaultMode = config.defaultMode ?? "responsive";
+      let responsiveMode = config.responsiveMode ?? "responsive";
+      let belowMode = config.belowMode ?? "vertical";
+      let aboveMode = config.aboveMode ?? "horizontal";
+      this.dataset.mode = (this.dataset.mode || defaultMode).toLowerCase();
       if (this.dataset.mode == responsiveMode && !detectScreenSizeElement) {
         this.dataset.mode = aboveMode;
       }
-      if (!this.dataset.breakpoint) this.dataset.breakpoint = defaultBreakpoint;
-      this.dataset.breakpoint = this.dataset.breakpoint.toLowerCase();
+      this.dataset.breakpoint = (this.dataset.breakpoint || defaultBreakpoint).toLowerCase();
       let displayMode = "";
       switch (this.dataset.mode) {
         case responsiveMode:
@@ -915,13 +909,14 @@
   };
   var custom_element_default = CustomElement;
 
-  // js/wpvs-columns/wpvs-columns.html
-  var wpvs_columns_default = "data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0A/* Use column layout */%0A.container {%0A    display: block;%0A    margin: 0;%0A    padding: 0;%0A%0A    column-count: 1; /* Set via JavaScript */%0A    column-gap: 2em;%0A    orphans: 2;%0A    widows: 2;%0A}%0A%0A.container h1,%0A.container h2,%0A.container h3,%0A.container h4,%0A.container h5,%0A.container h6 {%0A    break-after: avoid;%0A}%0A</style>%0A";
+  // src/wpvs-columns/wpvs-columns.html
+  var wpvs_columns_default = "<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\n/* Use column layout */\n.container {\n    display: block;\n    margin: 0;\n    padding: 0;\n\n    column-count: 1; /* Set via JavaScript */\n    column-gap: 2em;\n    orphans: 2;\n    widows: 2;\n}\n\n.container h1,\n.container h2,\n.container h3,\n.container h4,\n.container h5,\n.container h6 {\n    break-after: avoid;\n}\n</style>\n";
 
-  // js/wpvs-columns/wpvs-columns.js
-  var WpvsColumnsElement = class extends custom_element_default {
+  // src/wpvs-columns/wpvs-columns.ts
+  var WpvsColumnsElement = class _WpvsColumnsElement extends custom_element_default {
     static #templates;
-    static #detectScreenSizeElement;
+    static #detectScreenSizeElement = null;
+    containerElement;
     static {
       this.#templates = document.createElement("div");
       this.#templates.innerHTML = wpvs_columns_default;
@@ -932,11 +927,11 @@
      */
     constructor() {
       super();
-      if (!this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+      if (!_WpvsColumnsElement.#detectScreenSizeElement) {
+        _WpvsColumnsElement.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
       }
-      if (this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+      if (_WpvsColumnsElement.#detectScreenSizeElement) {
+        _WpvsColumnsElement.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
       }
       this.postConstruct();
     }
@@ -945,7 +940,7 @@
      */
     _render() {
       this.sRoot.replaceChildren();
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsColumnsElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       this.containerElement = document.createElement("container");
       this.containerElement.classList.add("container");
@@ -955,7 +950,7 @@
     }
     /**
      * Update element content when attribute values change.
-     * @param {MutationRecord[]} mutations Array of all detected changes
+     * @param mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
       for (let mutation of mutations) {
@@ -977,22 +972,22 @@
       let containerElement = this.sRoot.querySelector(".container");
       if (!containerElement) return;
       let columns = this.dataset.columns || 3;
-      let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
+      let mode = this.adaptToScreenSize(containerElement, _WpvsColumnsElement.#detectScreenSizeElement);
       if (mode != "horizontal") {
         columns = 1;
       }
-      this.containerElement.style.columnCount = columns;
+      this.containerElement.style.columnCount = String(columns);
     }
   };
   window.customElements.define("wpvs-columns", WpvsColumnsElement);
 
-  // js/wpvs-container/wpvs-container.html
-  var wpvs_container_default = "data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0A.container {%0A    margin: 0;%0A    padding: 0;%0A%0A    display: flex;%0A    flex-direction: column;%0A    flex-wrap: wrap;%0A    align-items: stretch;%0A    gap: 1rem;%0A}%0A%0A.container > * {%0A    margin: 0;%0A}%0A%0A.container.horizontal {%0A    flex-direction: row;%0A}%0A</style>%0A";
+  // src/wpvs-container/wpvs-container.html
+  var wpvs_container_default = "<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\n.container {\n    margin: 0;\n    padding: 0;\n\n    display: flex;\n    flex-direction: column;\n    flex-wrap: wrap;\n    align-items: stretch;\n    gap: 1rem;\n}\n\n.container > * {\n    margin: 0;\n}\n\n.container.horizontal {\n    flex-direction: row;\n}\n</style>\n";
 
-  // js/wpvs-container/wpvs-container.js
-  var WpvsContainerElement = class extends custom_element_default {
+  // src/wpvs-container/wpvs-container.ts
+  var WpvsContainerElement = class _WpvsContainerElement extends custom_element_default {
     static #templates;
-    static #detectScreenSizeElement;
+    static #detectScreenSizeElement = null;
     static {
       this.#templates = document.createElement("div");
       this.#templates.innerHTML = wpvs_container_default;
@@ -1003,11 +998,11 @@
      */
     constructor() {
       super();
-      if (!this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+      if (!_WpvsContainerElement.#detectScreenSizeElement) {
+        _WpvsContainerElement.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
       }
-      if (this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+      if (_WpvsContainerElement.#detectScreenSizeElement) {
+        _WpvsContainerElement.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
       }
       this.postConstruct();
     }
@@ -1016,7 +1011,7 @@
      */
     _render() {
       this.sRoot.replaceChildren();
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsContainerElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       let containerElement = document.createElement("container");
       containerElement.classList.add("container");
@@ -1046,13 +1041,18 @@
     _updateDisplayMode() {
       let containerElement = this.sRoot.querySelector(".container");
       if (!containerElement) return;
-      let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
+      let mode = this.adaptToScreenSize(containerElement, _WpvsContainerElement.#detectScreenSizeElement);
     }
   };
   window.customElements.define("wpvs-container", WpvsContainerElement);
 
-  // js/wpvs-detect-screen-size/wpvs-detect-screen-size.js
+  // src/wpvs-detect-screen-size/wpvs-detect-screen-size.ts
   var WpvsDetectScreenSizeElement = class extends custom_element_default {
+    divPhone;
+    divTablet;
+    divScreen;
+    divHires;
+    _prevScreenSize = "";
     /**
      * Constructor as required for custom elements. Also parses the template
      * HTML.
@@ -1108,8 +1108,8 @@
     /**
      * Compares the given screen size name to the current screen size.
      *
-     * @param  {String} screenSize Screen size to compare (`phone`, `tablet`, …)
-     * @return {Integer} -1 if current screen size is smaller,
+     * @param screenSize Screen size to compare (`phone`, `tablet`, …)
+     * @returns -1 if current screen size is smaller,
      *   1 if the current screen size is larger,
      *   0 otherwise (both are equal or an unknown string as given)
      */
@@ -1141,13 +1141,13 @@
   };
   window.customElements.define("wpvs-detect-screen-size", WpvsDetectScreenSizeElement);
 
-  // js/wpvs-header/wpvs-header.html
-  var wpvs_header_default = 'data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0A.container {%0A    padding: 1rem;%0A%0A    color: var(--header-fg);%0A    background: var(--header-bg);%0A    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.1);%0A}%0A%0A.line1 {%0A    display: flex;%0A    flex-wrap: wrap;%0A    margin-bottom: 0.25em;%0A}%0A%0A.site-title {%0A    flex-grow: 1;%0A%0A    font-family: "3dumbregular", fantasy;%0A    font-size: 120%;%0A    font-weight: bold;%0A    color: var(--logo-color);%0A}%0A%0A.page-title {%0A    font-size: 120%;%0A    font-weight: bold;%0A}%0A%0A.content {%0A}%0A%0A/* Horizontal mode (large screen) */%0A.container.horizontal {%0A    box-shadow: 0 2px 2px 1px rgba(0,0,0, 0.1);%0A    font-size: 125%;%0A}%0A</style>%0A%0A<template id="header-template">%0A    <header class="container">%0A        <div class="line1">%0A            <div class="site-title"></div>%0A            <div class="page-title"></div>%0A        </div>%0A        <div class="content"></div>%0A    </header>%0A</template>%0A';
+  // src/wpvs-header/wpvs-header.html
+  var wpvs_header_default = '<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\n.container {\n    padding: 1rem;\n\n    color: var(--header-fg);\n    background: var(--header-bg);\n    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.1);\n}\n\n.line1 {\n    display: flex;\n    flex-wrap: wrap;\n    margin-bottom: 0.25em;\n}\n\n.site-title {\n    flex-grow: 1;\n\n    font-family: "3dumbregular", fantasy;\n    font-size: 120%;\n    font-weight: bold;\n    color: var(--logo-color);\n}\n\n.page-title {\n    font-size: 120%;\n    font-weight: bold;\n}\n\n.content {\n}\n\n/* Horizontal mode (large screen) */\n.container.horizontal {\n    box-shadow: 0 2px 2px 1px rgba(0,0,0, 0.1);\n    font-size: 125%;\n}\n</style>\n\n<template id="header-template">\n    <header class="container">\n        <div class="line1">\n            <div class="site-title"></div>\n            <div class="page-title"></div>\n        </div>\n        <div class="content"></div>\n    </header>\n</template>\n';
 
-  // js/wpvs-header/wpvs-header.js
-  var WpvsHeaderElement = class extends custom_element_default {
+  // src/wpvs-header/wpvs-header.ts
+  var WpvsHeaderElement = class _WpvsHeaderElement extends custom_element_default {
     static #templates;
-    static #detectScreenSizeElement;
+    static #detectScreenSizeElement = null;
     static {
       this.#templates = document.createElement("div");
       this.#templates.innerHTML = wpvs_header_default;
@@ -1158,11 +1158,11 @@
      */
     constructor() {
       super();
-      if (!this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+      if (!_WpvsHeaderElement.#detectScreenSizeElement) {
+        _WpvsHeaderElement.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
       }
-      if (this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+      if (_WpvsHeaderElement.#detectScreenSizeElement) {
+        _WpvsHeaderElement.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
       }
       this.postConstruct();
     }
@@ -1170,9 +1170,9 @@
      * Render shadow DOM to display the element.
      */
     _render() {
-      let headerTemplate = this.constructor.#templates.querySelector("#header-template").cloneNode(true);
+      let headerTemplate = _WpvsHeaderElement.#templates.querySelector("#header-template").cloneNode(true);
       this.sRoot.replaceChildren(...headerTemplate.content.childNodes);
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsHeaderElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       this._renderSiteTitle();
       this._renderPageTitle();
@@ -1185,7 +1185,7 @@
     _renderSiteTitle() {
       let element = this.sRoot.querySelector(".site-title");
       if (!element) return;
-      element.textContent = this.dataset.siteTitle;
+      element.textContent = this.dataset.siteTitle ?? "";
     }
     /**
      * Update the visible site title based on the `data-page-title` attribute.
@@ -1193,7 +1193,7 @@
     _renderPageTitle() {
       let element = this.sRoot.querySelector(".page-title");
       if (!element) return;
-      element.textContent = this.dataset.pageTitle;
+      element.textContent = this.dataset.pageTitle ?? "";
     }
     /**
      * Update element content when attribute values change.
@@ -1223,12 +1223,12 @@
     _updateDisplayMode() {
       let containerElement = this.sRoot.querySelector(".container");
       if (!containerElement) return;
-      let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
+      let mode = this.adaptToScreenSize(containerElement, _WpvsHeaderElement.#detectScreenSizeElement);
     }
   };
   window.customElements.define("wpvs-header", WpvsHeaderElement);
 
-  // js/wpvs-icon-link/wpvs-icon-link.js
+  // src/wpvs-icon-link/wpvs-icon-link.ts
   var WpvsIconLinkElement = class extends custom_element_default {
     /**
      * Constructor as required for custom elements.
@@ -1281,13 +1281,13 @@
   };
   window.customElements.define("wpvs-icon-link", WpvsIconLinkElement);
 
-  // js/wpvs-image/wpvs-image.html
-  var wpvs_image_default = "data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0Aimg {%0A    display: inline-block;%0A%0A    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);%0A    border: 1px solid var(--separator-fg);%0A    border-radius: 0.1em;%0A}%0A%0Aimg.horizontal {%0A    height: 15em;%0A    width: auto;%0A}%0A%0Aimg.vertical {%0A    width: 100% !important;%0A    height: auto !important;%0A}%0A</style>%0A";
+  // src/wpvs-image/wpvs-image.html
+  var wpvs_image_default = "<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\nimg {\n    display: inline-block;\n\n    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);\n    border: 1px solid var(--separator-fg);\n    border-radius: 0.1em;\n}\n\nimg.horizontal {\n    height: 15em;\n    width: auto;\n}\n\nimg.vertical {\n    width: 100% !important;\n    height: auto !important;\n}\n</style>\n";
 
-  // js/wpvs-image/wpvs-image.js
-  var WpvsImageElement = class extends custom_element_default {
+  // src/wpvs-image/wpvs-image.ts
+  var WpvsImageElement = class _WpvsImageElement extends custom_element_default {
     static #templates;
-    static #detectScreenSizeElement;
+    static #detectScreenSizeElement = null;
     static {
       this.#templates = document.createElement("div");
       this.#templates.innerHTML = wpvs_image_default;
@@ -1298,11 +1298,11 @@
      */
     constructor() {
       super();
-      if (!this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+      if (!_WpvsImageElement.#detectScreenSizeElement) {
+        _WpvsImageElement.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
       }
-      if (this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+      if (_WpvsImageElement.#detectScreenSizeElement) {
+        _WpvsImageElement.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
       }
       this.postConstruct();
     }
@@ -1311,12 +1311,12 @@
      */
     async _render() {
       this.sRoot.replaceChildren();
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsImageElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       if (!this.dataset.src) return;
       let imageElement = document.createElement("img");
       imageElement.src = this.dataset.src;
-      imageElement.alt = this.dataset.alt;
+      imageElement.alt = this.dataset.alt ?? "";
       if (this.dataset.height) {
         imageElement.style.height = this.dataset.height;
       }
@@ -1325,7 +1325,7 @@
     }
     /**
      * Update element content when attribute values change.
-     * @param {MutationRecord[]} mutations Array of all detected changes
+     * @param mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
       for (let mutation of mutations) {
@@ -1344,16 +1344,16 @@
     _updateDisplayMode() {
       let containerElement = this.sRoot.querySelector("img");
       if (!containerElement) return;
-      let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
+      let mode = this.adaptToScreenSize(containerElement, _WpvsImageElement.#detectScreenSizeElement);
     }
   };
   window.customElements.define("wpvs-image", WpvsImageElement);
 
-  // js/wpvs-info/wpvs-info.html
-  var wpvs_info_default = "data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0A.container {%0A    margin: 1rem 0 1rem 0;%0A    padding: 0.5rem;%0A%0A    color: var(--info-fg);%0A    background: var(--info-bg);%0A    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);%0A    border: 1px solid var(--separator-fg);%0A    border-radius: 0.1em;%0A%0A    max-width: 60em;%0A}%0A</style>%0A";
+  // src/wpvs-info/wpvs-info.html
+  var wpvs_info_default = "<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\n.container {\n    margin: 1rem 0 1rem 0;\n    padding: 0.5rem;\n\n    color: var(--info-fg);\n    background: var(--info-bg);\n    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);\n    border: 1px solid var(--separator-fg);\n    border-radius: 0.1em;\n\n    max-width: 60em;\n}\n</style>\n";
 
-  // js/wpvs-info/wpvs-info.js
-  var WpvsInfoElement = class extends custom_element_default {
+  // src/wpvs-info/wpvs-info.ts
+  var WpvsInfoElement = class _WpvsInfoElement extends custom_element_default {
     static #templates;
     static {
       this.#templates = document.createElement("div");
@@ -1372,7 +1372,7 @@
      */
     async _render() {
       this.sRoot.replaceChildren();
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsInfoElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       let containerElement = document.createElement("div");
       containerElement.classList.add("container");
@@ -1382,11 +1382,11 @@
   };
   window.customElements.define("wpvs-info", WpvsInfoElement);
 
-  // js/wpvs-material/wpvs-material.html
-  var wpvs_material_default = 'data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0A/* Container border */%0A.container {%0A    cursor: pointer;%0A    border: 1px solid transparent;%0A}%0A%0A.container.expanded {%0A    background: var(--card-bg);%0A    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);%0A    border: 1px solid var(--separator-fg);%0A    padding: 1em;%0A}%0A%0A/* Icon and label */%0A.header {%0A    display: flex;%0A    justify-content: flex-start;%0A    align-items: flex-start;%0A    gap: 0.25em;%0A}%0A%0A.header > .name {%0A    flex: 1;%0A}%0A%0A.header i {%0A    display: inline-block;%0A    background: var(--card_circle_bg);%0A    color: var(--card_circle_fg);%0A    border-radius: 100%;%0A    padding: 0.1em;%0A}%0A%0A.container:hover > .header > .name {%0A    text-decoration: underline;%0A}%0A%0A.container.expanded > .header > .name {%0A    text-decoration: none !important;%0A    font-weight: bold;%0A}%0A%0A/* Card content */%0A.body {%0A    overflow: hidden;%0A    width: 0;%0A    height: 0;%0A}%0A%0A.container.expanded .body {%0A    width: auto;%0A    height: auto;%0A}%0A</style>%0A%0A<template id="container-template">%0A    <div class="container">%0A        <div class="header">%0A            <i></i>%0A            <span class="name"></span>%0A        </div>%0A%0A        <div class="body"></div>%0A    </div>%0A</template>%0A';
+  // src/wpvs-material/wpvs-material.html
+  var wpvs_material_default = '<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\n/* Container border */\n.container {\n    cursor: pointer;\n    border: 1px solid transparent;\n}\n\n.container.expanded {\n    background: var(--card-bg);\n    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);\n    border: 1px solid var(--separator-fg);\n    padding: 1em;\n}\n\n/* Icon and label */\n.header {\n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    gap: 0.25em;\n}\n\n.header > .name {\n    flex: 1;\n}\n\n.header i {\n    display: inline-block;\n    background: var(--card_circle_bg);\n    color: var(--card_circle_fg);\n    border-radius: 100%;\n    padding: 0.1em;\n}\n\n.container:hover > .header > .name {\n    text-decoration: underline;\n}\n\n.container.expanded > .header > .name {\n    text-decoration: none !important;\n    font-weight: bold;\n}\n\n/* Card content */\n.body {\n    overflow: hidden;\n    width: 0;\n    height: 0;\n}\n\n.container.expanded .body {\n    width: auto;\n    height: auto;\n}\n</style>\n\n<template id="container-template">\n    <div class="container">\n        <div class="header">\n            <i></i>\n            <span class="name"></span>\n        </div>\n\n        <div class="body"></div>\n    </div>\n</template>\n';
 
-  // js/wpvs-material/wpvs-material.js
-  var WpvsMaterialElement = class extends custom_element_default {
+  // src/wpvs-material/wpvs-material.ts
+  var WpvsMaterialElement = class _WpvsMaterialElement extends custom_element_default {
     static #templates;
     static {
       this.#templates = document.createElement("div");
@@ -1403,10 +1403,10 @@
      * Render link content
      */
     async _render() {
-      let containerTemplate = this.constructor.#templates.querySelector("#container-template").cloneNode(true);
+      let containerTemplate = _WpvsMaterialElement.#templates.querySelector("#container-template").cloneNode(true);
       this.sRoot.replaceChildren(...containerTemplate.content.childNodes);
       let containerElement = this.sRoot.querySelector(".container");
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsMaterialElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       this._renderHeader();
       let bodyElement = containerElement.querySelector(".body");
@@ -1450,11 +1450,11 @@
   };
   window.customElements.define("wpvs-material", WpvsMaterialElement);
 
-  // js/wpvs-material-card/wpvs-material-card.html
-  var wpvs_material_card_default = 'data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0A.container {%0A    color: var(--card-fg);%0A    background: var(--card-bg);%0A    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);%0A    border: 1px solid var(--separator-fg);%0A    border-radius: 0.1em;%0A}%0A%0A.type,%0A.name,%0A.meta {%0A    padding: 0.5rem;%0A}%0A%0A.type {%0A    color: var(--card-light-fg);%0A    font-size: 90%;%0A    padding-top: 0 !important;%0A    padding-bottom: 0 !important;%0A}%0A%0A.name {%0A    font-weight: bold;%0A    padding-bottom: 0 !important;%0A}%0A%0A.meta {%0A    display: flex;%0A    flex-wrap: wrap;%0A    font-size: 90%;%0A    padding-bottom: 0 !important;%0A    gap: 1em;%0A}%0A%0A.value {%0A    color: var(--card-light-fg);%0A}%0A</style>%0A%0A<template id="card-template">%0A    <div class="container">%0A        <div class="name"></div>%0A        <div class="type"></div>%0A        <div class="meta"></div>%0A        <div class="links"></div>%0A    </div>%0A</template>%0A%0A<template id="meta-template">%0A    <div>%0A        <span class="label"></span>%0A        <span class="value"></span>%0A    </div>%0A</template>%0A%0A<template id="link-template">%0A    <a class="button" href="" target="_blank">%0A        <i></i>%0A        <span class="label"></span>%0A    </a>%0A</template>%0A';
+  // src/wpvs-material-card/wpvs-material-card.html
+  var wpvs_material_card_default = '<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\n.container {\n    color: var(--card-fg);\n    background: var(--card-bg);\n    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);\n    border: 1px solid var(--separator-fg);\n    border-radius: 0.1em;\n}\n\n.type,\n.name,\n.meta {\n    padding: 0.5rem;\n}\n\n.type {\n    color: var(--card-light-fg);\n    font-size: 90%;\n    padding-top: 0 !important;\n    padding-bottom: 0 !important;\n}\n\n.name {\n    font-weight: bold;\n    padding-bottom: 0 !important;\n}\n\n.meta {\n    display: flex;\n    flex-wrap: wrap;\n    font-size: 90%;\n    padding-bottom: 0 !important;\n    gap: 1em;\n}\n\n.value {\n    color: var(--card-light-fg);\n}\n</style>\n\n<template id="card-template">\n    <div class="container">\n        <div class="name"></div>\n        <div class="type"></div>\n        <div class="meta"></div>\n        <div class="links"></div>\n    </div>\n</template>\n\n<template id="meta-template">\n    <div>\n        <span class="label"></span>\n        <span class="value"></span>\n    </div>\n</template>\n\n<template id="link-template">\n    <a class="button" href="" target="_blank">\n        <i></i>\n        <span class="label"></span>\n    </a>\n</template>\n';
 
-  // js/wpvs-material-card/wpvs-material-card.js
-  var WpvsMaterialCardElement = class extends custom_element_default {
+  // src/wpvs-material-card/wpvs-material-card.ts
+  var WpvsMaterialCardElement = class _WpvsMaterialCardElement extends custom_element_default {
     static #templates;
     static {
       this.#templates = document.createElement("div");
@@ -1472,28 +1472,28 @@
      * Render shadow DOM to display the element.
      */
     _render() {
-      let cardTemplate = this.constructor.#templates.querySelector("#card-template").cloneNode(true);
+      let cardTemplate = _WpvsMaterialCardElement.#templates.querySelector("#card-template").cloneNode(true);
       this.sRoot.replaceChildren(...cardTemplate.content.childNodes);
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsMaterialCardElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       this._renderCardType();
       this._renderCardName();
-      let metaTemplate = this.constructor.#templates.querySelector("#meta-template");
+      let metaTemplate = _WpvsMaterialCardElement.#templates.querySelector("#meta-template");
       let metaParentElement = this.sRoot.querySelector(".meta");
       for (let metaElement of this.querySelectorAll("material-meta")) {
         let metaChildElement = metaTemplate.content.firstElementChild.cloneNode(true);
         metaParentElement.appendChild(metaChildElement);
         metaChildElement.querySelector(".label").textContent = metaElement.dataset.label + ":";
-        metaChildElement.querySelector(".value").textContent = metaElement.dataset.value;
+        metaChildElement.querySelector(".value").textContent = metaElement.dataset.value ?? "";
       }
-      let linkTemplate = this.constructor.#templates.querySelector("#link-template");
+      let linkTemplate = _WpvsMaterialCardElement.#templates.querySelector("#link-template");
       let linkParentElement = this.sRoot.querySelector(".links");
       for (let linkElement of this.querySelectorAll("material-link")) {
         let aElement = linkTemplate.content.firstElementChild.cloneNode(true);
         linkParentElement.appendChild(aElement);
-        aElement.href = linkElement.dataset.href;
-        aElement.querySelector("i").classList.add(linkElement.dataset.icon);
-        aElement.querySelector(".label").textContent = linkElement.dataset.label;
+        aElement.href = linkElement.dataset.href ?? "";
+        aElement.querySelector("i").classList.add(linkElement.dataset.icon ?? "");
+        aElement.querySelector(".label").textContent = linkElement.dataset.label ?? "";
       }
     }
     /**
@@ -1502,7 +1502,7 @@
     _renderCardType() {
       let element = this.sRoot.querySelector(".type");
       if (!element) return;
-      element.textContent = this.dataset.type;
+      element.textContent = this.dataset.type ?? "";
     }
     /**
      * Update the card name header based on the `data-name` attribute.
@@ -1510,7 +1510,7 @@
     _renderCardName() {
       let element = this.sRoot.querySelector(".name");
       if (!element) return;
-      element.textContent = this.dataset.name;
+      element.textContent = this.dataset.name ?? "";
     }
     /**
      * Update element content when attribute values change.
@@ -1531,11 +1531,11 @@
   };
   window.customElements.define("wpvs-material-card", WpvsMaterialCardElement);
 
-  // js/wpvs-metadata/wpvs-metadata.html
-  var wpvs_metadata_default = 'data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0A/* Arrange with flexbox */%0A.container {%0A    display: flex;%0A    flex-direction: row;%0A    flex-wrap: wrap;%0A    column-gap: 1em;%0A%0A    margin-top: 0.5em;%0A    margin-bottom: 1em;%0A%0A    font-size: 90%;%0A    color: var(--card-fg);%0A}%0A%0A.value {%0A    color: var(--card-light-fg);%0A}%0A</style>%0A%0A<template id="container-template">%0A    <div class="container"></div>%0A</template>%0A%0A<template id="value-template">%0A    <div>%0A        <span class="label"></span>%0A        <span class="value"></span>%0A    </div>%0A</template>%0A';
+  // src/wpvs-metadata/wpvs-metadata.html
+  var wpvs_metadata_default = '<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\n/* Arrange with flexbox */\n.container {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    column-gap: 1em;\n\n    margin-top: 0.5em;\n    margin-bottom: 1em;\n\n    font-size: 90%;\n    color: var(--card-fg);\n}\n\n.value {\n    color: var(--card-light-fg);\n}\n</style>\n\n<template id="container-template">\n    <div class="container"></div>\n</template>\n\n<template id="value-template">\n    <div>\n        <span class="label"></span>\n        <span class="value"></span>\n    </div>\n</template>\n';
 
-  // js/wpvs-metadata/wpvs-metadata.js
-  var WpvsMetadataElement = class extends custom_element_default {
+  // src/wpvs-metadata/wpvs-metadata.ts
+  var WpvsMetadataElement = class _WpvsMetadataElement extends custom_element_default {
     static #templates;
     static {
       this.#templates = document.createElement("div");
@@ -1552,12 +1552,12 @@
      * Render link content
      */
     async _render() {
-      let containerTemplate = this.constructor.#templates.querySelector("#container-template").cloneNode(true);
+      let containerTemplate = _WpvsMetadataElement.#templates.querySelector("#container-template").cloneNode(true);
       this.sRoot.replaceChildren(...containerTemplate.content.childNodes);
       let containerElement = this.sRoot.querySelector(".container");
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsMetadataElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
-      let valueTemplate = this.constructor.#templates.querySelector("#value-template");
+      let valueTemplate = _WpvsMetadataElement.#templates.querySelector("#value-template");
       for (let valueElement of this.querySelectorAll("metadata-value")) {
         let valueChildElement = valueTemplate.content.firstElementChild.cloneNode(true);
         containerElement.appendChild(valueChildElement);
@@ -1568,13 +1568,13 @@
   };
   window.customElements.define("wpvs-metadata", WpvsMetadataElement);
 
-  // js/wpvs-nav-bar/wpvs-nav-bar.html
-  var wpvs_nav_bar_default = 'data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0Aa, a:visited {%0A    color: var(--normal-fg) !important;%0A    text-decoration: none;%0A}%0A%0Aa:hover {%0A    color: var(--link-hover-fg) !important;%0A}%0A%0Aul {%0A    list-style: none;%0A    margin: 0;%0A    padding: 0;%0A%0A    display: flex;%0A    flex-wrap: wrap;%0A}%0A%0Ali {%0A    margin-right: 0.5em;%0A}%0A%0Ali::after {%0A    content: "/";%0A    color: var(--separator-fg);%0A    margin-left: 0.5em;%0A}%0A%0Ali:last-child::after {%0A    content: "";%0A    margin-left: 0;%0A}%0A</style>%0A%0A<template>%0A    <nav class="container">%0A        <ul>%0A        </ul>%0A    </nav>%0A</template>%0A';
+  // src/wpvs-nav-bar/wpvs-nav-bar.html
+  var wpvs_nav_bar_default = '<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\na, a:visited {\n    color: var(--normal-fg) !important;\n    text-decoration: none;\n}\n\na:hover {\n    color: var(--link-hover-fg) !important;\n}\n\nul {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n}\n\nli {\n    margin-right: 0.5em;\n}\n\nli::after {\n    content: "/";\n    color: var(--separator-fg);\n    margin-left: 0.5em;\n}\n\nli:last-child::after {\n    content: "";\n    margin-left: 0;\n}\n</style>\n\n<template>\n    <nav class="container">\n        <ul>\n        </ul>\n    </nav>\n</template>\n';
 
-  // js/wpvs-nav-bar/wpvs-nav-bar.js
-  var WpvsNavBarElement = class extends custom_element_default {
+  // src/wpvs-nav-bar/wpvs-nav-bar.ts
+  var WpvsNavBarElement = class _WpvsNavBarElement extends custom_element_default {
     static #templates;
-    static #detectScreenSizeElement;
+    static #detectScreenSizeElement = null;
     static {
       this.#templates = document.createElement("div");
       this.#templates.innerHTML = wpvs_nav_bar_default;
@@ -1585,11 +1585,11 @@
      */
     constructor() {
       super();
-      if (!this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+      if (!_WpvsNavBarElement.#detectScreenSizeElement) {
+        _WpvsNavBarElement.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
       }
-      if (this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+      if (_WpvsNavBarElement.#detectScreenSizeElement) {
+        _WpvsNavBarElement.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
       }
       this.postConstruct();
     }
@@ -1598,9 +1598,9 @@
      */
     _render() {
       this.sRoot.replaceChildren();
-      let headerTemplate = this.constructor.#templates.querySelector("template").cloneNode(true);
+      let headerTemplate = _WpvsNavBarElement.#templates.querySelector("template").cloneNode(true);
       this.sRoot.replaceChildren(...headerTemplate.content.childNodes);
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsNavBarElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       let ulElement = this.sRoot.querySelector("ul");
       for (let i = 0; i < this.children.length; i++) {
@@ -1632,12 +1632,12 @@
     _updateDisplayMode() {
       let containerElement = this.sRoot.querySelector(".container");
       if (!containerElement) return;
-      let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
+      let mode = this.adaptToScreenSize(containerElement, _WpvsNavBarElement.#detectScreenSizeElement);
     }
   };
   window.customElements.define("wpvs-nav-bar", WpvsNavBarElement);
 
-  // js/wpvs-page/wpvs-page.js
+  // src/wpvs-page/wpvs-page.ts
   var WpvsPageElement = class extends custom_element_default {
     /**
      * Constructor as required for custom elements. Also parses the template
@@ -1660,8 +1660,10 @@
   };
   window.customElements.define("wpvs-page", WpvsPageElement);
 
-  // js/wpvs-router/wpvs-router.js
+  // src/wpvs-router/wpvs-router.ts
   var WpvsRouterElement = class extends custom_element_default {
+    _routes;
+    _fallback;
     /**
      * Constructor as required for custom elements. Also parses the template
      * HTML.
@@ -1704,18 +1706,18 @@
       let route = this._routes.find((p) => p.url === url);
       if (route) route.show(url);
       else if (this._fallback) this._fallback(url);
-      else if (!this._fallback) console.error(`No route found for URL '${url}'`);
+      else console.error(`No route found for URL '${url}'`);
     }
   };
   window.customElements.define("wpvs-router", WpvsRouterElement);
 
-  // js/wpvs-tabs/wpvs-tabs.html
-  var wpvs_tabs_default = "data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0A/* Mobile version: vertical */%0A.button-bar {%0A    border: 1px solid var(--primary-bg);%0A    border-radius: 0.1em;%0A%0A    list-style: none;%0A    margin: 0 0 1em 0;%0A    padding: 0;%0A%0A    background: var(--secondary-bg);%0A    color: var(--secondary-fg);%0A%0A    overflow: hidden;%0A}%0A%0A.tab-button,%0A.dropdown {%0A    padding: 0.5em;%0A    cursor: pointer;%0A    transition: var(--transition-background), var(--transition-color);%0A}%0A%0A.tab-button[active],%0A.tab-button:hover {%0A    background-color: var(--primary-bg);%0A    color: var(--primary-fg);%0A}%0A%0A.page:not([active]) {%0A    display: none;%0A}%0A%0A/* Screen version: horizontal */%0A.container.horizontal .button-bar-outer {%0A    display: inline-block;%0A}%0A%0A.container.horizontal .button-bar {%0A    display: flex;%0A    flex-wrap: wrap;%0A}%0A%0A/* Dropdown menu for vertical mode */%0A.container.horizontal .dropdown {%0A    display: none;%0A}%0A%0A.dropdown {%0A    display: flex;%0A%0A    border: 1px solid var(--primary-bg);%0A    border-radius: 0.1em;%0A%0A    background: var(--primary-bg);%0A    color: var(--primary-fg);%0A}%0A%0A.dropdown .active-tab-title {%0A    flex: 1;%0A}%0A%0A.container.vertical .closed {%0A    height: 0;%0A    border-width: 0px;%0A}%0A</style>%0A";
+  // src/wpvs-tabs/wpvs-tabs.html
+  var wpvs_tabs_default = "<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\n/* Mobile version: vertical */\n.button-bar {\n    border: 1px solid var(--primary-bg);\n    border-radius: 0.1em;\n\n    list-style: none;\n    margin: 0 0 1em 0;\n    padding: 0;\n\n    background: var(--secondary-bg);\n    color: var(--secondary-fg);\n\n    overflow: hidden;\n}\n\n.tab-button,\n.dropdown {\n    padding: 0.5em;\n    cursor: pointer;\n    transition: var(--transition-background), var(--transition-color);\n}\n\n.tab-button[active],\n.tab-button:hover {\n    background-color: var(--primary-bg);\n    color: var(--primary-fg);\n}\n\n.page:not([active]) {\n    display: none;\n}\n\n/* Screen version: horizontal */\n.container.horizontal .button-bar-outer {\n    display: inline-block;\n}\n\n.container.horizontal .button-bar {\n    display: flex;\n    flex-wrap: wrap;\n}\n\n/* Dropdown menu for vertical mode */\n.container.horizontal .dropdown {\n    display: none;\n}\n\n.dropdown {\n    display: flex;\n\n    border: 1px solid var(--primary-bg);\n    border-radius: 0.1em;\n\n    background: var(--primary-bg);\n    color: var(--primary-fg);\n}\n\n.dropdown .active-tab-title {\n    flex: 1;\n}\n\n.container.vertical .closed {\n    height: 0;\n    border-width: 0px;\n}\n</style>\n";
 
-  // js/wpvs-tabs/wpvs-tabs.js
-  var WpvsTabsElement = class extends custom_element_default {
+  // src/wpvs-tabs/wpvs-tabs.ts
+  var WpvsTabsElement = class _WpvsTabsElement extends custom_element_default {
     static #templates;
-    static #detectScreenSizeElement;
+    static #detectScreenSizeElement = null;
     static {
       this.#templates = document.createElement("div");
       this.#templates.innerHTML = wpvs_tabs_default;
@@ -1726,11 +1728,11 @@
      */
     constructor() {
       super();
-      if (!this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
+      if (!_WpvsTabsElement.#detectScreenSizeElement) {
+        _WpvsTabsElement.#detectScreenSizeElement = document.querySelector("wpvs-detect-screen-size");
       }
-      if (this.constructor.#detectScreenSizeElement) {
-        this.constructor.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
+      if (_WpvsTabsElement.#detectScreenSizeElement) {
+        _WpvsTabsElement.#detectScreenSizeElement.addEventListener("screen-size-changed", () => this._updateDisplayMode());
       }
       this.postConstruct();
     }
@@ -1739,7 +1741,7 @@
      */
     _render() {
       this.sRoot.replaceChildren();
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsTabsElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       let containerElement = document.createElement("div");
       containerElement.classList.add("container");
@@ -1781,16 +1783,16 @@
         ulElement.appendChild(liElement);
         liElement.classList.add("tab-button");
         liElement.textContent = pageTitle;
-        liElement.dataset.index = index;
+        liElement.dataset.index = String(index);
         liElement.dataset.tabId = tabId;
         active = pageElement.getAttribute("active");
         if (active != null) liElement.setAttribute("active", active);
         liElement.addEventListener("click", (event) => {
-          this._switchToPage(event.target.dataset.index);
+          this._switchToPage(event.target.dataset.index ?? "");
         });
         let divElement2 = document.createElement("div");
         divElement2.classList.add("page");
-        divElement2.dataset.index = index;
+        divElement2.dataset.index = String(index);
         divElement2.dataset.tabId = tabId;
         divElement2.append(...pageElement.childNodes);
         containerElement.appendChild(divElement2);
@@ -1805,13 +1807,13 @@
     }
     /**
      * Update element content when attribute values change.
-     * @param {MutationRecord[]} mutations Array of all detected changes
+     * @param mutations Array of all detected changes
      */
     _onAttributeChanged(mutations) {
       for (let mutation of mutations) {
         switch (mutation.attributeName) {
           case "data-active-tab":
-            this._switchToPageById(this.dataset.activeTab);
+            this._switchToPageById(this.dataset.activeTab ?? "");
             break;
           case "data-mode":
           case "data-breakpoint":
@@ -1822,10 +1824,10 @@
     }
     /**
      * Internal method to switch the visible page. This will update all internal
-     * DOM elements as well as the <wpvs-tabs> element itself. It also throws
+     * DOM elements as well as the <wpvs-tabs> element itself. It also raises
      * a `tab-changed` event.
      *
-     * @param {Integer} index Index of the new visible page, starting with zero
+     * @param index Index of the new visible page, starting with zero
      */
     _switchToPage(index) {
       this.sRoot.querySelectorAll(".tab-button").forEach((e) => e.removeAttribute("active"));
@@ -1854,7 +1856,7 @@
      * This is a tiny wrapper around _switchToPage(index) to open a page by
      * its id instead of the index.
      *
-     * @param {String} id `data-tab-id` attribute of the wanted page
+     * @param id `data-tab-id` attribute of the wanted page
      */
     _switchToPageById(id) {
       let pageDiv = this.sRoot.querySelector(`.page[data-tab-id="${id}"]`);
@@ -1870,7 +1872,7 @@
     _updateDisplayMode() {
       let containerElement = this.sRoot.querySelector(".container");
       if (!containerElement) return;
-      let mode = this.adaptToScreenSize(containerElement, this.constructor.#detectScreenSizeElement);
+      let mode = this.adaptToScreenSize(containerElement, _WpvsTabsElement.#detectScreenSizeElement);
       let buttonBarElement = this.sRoot.querySelector(".button-bar");
       if (buttonBarElement) {
         if (mode == "horizontal") {
@@ -1883,11 +1885,11 @@
   };
   window.customElements.define("wpvs-tabs", WpvsTabsElement);
 
-  // js/wpvs-tile/wpvs-tile.html
-  var wpvs_tile_default = 'data:text/html;charset=utf-8,<style>%0A/* Display as block element */%0A:host {%0A    display: block;%0A}%0A%0A:host([hidden]) {%0A    display: none;%0A}%0A%0A.container {%0A    color: var(--card-fg);%0A    background: var(--card-bg);%0A    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);%0A    border: 1px solid var(--separator-fg);%0A    border-radius: 0.1em;%0A%0A    background-size: cover;%0A    background-position: center;%0A    background-repeat: no-repeat;%0A%0A    font-size: 130%;%0A    font-weight: bold;%0A%0A    min-width: 15em;%0A    height: 10em;%0A}%0A%0A.container:not(.inactive) {%0A    cursor: pointer;%0A}%0A%0A.content {%0A    color: var(--tile-title-normal-fg);%0A    background: var(--tile-title-normal-bg);%0A    padding: 0.5rem;%0A    transition: var(--transition-background), var(--transition-color);%0A}%0A%0A.container:hover .content {%0A    color: var(--tile-title-hover-fg);%0A    background: var(--tile-title-hover-bg);%0A}%0A</style>%0A%0A<template id="tile-template">%0A    <div class="container">%0A        <div class="content"></div>%0A    </div>%0A</template>%0A';
+  // src/wpvs-tile/wpvs-tile.html
+  var wpvs_tile_default = '<style>\n/* Display as block element */\n:host {\n    display: block;\n}\n\n:host([hidden]) {\n    display: none;\n}\n\n.container {\n    color: var(--card-fg);\n    background: var(--card-bg);\n    box-shadow: 0 1px 1px 0.5px rgba(0,0,0, 0.03);\n    border: 1px solid var(--separator-fg);\n    border-radius: 0.1em;\n\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat;\n\n    font-size: 130%;\n    font-weight: bold;\n\n    min-width: 15em;\n    height: 10em;\n}\n\n.container:not(.inactive) {\n    cursor: pointer;\n}\n\n.content {\n    color: var(--tile-title-normal-fg);\n    background: var(--tile-title-normal-bg);\n    padding: 0.5rem;\n    transition: var(--transition-background), var(--transition-color);\n}\n\n.container:hover .content {\n    color: var(--tile-title-hover-fg);\n    background: var(--tile-title-hover-bg);\n}\n</style>\n\n<template id="tile-template">\n    <div class="container">\n        <div class="content"></div>\n    </div>\n</template>\n';
 
-  // js/wpvs-tile/wpvs-tile.js
-  var WpvsTileElement = class extends custom_element_default {
+  // src/wpvs-tile/wpvs-tile.ts
+  var WpvsTileElement = class _WpvsTileElement extends custom_element_default {
     static #templates;
     static {
       this.#templates = document.createElement("div");
@@ -1905,9 +1907,9 @@
      * Render shadow DOM to display the element.
      */
     _render() {
-      let cardTemplate = this.constructor.#templates.querySelector("#tile-template").cloneNode(true);
+      let cardTemplate = _WpvsTileElement.#templates.querySelector("#tile-template").cloneNode(true);
       this.sRoot.replaceChildren(...cardTemplate.content.childNodes);
-      let styleElement = this.constructor.#templates.querySelector("style").cloneNode(true);
+      let styleElement = _WpvsTileElement.#templates.querySelector("style").cloneNode(true);
       this.sRoot.appendChild(styleElement);
       let containerElement = this.sRoot.querySelector(".container");
       if (this.dataset.background) {
@@ -1928,16 +1930,17 @@
   };
   window.customElements.define("wpvs-tile", WpvsTileElement);
 
-  // js/index.js
+  // src/index.ts
   var init = () => {
     email_link_default.enableEmailLinks();
     let routerElement = document.querySelector("wpvs-router");
-    routerElement.addEventListener("route-changed", (event) => {
+    routerElement?.addEventListener("route-changed", (event) => {
+      let detail = event.detail;
       let siteTitle = "";
       let headerElement = document.querySelector("wpvs-header");
       if (headerElement && headerElement.dataset.siteTitle) siteTitle = headerElement.dataset.siteTitle;
       let pageTitle = "";
-      let pageElement = event.detail.sRoot.querySelector("wpvs-page");
+      let pageElement = detail.sRoot.querySelector("wpvs-page");
       if (pageElement && pageElement.dataset.title) pageTitle = pageElement.dataset.title;
       if (siteTitle && pageTitle) document.title = `${pageTitle} | ${siteTitle}`;
       else document.title = `${pageTitle}${siteTitle}`;
