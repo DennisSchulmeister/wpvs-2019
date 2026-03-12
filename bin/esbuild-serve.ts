@@ -1,13 +1,14 @@
 import config       from "../config.js";
 import * as esbuild from "esbuild";
 import path         from "node:path";
+import {lessLoader} from "esbuild-plugin-less";
 
 let ctx = await esbuild.context({
     entryPoints: [path.join(config.src_dir, "index.js")],
     bundle:      true,
     outfile:     path.join(config.static_dir, "_bundle.js"),
     sourcemap:   true,
-    plugins:     [],
+    plugins:     [lessLoader()],
     loader: {
         ".svg":   "text",
         ".ttf":   "dataurl",
@@ -17,11 +18,13 @@ let ctx = await esbuild.context({
         ".jpg":   "dataurl",
         ".png":   "dataurl",
         ".gif":   "dataurl",
+        ".htm":   "dataurl",
+        ".html":  "dataurl",
     }
 });
 
 let { hosts, port } = await ctx.serve({
-    servedir: path.join(__dirname, "..", "static"),
+    servedir: config.static_dir,
     port: 8888,
 });
 
