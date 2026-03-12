@@ -12,19 +12,23 @@
     "type": "module",
     "scripts": {
         "clean": "tsx bin/clean.ts",
-        "build": "npm run clean && npm run check && tsx bin/esbuild-bundle.ts",
         "check": "tsc",
-        "start": "tsx bin/esbuild-serve.ts",
-        "publish": "scripts/publish.sh"
+        "start": "conc -r \"npm run build \" \"npm run watch:static\" \"tsx bin/esbuild-serve.ts\"",
+        "build": "npm run build:static && tsx bin/esbuild-bundle.ts",
+        "publish": "scripts/publish.sh",
+        "build:static": "npm run clean && npm run check && tsx bin/build-static.ts",
+        "watch:static": "watch-run -p 'static/**' tsx bin/build-static.ts"
     },
     "devDependencies": {
         "@types/shelljs": "^0.10.0",
         "@webcomponents/custom-elements": "^1.6.0",
+        "concurrently": "^9.2.1",
         "email-link.js": "^1.0.1",
         "esbuild": "^0.27.3",
         "esbuild-plugin-less": "^1.3.36",
         "shelljs": "^0.10.0",
         "tsx": "^4.21.0",
-        "typescript": "^5.9.3"
+        "typescript": "^5.9.3",
+        "watch-run": "^1.2.5"
     }
 }

@@ -6,7 +6,7 @@ import {lessLoader} from "esbuild-plugin-less";
 let ctx = await esbuild.context({
     entryPoints: [path.join(config.src_dir, "index.js")],
     bundle:      true,
-    outfile:     path.join(config.static_dir, "_bundle.js"),
+    outfile:     path.join(config.build_dir, "_bundle.js"),
     sourcemap:   true,
     plugins:     [lessLoader()],
     loader: {
@@ -24,7 +24,7 @@ let ctx = await esbuild.context({
 });
 
 let { hosts, port } = await ctx.serve({
-    servedir: config.static_dir,
+    servedir: config.build_dir,
     port: 8888,
 });
 

@@ -48,10 +48,10 @@ import shell    from "shelljs";
 
 shell.mkdir("-p", config.build_dir);
 
-for (let file of shell.ls("-R", config.src_dir)) {
+for (let file of shell.ls("-R", config.static_dir)) {
     if (file.startsWith("_") || file.includes("/_")) continue;
     
-    let sourcePath = path.join(config.src_dir, file);
+    let sourcePath = path.join(config.static_dir, file);
     let sourceStat = fs.statSync(sourcePath);
     let buildPath  = path.join(config.build_dir, file);
     
