@@ -57,4 +57,4 @@ let init = () => {
 };
 
 if (document.readyState === "complete") init();
-else window.addEventListener("load", init);
+else window.addEventListener("DOMContentLoaded", init);

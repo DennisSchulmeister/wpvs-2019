@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 Dennis Schulmeister-Zimolong
+ * Copyright © 2026 Dennis Schulmeister-Zimolong
  *
  * E-Mail: dhbw@windows3.de
  * Webseite: https://www.wpvs.de/
@@ -23,12 +23,4 @@ declare module "*.css" {
 declare module "*.less" {
     const content: string;
     export default content;
-}
-
-// Type declaration for the email-link.js library
-declare module "email-link.js" {
-    const emailLinkJs: {
-        enableEmailLinks(): void;
-    };
-    export default emailLinkJs;
 }

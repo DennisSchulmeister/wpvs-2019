@@ -1,28 +1,3 @@
-{define webprog-lehrbuch}
-    <wpvs-material icon="icon-book" name="{title}" always-open="{always-open}">
-        <wpvs-metadata>
-            <metadata-value label="Format"  value="HTML"></metadata-value>
-            <metadata-value label="Sprache" value="Deutsch"></metadata-value>
-            <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
-        </wpvs-metadata>
-
-        <wpvs-container data-mode="vertical">
-            <wpvs-icon-link
-                icon   = "icon-globe"
-                label  = "Onlineansicht"
-                href   = "repo/webprog/folien/"
-                target = "_blank">
-            </wpvs-icon-link>
-            <wpvs-icon-link
-                icon   = "icon-git"
-                label  = "Quellcode auf GitHub"
-                href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/"
-                target = "_blank">
-            </wpvs-icon-link>
-        </wpvs-container>
-    </wpvs-material>
-{enddefine}
-
 {define webprog-planung}
     <wpvs-material icon="icon-book" name="{title}">
         <wpvs-metadata>
@@ -50,12 +25,45 @@
 <wpvs-container>
     <section>
         <wpvs-container data-mode="vertical"> 
-            {insert webprog-lehrbuch}
-                title       = Online-Lehrbuch
-                always-open = true
-                kapitel     =
-                github      =
-            {endinsert}
+            <wpvs-material icon="icon-book" name="Online-Lehrbuuch" always-open="true">
+                <wpvs-metadata>
+                    <metadata-value label="Format"  value="HTML"></metadata-value>
+                    <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+                    <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+                </wpvs-metadata>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-icon-link
+                        icon   = "icon-globe"
+                        label  = "Onlineansicht"
+                        href   = "repo/webprog/skript/"
+                        target = "_blank">
+                    </wpvs-icon-link>
+                    <wpvs-icon-link
+                        icon   = "icon-git"
+                        label  = "Quellcode auf GitHub"
+                        href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien/"
+                        target = "_blank">
+                    </wpvs-icon-link>
+                </wpvs-container>
+            </wpvs-material>
+
+            <wpvs-material icon="icon-beaker" name="Beispiele und Aufgaben" always-open="true">
+                <wpvs-metadata>
+                    <metadata-value label="Format"  value="Quellcode"></metadata-value>
+                    <metadata-value label="Sprache" value="Deutsch"></metadata-value>
+                    <metadata-value label="Lizenz"  value="CC-BY 4.0"></metadata-value>
+                </wpvs-metadata>
+
+                <wpvs-container data-mode="vertical">
+                    <wpvs-icon-link
+                        icon   = "icon-git"
+                        label  = "Quellcode auf GitHub"
+                        href   = "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/"
+                        target = "_blank">
+                    </wpvs-icon-link>
+                </wpvs-container>
+            </wpvs-material>
 
             <h4>Vorlesungsplanung</h3>
                 
